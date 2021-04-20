@@ -84,7 +84,7 @@ public class MemberController {
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		String gender=request.getParameter("gender");
-		int age=Integer.parseInt("age");
+		int age = Integer.parseInt(request.getParameter("age"));
 		String email=request.getParameter("email");
 		String address=request.getParameter("address");		
 		String favorite=request.getParameter("favorite");		
