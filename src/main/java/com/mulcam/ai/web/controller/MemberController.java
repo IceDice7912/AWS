@@ -35,7 +35,7 @@ public class MemberController {
 	}	
 	
 	@RequestMapping(value = "login.jes", 
-			method= {RequestMethod.POST},
+			method= RequestMethod.POST,
 			produces = "application/text; charset=utf8")			
 	@ResponseBody
 	public String login(HttpServletRequest request,
