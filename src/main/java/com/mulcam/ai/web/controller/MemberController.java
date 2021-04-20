@@ -40,27 +40,20 @@ public class MemberController {
 	@ResponseBody
 	public String login(HttpServletRequest request,
 			HttpServletResponse response){
-		String name=request.getParameter("name");
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
-		String gender=request.getParameter("gender");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String email=request.getParameter("email");
-		String address=request.getParameter("address");		
-		String favorite=request.getParameter("favorite");		
-		String job=request.getParameter("job");		
 
 		
 		JSONObject json=new JSONObject();
 		
 		try {
-			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
+			MemberVO m=new MemberVO(id, pw); 
 			System.out.println(m);
-			String name1=memberService.login(m);
-			if(name1!=null) {
+			String name=memberService.login(m);
+			if(name!=null) {
 				HttpSession session=request.getSession();
 				session.setAttribute("member", m);
-				json.put("name", name1);// {"name":"전은수"}
+				json.put("name", name);// {"name":"전은수"}
 			}else {
 				json.put("msg", "로그인 실패");// {"msg":"로그인 실패"}
 			}

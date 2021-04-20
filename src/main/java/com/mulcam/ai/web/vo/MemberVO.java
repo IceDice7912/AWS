@@ -30,6 +30,15 @@ public class MemberVO {
 	
 	
 	
+	public MemberVO(String name, String id) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.pw = pw;
+	}
+
+
+
 	public String getName() {
 		return name;
 	}
