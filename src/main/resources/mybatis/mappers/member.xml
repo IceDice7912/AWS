@@ -14,8 +14,7 @@
 
 	<insert id="memberInsert"   parameterType="memberVO" >
 		<![CDATA[
-			insert into member(name, id, pw, gender, age, email, address, favorite, job) 
-			values(#{name},#{id},#{pw},#{gender},#{age},#{email},#{address},#{favorite},#{job})
+			insert into Member values(#{name},#{id},#{pw},#{gender},age,#{email},#{address},#{favorite},#{job})
 		]]>
 	</insert>
 	
