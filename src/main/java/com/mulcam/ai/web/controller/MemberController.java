@@ -78,7 +78,7 @@ public class MemberController {
 			method= {RequestMethod.POST},
 			produces = "application/text; charset=utf8")	
 	@ResponseBody
-	public String memberInsert(HttpServletRequest request,
+	public void memberInsert(HttpServletRequest request,
 			HttpServletResponse response)throws Exception{
 		String name=request.getParameter("name");
 		String id=request.getParameter("id");
@@ -94,10 +94,8 @@ public class MemberController {
 		try {
 			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
 			memberService.memberInsert(m);
-			return name+"님 회원가입 되셨습니다";
 		}catch(Exception e) {
 			e.printStackTrace();
-			return e.getMessage();
 		}	
 		
 	}	
