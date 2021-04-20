@@ -49,74 +49,74 @@
                     </div>
                     <div class="form-group">
                         <label for="InputAge">나이</label>
-                        <input type="text" class="form-control" id="age" placeholder="나이를 입력해주세요">
+                        <input type="number" class="form-control" id="age" placeholder="나이를 입력해주세요">
                     </div>
                     <div class="form-group">
                         <label for="InputEmail">이메일</label>
                         <input type="text" class="form-control" id="email" placeholder="E-mail을 입력해주세요">
-                        <select name="MailList">
-                        	<option value="@naver.com" id="naver">@naver.com</option>
-							<option value="@gmail.com" id="gmail">@gmail.com</option>
-							<option value="@outlook.com" id="outlook">@outlook.com</option>
-							<option value="@daum.net" id="daum">@daum.net</option>
-							<option value="@nate.com" id="nate">@nate.com</option>
-							<option value="@kakao.com" id="kakao">@kakao.com</option>
+                        <select name="MailList" id="email">
+                        	<option value="@naver.com">@naver.com</option>
+							<option value="@gmail.com">@gmail.com</option>
+							<option value="@outlook.com">@outlook.com</option>
+							<option value="@daum.net">@daum.net</option>
+							<option value="@nate.com">@nate.com</option>
+							<option value="@kakao.com">@kakao.com</option>
                         </select>
                     </div>                  
                     <div class="form-group">
                         <label for="InputAddress">거주하시는 주소를 선택해주세요.</label>
-                        <select name="AddressList">
-                        	<option value="서울" id="AD1">서울</option>
-							<option value="부산" id="AD2">부산</option>
-							<option value="인천" id="AD3">인천</option>
-							<option value="대구" id="AD4">대구</option>
-							<option value="대전" id="AD5">대전</option>
-							<option value="광주" id="AD6">광주</option>
-							<option value="울산" id="AD7">울산</option>
-							<option value="수원" id="AD8">수원</option>
-							<option value="창원" id="AD9">창원</option>
-							<option value="성남" id="AD10">성남</option>
-							<option value="고양" id="AD11">고양</option>
-							<option value="용인" id="AD12">용인</option>
-							<option value="청주" id="AD13">청주</option>
-							<option value="안산" id="AD14">안산</option>
-							<option value="전주" id="AD15">전주</option>
-							<option value="안양" id="AD16">안양</option>
-							<option value="천안" id="AD17">천안</option>
-							<option value="포항" id="AD18">포항</option>
-							<option value="화성" id="AD19">화성</option>
-							<option value="김해" id="AD20">김해</option>
-							<option value="부천" id="AD21">부천</option>
-							<option value="남양주" id="AD22">남양주</option>
-							<option value="제주" id="AD23">제주</option>
+                        <select name="AddressList" id="address">
+                        	<option value="서울">서울</option>
+							<option value="부산">부산</option>
+							<option value="인천">인천</option>
+							<option value="대구">대구</option>
+							<option value="대전">대전</option>
+							<option value="광주">광주</option>
+							<option value="울산">울산</option>
+							<option value="수원">수원</option>
+							<option value="창원">창원</option>
+							<option value="성남">성남</option>
+							<option value="고양">고양</option>
+							<option value="용인">용인</option>
+							<option value="청주">청주</option>
+							<option value="안산">안산</option>
+							<option value="전주">전주</option>
+							<option value="안양">안양</option>
+							<option value="천안">천안</option>
+							<option value="포항">포항</option>
+							<option value="화성">화성</option>
+							<option value="김해">김해</option>
+							<option value="부천">부천</option>
+							<option value="남양주">남양주</option>
+							<option value="제주">제주</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="InputFavorite">좋아하는 장르를 선택해주세요.</label>
-                        <select name="FavoriteList">
-                        	<option value="소설/시/희곡" id="F1">소설/시/희곡</option>
-							<option value="만화/라이트노벨" id="F2">만화/라이트노벨</option>
-							<option value="경제/경영" id="F3">경제/경영</option>
-							<option value="자연과학" id="F4">자연과학</option>
-							<option value="IT/모바일" id="F5">IT/모바일</option>
-							<option value="사회/정치" id="F6">사회/정치</option>
-							<option value="역사" id="F7">역사</option>
+                        <select name="FavoriteList" id="favorite">
+                        	<option value="소설/시/희곡">소설/시/희곡</option>
+							<option value="만화/라이트노벨">만화/라이트노벨</option>
+							<option value="경제/경영">경제/경영</option>
+							<option value="자연과학">자연과학</option>
+							<option value="IT/모바일">IT/모바일</option>
+							<option value="사회/정치">사회/정치</option>
+							<option value="역사">역사</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="InputJob">현재 종사하시는 직종군을 선택해주세요.</label>
-                        <select name="JobList">
-                        	<option value="관리자" id="J1">관리자</option>
-							<option value="전문가 및 관련 종사자" id="J2">전문가 및 관련 종사자</option>
-							<option value="사무 종사자" id="J3">사무 종사자</option>
-							<option value="서비스 종사자" id="J4">서비스 종사자</option>
-							<option value="판매 종사자" id="J5">판매 종사자</option>
-							<option value="농림·어업 숙련 종사자" id="J6">농림·어업 숙련 종사자</option>
-							<option value="기능원 및 관련 기능 종사자" id="J7">기능원 및 관련 기능 종사자</option>
-							<option value="장치·기계 조작 및 조립 종사자" id="J8">장치·기계 조작 및 조립 종사자</option>
-							<option value="단순노무 종사자" id="J9">단순노무 종사자</option>
-							<option value="학생" id="J10">학생</option>
-							<option value="군인" id="J11">군인</option>
+                        <select name="JobList" id="job">
+                        	<option value="관리자">관리자</option>
+							<option value="전문가 및 관련 종사자">전문가 및 관련 종사자</option>
+							<option value="사무 종사자">사무 종사자</option>
+							<option value="서비스 종사자">서비스 종사자</option>
+							<option value="판매 종사자">판매 종사자</option>
+							<option value="농림·어업 숙련 종사자">농림·어업 숙련 종사자</option>
+							<option value="기능원 및 관련 기능 종사자">기능원 및 관련 기능 종사자</option>
+							<option value="장치·기계 조작 및 조립 종사자">장치·기계 조작 및 조립 종사자</option>
+							<option value="단순노무 종사자">단순노무 종사자</option>
+							<option value="학생">학생</option>
+							<option value="군인">군인</option>
                         </select>
                     </div>                
                     <div class="form-group">
