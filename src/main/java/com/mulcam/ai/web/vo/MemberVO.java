@@ -122,17 +122,15 @@ public class MemberVO {
 			throw new CafeException("직업이 입력되지 않았습니다");
 		}
 	}
-	
-	
-	public MemberVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public String toString() {
 		return "MemberVO [name=" + name + ", id=" + id + ", pw=" + pw + ", gender=" + gender + ", age=" + age
-				+ ", email=" + email + ", address=" + address + ", favorite=" + favorite + ", job=" + job + "]";
+				+ ", email=" + email + ", address=" + address + ", favorite=" + favorite + ", job=" + job
+				+ ", getName()=" + getName() + ", getId()=" + getId() + ", getPw()=" + getPw() + ", getGender()="
+				+ getGender() + ", getAge()=" + getAge() + ", getEmail()=" + getEmail() + ", getAddress()="
+				+ getAddress() + ", getFavorite()=" + getFavorite() + ", getJob()=" + getJob() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 		
 	

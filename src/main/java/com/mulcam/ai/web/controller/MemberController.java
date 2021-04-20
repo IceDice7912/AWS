@@ -86,29 +86,16 @@ public class MemberController {
 		String gender=request.getParameter("gender");
 		int age = Integer.parseInt(request.getParameter("age"));
 		String email=request.getParameter("email");
-		String address=request.getParameter("address");		
-		String favorite=request.getParameter("favorite");		
+		String address=request.getParameter("address");
+		String favorite=request.getParameter("favorite");
 		String job=request.getParameter("job");
-		System.out.println("중간 점검 - name : " + name);
-		System.out.println("중간 점검 - id : " + id);
-		System.out.println("중간 점검 - pw : " + pw);
-		System.out.println("중간 점검 - gender : " + gender);
-		System.out.println("중간 점검 - age : " + age);
-		System.out.println("중간 점검 - email : " + email);
-		System.out.println("중간 점검 - address : " + address);
-		System.out.println("중간 점검 - favorite : " + favorite);
-		System.out.println("중간 점검 - job : " + job);
-		
 
-		
-		
 		try {
 			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
 			memberService.memberInsert(m);
 		}catch(Exception e) {
 			e.printStackTrace();
-		}	
-		
+		}
 	}	
 
 }
