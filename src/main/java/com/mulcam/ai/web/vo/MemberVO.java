@@ -14,29 +14,39 @@ public class MemberVO {
 	private String favorite;
 	private String job;
 
-	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
-			String favorite, String job) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.pw = pw;
-		this.gender = gender;
-		this.age = age;
-		this.email = email;
-		this.address = address;
-		this.favorite = favorite;
-		this.job = job;
+	
+	public MemberVO(String id, String pw, String name) throws CafeException {
+		
+		this(id,pw);
+		setName(name);
 	}
 	
-	
-	
-	public MemberVO(String name, String id) {
+	public MemberVO(String id, String pw) throws CafeException {
 		super();
-		this.name = name;
-		this.id = id;
-		this.pw = pw;
+		setId(id);
+		setPw(pw);
 	}
+	
 
+
+	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
+			String favorite, String job) throws CafeException {
+		super();
+		setName(name);
+		setId(id);
+		setPw(pw);
+		setGender(gender);
+		setAge(age);
+		setEmail(email);
+		setAddress(address);
+		setFavorite(favorite);
+		setJob(job);
+	}
+	
+	public MemberVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
 	public String getName() {
@@ -103,11 +113,11 @@ public class MemberVO {
 	public String getAddress() {
 		return address;
 	}
-	public void setAddrss(String address) throws CafeException {
+	public void setAddress(String address) throws CafeException {
 		if(address!=null) {
 			this.address = address;
 		}else {
-			throw new CafeException("pw가 입력되지 않았습니다");
+			throw new CafeException("주소가 입력되지 않았습니다");
 		}
 	}	
 	
@@ -135,12 +145,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [name=" + name + ", id=" + id + ", pw=" + pw + ", gender=" + gender + ", age=" + age
-				+ ", email=" + email + ", address=" + address + ", favorite=" + favorite + ", job=" + job
-				+ ", getName()=" + getName() + ", getId()=" + getId() + ", getPw()=" + getPw() + ", getGender()="
-				+ getGender() + ", getAge()=" + getAge() + ", getEmail()=" + getEmail() + ", getAddress()="
-				+ getAddress() + ", getFavorite()=" + getFavorite() + ", getJob()=" + getJob() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-	}
-		
+				+ ", email=" + email + ", address=" + address + ", favorite=" + favorite + ", job=" + job + "]";
+	}	
 	
 }
