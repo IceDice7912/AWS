@@ -32,11 +32,7 @@ public class MemberController {
 			session.invalidate();
 			return "";
 		
-	}
-
-	
-	
-	
+	}	
 	
 	@RequestMapping(value = "login.jes", 
 			method= {RequestMethod.POST},
@@ -44,19 +40,27 @@ public class MemberController {
 	@ResponseBody
 	public String login(HttpServletRequest request,
 			HttpServletResponse response){
+		String name=request.getParameter("name");
 		String id=request.getParameter("id");
-		String pw=request.getParameter("pw");		
+		String pw=request.getParameter("pw");
+		String gender=request.getParameter("gender");
+		int age=Integer.parseInt("age");
+		String email=request.getParameter("email");
+		String address=request.getParameter("address");		
+		String favorite=request.getParameter("favorite");		
+		String job=request.getParameter("job");		
+
 		
 		JSONObject json=new JSONObject();
 		
 		try {
-			MemberVO m=new MemberVO(id,pw); 
+			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
 			System.out.println(m);
-			String name=memberService.login(m);
-			if(name!=null) {
+			String name1=memberService.login(m);
+			if(name1!=null) {
 				HttpSession session=request.getSession();
 				session.setAttribute("member", m);
-				json.put("name", name);// {"name":"전은수"}
+				json.put("name", name1);// {"name":"전은수"}
 			}else {
 				json.put("msg", "로그인 실패");// {"msg":"로그인 실패"}
 			}
@@ -72,17 +76,23 @@ public class MemberController {
 	
 	@RequestMapping(value = "memberInsert.jes", 
 			method= {RequestMethod.POST},
-			produces = "application/text; charset=utf8")			
+			produces = "application/text; charset=utf8")	
 	@ResponseBody
 	public String memberInsert(HttpServletRequest request,
 			HttpServletResponse response)throws Exception{
+		String name=request.getParameter("name");
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
-		String name=request.getParameter("name");
-		System.out.println("memberInsert:"+id+"\t"+pw+"\t"+name);
+		String gender=request.getParameter("gender");
+		int age=Integer.parseInt("age");
+		String email=request.getParameter("email");
+		String address=request.getParameter("address");		
+		String favorite=request.getParameter("favorite");		
+		String job=request.getParameter("job");	
+		System.out.println("맴버 인서트 완료");
 	
 		try {
-			MemberVO m=new MemberVO(id,pw,name); 
+			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
 			memberService.memberInsert(m);
 			return name+"님 회원가입 되셨습니다";
 		}catch(Exception e) {
