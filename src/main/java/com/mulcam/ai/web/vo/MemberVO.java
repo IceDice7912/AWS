@@ -76,14 +76,14 @@ public class MemberVO {
 	public int getAge() {
 		return age;
 	}
-	public void setAge(int age) throws CafeException {
-		Integer ach = null;
-		ach = age;
-		if(ach!=null) {
-			this.age = age;
-		}else {
-			throw new CafeException("나이가 입력되지 않았습니다");
-		}
+	public int setAge(int age) throws CafeException {
+		return this.age = age;
+
+
+
+
+
+
 	}	
 	public String getEmail() {
 		return email;
