@@ -73,18 +73,14 @@ public class MemberVO {
 			throw new CafeException("성별이 입력되지 않았습니다");
 		}
 	}	
+	
 	public int getAge() {
 		return age;
 	}
 	public int setAge(int age) throws CafeException {
 		return this.age = age;
-
-
-
-
-
-
 	}	
+	
 	public String getEmail() {
 		return email;
 	}
