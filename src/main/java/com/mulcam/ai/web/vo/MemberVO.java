@@ -15,37 +15,27 @@ public class MemberVO {
 	private String job;
 
 	
-	public MemberVO(String id, String pw, String name) throws CafeException {
-		
-		this(id,pw);
-		setName(name);
+
+	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
+			String favorite, String job) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.pw = pw;
+		this.gender = gender;
+		this.age = age;
+		this.email = email;
+		this.address = address;
+		this.favorite = favorite;
+		this.job = job;
 	}
-	
+
+
+
 	public MemberVO(String id, String pw) throws CafeException {
 		super();
 		setId(id);
 		setPw(pw);
-	}
-	
-
-
-	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
-			String favorite, String job) throws CafeException {
-		super();
-		setName(name);
-		setId(id);
-		setPw(pw);
-		setGender(gender);
-		setAge(age);
-		setEmail(email);
-		setAddress(address);
-		setFavorite(favorite);
-		setJob(job);
-	}
-	
-	public MemberVO() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -96,8 +86,12 @@ public class MemberVO {
 	public int getAge() {
 		return age;
 	}
-	public int setAge(int age) throws CafeException {
-		return this.age = age;
+	public void setAge(int age) throws CafeException {
+		if(age!=0) {
+			this.age = age;
+		}else {
+			throw new CafeException("나이가 입력되지 않았습니다");
+		}
 	}	
 	
 	public String getEmail() {

@@ -12,9 +12,9 @@
 	</select>
 
 
-	<insert id="memberInsert"   parameterType="memberVO" >
+	<insert id="memberInsert" parameterType="memberVO" keyProperty="id">
 		<![CDATA[
-			insert into Member(name,id,pw,gender,age,email,address,favorite,job) values(#{name},#{id},#{pw},#{gender},#{age},#{email},#{address},#{favorite},#{job})
+			insert into member values(#{name},#{id},#{pw},#{gender},#{age},#{email},#{address},#{favorite},#{job})
 		]]>
 	</insert>
 	

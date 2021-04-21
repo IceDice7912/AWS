@@ -32,7 +32,7 @@ public class MemberController {
 			session.invalidate();
 			return "";
 		
-	}	
+	}	    
 	
 	@RequestMapping(value = "login.jes", 
 			method= RequestMethod.POST,
@@ -43,7 +43,7 @@ public class MemberController {
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 
-		
+		  
 		JSONObject json=new JSONObject();
 		
 		try {
@@ -56,7 +56,7 @@ public class MemberController {
 				json.put("name", name);// {"name":"전은수"}
 			}else {
 				json.put("msg", "로그인 실패");// {"msg":"로그인 실패"}
-			}
+			} 
 		}catch(Exception e) {
 			e.printStackTrace();
 			json.put("msg", e.getMessage());// {"msg":"NullPointerException"}
@@ -64,30 +64,48 @@ public class MemberController {
 		
 		return json.toJSONString();
 
-	}
+	} 
 
-	
+	    
 	@RequestMapping(value = "memberInsert.jes", 
 			method= {RequestMethod.POST},
 			produces = "application/text; charset=utf8")	
 	@ResponseBody
-	public void memberInsert(HttpServletRequest request,
-			HttpServletResponse response)throws Exception{
+	public String memberInsert(HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
 		String name=request.getParameter("name");
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		String gender=request.getParameter("gender");
-		int age = Integer.parseInt(request.getParameter("age"));
+		String ages=request.getParameter("age");		
+		int age;
+		if(ages!=null) {
+			age=Integer.parseInt(ages);
+		} else {
+				System.out.println("어째서인지 자꾸 age가 null 처리되어서 어쩔 수 없이 0 으로 셋팅합니다.");
+				age=0;
+		}
 		String email=request.getParameter("email");
 		String address=request.getParameter("address");
 		String favorite=request.getParameter("favorite");
 		String job=request.getParameter("job");
+		System.out.println(name);
+		System.out.println(id);
+		System.out.println(pw);
+		System.out.println(gender);
+		System.out.println(age);
+		System.out.println(email);	
+		System.out.println(address);
+		System.out.println(favorite);
+		System.out.println(job);	
 
 		try {
 			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
 			memberService.memberInsert(m);
+			return name+"님 회원가입 되셨습니다";
 		}catch(Exception e) {
 			e.printStackTrace();
+			return e.getMessage();
 		}
 	}	
 
