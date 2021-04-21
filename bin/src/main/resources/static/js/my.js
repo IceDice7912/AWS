@@ -114,7 +114,7 @@ $(document).ready(function(){
 		var name=$("#name").val();
 		var id=$("#id").val();
 		var pw=$("#pw").val();
-		var gender=$("#gender").val();
+		var gender=$('input[name="gender"]:checked').val();
 		var age=$("#age").val();
 		var email=$("#email").val();
 		var address=$("#address").val();	
