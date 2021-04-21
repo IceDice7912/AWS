@@ -125,7 +125,7 @@ $(document).ready(function(){
 			alert("모든 항목은 필수로 입력하셔야하 합니다.");
 		} else {	
 		
-		$.post("../memberInsert.jes",
+		$.post("memberInsert.jes",
 			  {
 			    name:name,
 			    id:id,
