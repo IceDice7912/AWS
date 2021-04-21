@@ -49,7 +49,7 @@ public class MemberVO {
 		return name;
 	}
 	public void setName(String name) throws CafeException {
-		if(name!=null) {
+		if(name!="") {
 			this.name = name;
 		}else {
 			throw new CafeException("이름이 입력되지 않았습니다");
@@ -60,7 +60,7 @@ public class MemberVO {
 		return id;
 	}
 	public void setId(String id) throws CafeException {
-		if(id!=null) {
+		if(id!="") {
 			this.id = id;
 		}else {
 			throw new CafeException("아이디가 입력되지 않았습니다");
@@ -71,7 +71,7 @@ public class MemberVO {
 		return pw;
 	}
 	public void setPw(String pw) throws CafeException {
-		if(pw!=null || pw.contains("!")  || pw.contains("@")  || pw.contains("#")  || pw.contains("$")  || pw.contains("%")  || pw.contains("^")  || pw.contains("&")  || pw.contains("*") ) {
+		if(pw!="" || pw.contains("!")  || pw.contains("@")  || pw.contains("#")  || pw.contains("$")  || pw.contains("%")  || pw.contains("^")  || pw.contains("&")  || pw.contains("*") ) {
 			this.pw = pw;
 		}else {
 			throw new CafeException("패스워드가 입력되지 않았거나, 특수문자를 포함시키지 않았습니다.");
