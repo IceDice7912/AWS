@@ -109,6 +109,7 @@ $(document).ready(function(){
 
 	
 	
+	
 	$("#memberInsertBtn").click(function(){//회원 가입 처리
 	
 		var name=$("#name").val();
