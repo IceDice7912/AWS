@@ -27,7 +27,6 @@
  
 
 <script type="text/javascript" src="../js/my.js"></script> 
-
  
 
 </head> 
@@ -40,10 +39,10 @@
 
                 <div class="col-md-6 col-md-offset-3"> 
 
-                <h3>회원가입</h3> 
+                <h3>회원dd가입23r3</h3> 
 
                 </div> 
-
+ 
             </div> 
 
             <div class="col-sm-6 col-md-offset-3"> 
@@ -52,35 +51,30 @@
 
                     <div class="form-group">
                         <label for="inputName">성명</label>
-                        <input type="text" class="form-control" name="name" placeholder="이름을 입력해 주세요">
+                        <input type="text" class="form-control" id="name" placeholder="이름을 입력해 주세요">
                     </div>
                     <div class="form-group">
                         <label for="InputID">ID</label>
-                        <input type="text" class="form-control" name="id" placeholder="ID를 입력해주세요">
+                        <input type="text" class="form-control" id="id" placeholder="ID를 입력해주세요">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">비밀번호</label>
-                        <input type="password" class="form-control" name="pw" placeholder="비밀번호를 입력해주세요 (특수문자를 1개 이상 입력해주세요.)">
+                        <input type="password" class="form-control" id="pw" placeholder="비밀번호를 입력해주세요 (특수문자를 1개 이상 입력해주세요.)">
                     </div>
-                                        <div class="form-group"> 
-
-                        <label for="inputPasswordCheck">비밀번호 확인</label> 
-
-                        <input type="password" class="form-control" id="inputPasswordCheck" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요"> 
-
-                    </div> 
                     <div class="form-group">
-                       <label for="inputGender">성별</label><br>
-  						<input type="radio" name="gender" value="남자">남자<br>
-  						<input type="radio" name="gender" value="여자">여자<br>
+                        <label for="inputGender">성별</label><br>
+						<input type="radio" id="gender" value="남자">
+						<label for="gender">남자</label>	<br>
+						<input type="radio" id="gender" value="여자">
+						<label for="gender">여자</label>	<br>			
                     </div>
                     <div class="form-group">
                         <label for="inputAge">나이</label>
-                        <input type="number" class="form-control" name="age" placeholder="나이를 입력해주세요" >
+                        <input type="number" class="form-control" id="age" placeholder="나이를 입력해주세요" >
                     </div>
                     <div class="form-group">
                         <label for="InputEmail">이메일</label>
-                        <input type="email" class="form-control" name="email" placeholder="E-mail을 입력해주세요">
+                        <input type="email" class="form-control" id="email" placeholder="E-mail을 입력해주세요">
                         <select name="MailList"> <!--id="email" name="email"-->
                         	<option value="@naver.com">@naver.com</option>
 							<option value="@gmail.com">@gmail.com</option>
@@ -92,7 +86,7 @@
                     </div>                  
                     <div class="form-group">
                         <label for="InputAddress">거주하시는 주소를 선택해주세요.</label>
-                        <select name="AddressList" name="address">
+                        <select name="AddressList" id="address">
                         	<option value="서울">서울</option>
 							<option value="부산">부산</option>
 							<option value="인천">인천</option>
@@ -120,7 +114,7 @@
                     </div>
                     <div class="form-group">
                         <label for="InputFavorite">좋아하는 장르를 선택해주세요.</label>
-                        <select name="FavoriteList" name="favorite">
+                        <select name="FavoriteList" id="favorite">
                         	<option value="소설/시/희곡">소설/시/희곡</option>
 							<option value="만화/라이트노벨">만화/라이트노벨</option>
 							<option value="경제/경영">경제/경영</option>
@@ -132,7 +126,7 @@
                     </div>
                     <div class="form-group">
                         <label for="InputJob">현재 종사하시는 직종군을 선택해주세요.</label>
-                        <select name="JobList" name="job">
+                        <select name="JobList" id="job">
                         	<option value="관리자">관리자</option>
 							<option value="전문가 및 관련 종사자">전문가 및 관련 종사자</option>
 							<option value="사무 종사자">사무 종사자</option>
@@ -147,7 +141,16 @@
                         </select>
                     </div>                
 
- 
+                     <div class="form-group">
+                    <label>약관 동의</label>
+                    <div data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                    <span class="fa fa-check"></span>
+                    <input id="agree" type="checkbox" autocomplete="off" checked>
+                    </label>
+                    <a href="#">이용약관</a>에 동의합니다.
+                    </div>
+                    </div>
 
                     <div class="form-group text-center"> 
 

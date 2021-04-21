@@ -67,6 +67,7 @@ $(document).ready(function(){
 	
 	$(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 		
+		alert("로그아웃합니다.");
 		$.post("logout.jes",
 			  {			   
 			   
@@ -80,31 +81,31 @@ $(document).ready(function(){
 	});//end 로그아웃 처리
 
 
-		$("#loginBtn").click(function(){//로그인 처리	
-			
-			var id=$("#id").val();
-			var pw=$("#pw").val();
-			
-			//alert(id+":"+pw);		
-			
-			$.post("login.jes",
-				  {			   
-				    id:id,
-				    pw:pw
-				  },
-				  function(data, status){	
-					  var obj=JSON.parse(data);			  
-					  	if(obj.name){
-					  		data = obj.name+"<input type='button' value='logout' id='logoutBtn' class='btn btn-primary'>";	
-					  		$.cookie("logined",data);	    
-							$("#msgDiv").html(data );		
-						}else{
-							alert(obj.msg);
-							location.reload();	
-						}							   
-				  }//end function
-			);//end post() 
-		});//end 로그인 처리
+	$("#loginBtn").click(function(){//로그인 처리	
+		
+		var id=$("#id").val();
+		var pw=$("#pw").val();
+		
+		//alert(id+":"+pw);		
+		
+		$.post("login.jes",
+			  {			   
+			    id:id,
+			    pw:pw
+			  },
+			  function(data, status){	
+				  var obj=JSON.parse(data);			  
+				  	if(obj.name){
+				  		data = obj.name+"<input type='button' value='logout' id='logoutBtn' class='btn btn-primary'>";	
+				  		$.cookie("logined",data);	    
+						$("#msgDiv").html(data );		
+					}else{
+						alert(obj.msg);
+						location.reload();	
+					}							   
+			  }//end function
+		);//end post() 
+	});//end 로그인 처리
 
 	
 	
@@ -113,20 +114,31 @@ $(document).ready(function(){
 		var name=$("#name").val();
 		var id=$("#id").val();
 		var pw=$("#pw").val();
-		
-		//alert(name+":"+id+":"+pw);
+		var gender=$("#gender").val();
+		var age=$("#age").val();
+		var email=$("#email").val();
+		var address=$("#address").val();	
+		var favorite=$("#favorite").val();	
+		var job=$("#job").val();	
 		
 		$.post("../memberInsert.jes",
 			  {
 			    name:name,
 			    id:id,
-			    pw:pw
+			    pw:pw,
+			    gender:gender,
+			    age:age,
+			    email:email,
+			    address:address,
+			    favorite:favorite,
+			    job:job
 			  },
 			  function(data, status){
 			    alert( data);
 			    window.close();
 			  });
 		
+		alert(name+":"+id+":"+pw+":"+gender+":"+age+":"+email+":"+address+":"+favorite+":"+job);		
 	});
 
 });

@@ -22,7 +22,7 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "logout.jes", 
-			method= {RequestMethod.POST},
+			method= {RequestMethod.GET,RequestMethod.POST},
 			produces = "application/text; charset=utf8")			
 	@ResponseBody
 	public String logout(HttpServletRequest request,
@@ -35,7 +35,7 @@ public class MemberController {
 	}	    
 	
 	@RequestMapping(value = "login.jes", 
-			method= RequestMethod.POST,
+			method= {RequestMethod.GET,RequestMethod.POST},
 			produces = "application/text; charset=utf8")			
 	@ResponseBody
 	public String login(HttpServletRequest request,
@@ -65,11 +65,11 @@ public class MemberController {
 		return json.toJSONString();
 
 	} 
-
+ 
 	    
 	@RequestMapping(value = "memberInsert.jes", 
-			method= {RequestMethod.POST},
-			produces = "application/text; charset=utf8")	
+			method=  {RequestMethod.GET,RequestMethod.POST},
+	 		produces = "application/text; charset=utf8")	
 	@ResponseBody
 	public String memberInsert(HttpServletRequest request,
 			HttpServletResponse response) throws Exception{
@@ -80,12 +80,12 @@ public class MemberController {
 		String ages=request.getParameter("age");		
 		int age;
 		if(ages!=null) {
-			age=Integer.parseInt(ages);
+			age=Integer.parseInt(ages); 
 		} else {
 				System.out.println("어째서인지 자꾸 age가 null 처리되어서 어쩔 수 없이 0 으로 셋팅합니다.");
 				age=0;
-		}
-		String email=request.getParameter("email");
+		} 
+		String email=request.getParameter("email"); 
 		String address=request.getParameter("address");
 		String favorite=request.getParameter("favorite");
 		String job=request.getParameter("job");

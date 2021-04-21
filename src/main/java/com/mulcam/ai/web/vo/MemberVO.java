@@ -3,7 +3,7 @@ package com.mulcam.ai.web.vo;
 import com.mulcam.ai.util.CafeException;
 
 public class MemberVO {
-	
+	   
 	private String name;
 	private String id;
 	private String pw;
@@ -14,30 +14,36 @@ public class MemberVO {
 	private String favorite;
 	private String job;
 
-	
-
-	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
-			String favorite, String job) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.pw = pw;
-		this.gender = gender;
-		this.age = age;
-		this.email = email;
-		this.address = address;
-		this.favorite = favorite;
-		this.job = job;
-	}
-
-
-
 	public MemberVO(String id, String pw) throws CafeException {
 		super();
 		setId(id);
 		setPw(pw);
 	}
+	
+	public MemberVO(String id, String pw, String name) throws CafeException {
+		
+		this(id,pw);
+		setName(name);
+	}
 
+	public MemberVO() throws CafeException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
+			String favorite, String job) throws CafeException {
+		
+		setName(name);
+		setId(id);
+		setPw(pw);
+		setGender(gender);
+		setAge(age);
+		setEmail(email);
+		setAddress(address);
+		setFavorite(favorite);
+		setJob(job);	
+	}
 
 	public String getName() {
 		return name;
@@ -65,10 +71,10 @@ public class MemberVO {
 		return pw;
 	}
 	public void setPw(String pw) throws CafeException {
-		if(pw!=null) {
+		if(pw!=null || pw.contains("!")  || pw.contains("@")  || pw.contains("#")  || pw.contains("$")  || pw.contains("%")  || pw.contains("^")  || pw.contains("&")  || pw.contains("*") ) {
 			this.pw = pw;
 		}else {
-			throw new CafeException("패스워드가 입력되지 않았습니다");
+			throw new CafeException("패스워드가 입력되지 않았거나, 특수문자를 포함시키지 않았습니다.");
 		}
 	}
 	
