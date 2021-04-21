@@ -110,16 +110,18 @@ $(document).ready(function(){
 	
 	
 	$("#memberInsertBtn").click(function(){//회원 가입 처리
-	
+		
 		var name=$("#name").val();
 		var id=$("#id").val();
 		var pw=$("#pw").val();
 		var gender=$('input[name="gender"]:checked').val();
 		var age=$("#age").val();
-		var email=$("#email").val();
+		var emailId=$("#emailId").val();
+		var mail=$("#mail").val();
+		var email = emailId + mail;
 		var address=$("#address").val();	
 		var favorite=$("#favorite").val();	
-		var job=$("#job").val();	
+		var job=$("#job").val();		
 
 		if( (name.length==0 || name== "") || (id.length == 0 || id== "") ||  (pw.length == 0 || pw== "")  ||  (age.length == 0 || age== "")  ||  (email.length == 0 || email== "")  ) {
 			alert("모든 항목은 필수로 입력하셔야하 합니다.");

@@ -111,13 +111,15 @@ $(document).ready(function(){
 	
 	
 	$("#memberInsertBtn").click(function(){//회원 가입 처리
-	
+		
 		var name=$("#name").val();
 		var id=$("#id").val();
 		var pw=$("#pw").val();
 		var gender=$('input[name="gender"]:checked').val();
 		var age=$("#age").val();
-		var email=$("#email").val();
+		var emailId=$("#emailId").val();
+		var mail=$("#mail").val();
+		var email = emailId + mail;
 		var address=$("#address").val();	
 		var favorite=$("#favorite").val();	
 		var job=$("#job").val();	

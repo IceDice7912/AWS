@@ -63,26 +63,24 @@
                     </div>
                     <div class="form-group">
                         <label for="inputGender">성별</label><br>
-						<input type="radio" id="gender" value="남자">
-						<label for="gender">남자</label>	<br>
-						<input type="radio" id="gender" value="여자">
-						<label for="gender">여자</label>	<br>			
+						<input type="radio" name="gender" value="남자" >남자<br>
+						<input type="radio" name="gender" value="여자" >여자<br>	
+								
                     </div>
                     <div class="form-group">
                         <label for="inputAge">나이</label>
                         <input type="number" class="form-control" id="age" placeholder="나이를 입력해주세요" >
                     </div>
-                    <div class="form-group">
-                        <label for="InputEmail">이메일</label>
-                        <input type="email" class="form-control" id="email" placeholder="E-mail을 입력해주세요">
-                        <select name="MailList"> <!--id="email" name="email"-->
-                        	<option value="@naver.com">@naver.com</option>
-							<option value="@gmail.com">@gmail.com</option>
-							<option value="@outlook.com">@outlook.com</option>
-							<option value="@daum.net">@daum.net</option>
-							<option value="@nate.com">@nate.com</option>
-							<option value="@kakao.com">@kakao.com</option>
-                        </select>
+<div class="form-group">
+                        <input type="text" id="emailId" value="" placeholder="이메일 입력"> 
+						<span>@</span>
+						<select id="mail">
+				            <option value="" disabled selected>E-Mail 선택</option>
+				            <option value="@naver.com" id="naver.com">naver.com</option>
+				            <option value="@hanmail.net" id="hanmail.net">hanmail.net</option>
+				            <option value="@gmail.com" id="gmail.com">gmail.com</option>
+				            <option value="@nate.com" id="nate.com">nate.com</option>
+				        </select>
                     </div>                  
                     <div class="form-group">
                         <label for="InputAddress">거주하시는 주소를 선택해주세요.</label>
