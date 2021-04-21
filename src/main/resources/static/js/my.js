@@ -125,7 +125,8 @@ $(document).ready(function(){
 		if( (name.length==0 || name== "") || (id.length == 0 || id== "") ||  (pw.length == 0 || pw== "")  ||  (age.length == 0 || age== "")  ||  (email.length == 0 || email== "")  ) {
 			alert("모든 항목은 필수로 입력하셔야하 합니다.");
 		} else {	
-		
+			
+//		$.post("../memberInsert.jes",		
 		$.post("../memberInsert.jes",
 			  {
 			    name:name,
