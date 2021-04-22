@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+header > div nav { display: none;}
+header > div .spot i { display: inline-block;}
+header .total { display:inline-block;}

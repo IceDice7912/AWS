@@ -107,6 +107,7 @@ public class MemberController {
 			e.printStackTrace();
 			return e.getMessage();
 		}
-	}	
+	}
+	
 
 }

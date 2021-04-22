@@ -81,24 +81,23 @@ $(document).ready(function(){
 	});//end 로그아웃 처리
 
 
-	$("#loginBtn").click(function(){//로그인 처리	
+$("#loginBtn").click(function(){//로그인 처리	
 		
 		var id=$("#id").val();
 		var pw=$("#pw").val();
 		
-		//alert(id+":"+pw);		
-		
-		$.post("login.jes",
+		$.post("../login.jes",
 			  {			   
 			    id:id,
 			    pw:pw
 			  },
 			  function(data, status){	
-				  var obj=JSON.parse(data);			  
+				  var obj=JSON.parse(data);
 				  	if(obj.name){
-				  		data = obj.name+"<input type='button' value='logout' id='logoutBtn' class='btn btn-primary'>";	
+				  		data = obj.name+"<input type='button' value='logout' id='logoutBtn' class='btn btn-primary'>";					  		
 				  		$.cookie("logined",data);	    
-						$("#msgDiv").html(data );		
+				  		$("#msgDiv").html(data);
+				  		alert(obj.name+"님 로그인 되셨습니다.");
 					}else{
 						alert(obj.msg);
 						location.reload();	
@@ -106,6 +105,7 @@ $(document).ready(function(){
 			  }//end function
 		);//end post() 
 	});//end 로그인 처리
+
 
 	
 	
@@ -150,5 +150,23 @@ $(document).ready(function(){
 		
 	}
 	});
+	
+	
+	$("#chatBtn").click( function () { // 챗봇 테스트
+	    var chat=$("#chat").val();
+	    if ((chat.length == 0 || chat == "")) {
+	        alert("뭐라도 입력하시오.");
+	    } else {
+	        $.post("chat.jes", {
+	            chat: chat
+	        }, function (data, status) {
+	            alert( data);
+	            $("#msg").html(chat + "  ");
+	        });
+			alert(chat);
+	        location.reload();
+	    }
+	});
 
+	
 });

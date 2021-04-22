@@ -48,13 +48,13 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
+			<groupId>org.springframework.boot</groupId> 
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		
 <dependency>
-    <groupId>com.googlecode.json-simple</groupId>
+    <groupId>com.googlecode.json-simple</groupId>  
     <artifactId>json-simple</artifactId>
     <version>1.1.1</version>
 </dependency>
@@ -71,6 +71,18 @@
 	    </dependency>
 
 
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20180813</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/net.morimekta.utils/android-util -->
+<dependency>
+    <groupId>net.morimekta.utils</groupId>
+    <artifactId>android-util</artifactId>
+    <version>2.7.1</version>
+</dependency>
 
 
 
