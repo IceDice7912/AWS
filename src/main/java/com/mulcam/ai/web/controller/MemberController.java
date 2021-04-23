@@ -30,6 +30,8 @@ public class MemberController {
 		
 			HttpSession session=request.getSession(false);
 			session.invalidate();
+			
+			System.out.println("로그아웃 버튼 눌려졌음.");
 			return "";
 		
 	}	    

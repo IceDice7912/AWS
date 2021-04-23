@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<!------------- 쇼핑몰 haed 시작(css, js, 외부jquery link, favicon 등)  -------------->
 <head>
 	<meta charset="UTF-8">
-	
-	 <!-- '반응형 웹'-->
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	 <!-- 익스플로러 최신버전으로 랜더링 -->
 	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	 	 
-	 <!-- favicon -->
 	 <link rel="apple-touch-icon" sizes="57x57" href="image/favicon/apple-icon-57x57.png">
 	 <link rel="apple-touch-icon" sizes="60x60" href="image/favicon/apple-icon-60x60.png">
 	 <link rel="apple-touch-icon" sizes="72x72" href="image/favicon/apple-icon-72x72.png">
@@ -31,44 +24,17 @@
 	 	 
 	
 	<title>온라인 쇼핑몰 - 쇼팅</title>
-<!--------------외부 css/js ------------------->
-
-  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-	
-	<!-- swiper -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
-	
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-	
-	<!-- bxslider -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
-  	
-
-	<!-- fontawesome -->
-<!--<link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> -->	
-	
-<!--------------내부 css/js ------------------->	
-  	<!-- 쇼핑몰 CSS -->
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/swiper.css">
-	<link rel="stylesheet" href="css/bxslider.css">
-	
+	<link rel="stylesheet" href="css/bxslider.css">	
 	<link rel="stylesheet" href="css/font.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
-
-	
-  	<!-- 쇼핑몰 JS -->
 	<script src="js/bxslide.js"></script>
-	<script src="js/swiper.js"></script>
 	<script src="js/ie-checker.js"></script>
-	
-
+	<script type="text/javascript" src="js/my.js"></script>
 
 </head>
 <!------------------------------ 쇼핑몰 body 시작 ------------------------------>
@@ -84,10 +50,11 @@
 						<li><a href="#">공지사항</a></li>
 					</ul>
 					<ul class="list2">
-					    <li class="log"><a href="#" onclick="window.open('html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1000,height=1000');">로그인</a></li>
-						<li><a href="#">회원가입</a></li>
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
 						<li><a href="#">장바구니</a></li>
 						<li><a href="#">고객센터</a></li>
+						<li><a href="#" onclick="window.open('html/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=500');">(실험 중) 챗봇 HTML</a></li>						
 					</ul>
 				</div>
 			</div>
@@ -109,8 +76,10 @@
 						<p>맞춤형 AI를 이용하여 나에게 맞는 도서를 추천받으세요<br><strong>지금 가입하면 쿠폰 10% 증정</strong></p>
 						<div class="login_btn">
 							<ul>
-								<li class="lb1"><a href="#" onclick="window.open('html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1000,height=1000');">로그인</a></li>
-								<li class="lb2"><a href="#">회원가입</a></li>
+								<div id="logoutDiv3">								
+								<li class="lb1"><a href="#" onclick="window.open('html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+								<li class="lb2"><a href="#" onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+								</div>
 							</ul>
 						</div>
 					</div>

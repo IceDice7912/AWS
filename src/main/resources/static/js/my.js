@@ -64,22 +64,6 @@ $(document).ready(function(){
 		window.open('html/orderForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=350');
 	});
 
-	
-	$(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
-		
-		alert("로그아웃합니다.");
-		$.post("logout.jes",
-			  {			   
-			   
-			  },
-			  function(data, status){		  	
-			  	
-			  	$.removeCookie("logined");	    
-				location.reload();						   
-			  }
-		);//end post() 
-	});//end 로그아웃 처리
-
 
 $("#loginBtn").click(function(){//로그인 처리	
 		
@@ -94,10 +78,13 @@ $("#loginBtn").click(function(){//로그인 처리
 			  function(data, status){	
 				  var obj=JSON.parse(data);
 				  	if(obj.name){
-				  		data = obj.name+"<input type='button' value='logout' id='logoutBtn' class='btn btn-primary'>";					  		
+				  		data ="<input type='button' value='logout' id='logoutBtn' class='btn btn-outline-secondary'>"
 				  		$.cookie("logined",data);	    
-				  		$("#msgDiv").html(data);
+				  		window.opener.document.getElementById("logoutDiv").innerHTML=data;
+				  		window.opener.document.getElementById("logoutDiv2").innerHTML="";
+				  		window.opener.document.getElementById("logoutDiv3").innerHTML="";
 				  		alert(obj.name+"님 로그인 되셨습니다.");
+				  		window.close();
 					}else{
 						alert(obj.msg);
 						location.reload();	
@@ -107,7 +94,20 @@ $("#loginBtn").click(function(){//로그인 처리
 	});//end 로그인 처리
 
 
+$(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	
+	alert("로그아웃합니다.");
+	$.post("logout.jes",
+		  {			   
+		   
+		  },
+		  function(data, status){		  	
+		  	
+		  	$.removeCookie("logined");	    
+			location.reload();						   
+		  }
+	);//end post() 
+});//end 로그아웃 처리
 	
 	
 	$("#memberInsertBtn").click(function(){//회원 가입 처리
@@ -157,14 +157,13 @@ $("#loginBtn").click(function(){//로그인 처리
 	    if ((chat.length == 0 || chat == "")) {
 	        alert("뭐라도 입력하시오.");
 	    } else {
-	        $.post("chat.jes", {
+	        $.post("../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-	            alert( data);
-	            $("#msg").html(chat + "  ");
+	            alert("Data: " + data + "\nStatus: " + status);
 	        });
 			alert(chat);
-	        location.reload();
+		    $("p").append(chat+"\n");
 	    }
 	});
 
