@@ -160,10 +160,9 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	        $.post("../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-	            alert("Data: " + data + "\nStatus: " + status);
+			    $("p").append(data+"<br><br>");
 	        });
-			alert(chat);
-		    $("p").append(chat+"\n");
+			alert("내가 챗봇에게 보낸 메시지 : " + chat);
 	    }
 	});
 

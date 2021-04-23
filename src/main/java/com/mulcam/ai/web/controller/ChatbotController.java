@@ -5,8 +5,10 @@ import android.util.Base64;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 
@@ -92,9 +94,16 @@ public class ChatbotController {
 	        } catch (Exception e) {
 	            System.out.println(e);
 	        }
-
-	        System.out.println(chatbotMessage); 
-	        return chatbotMessage;
+	        
+       //챗봇 문자만 받기
+            JSONObject o=new JSONObject(chatbotMessage);
+            JSONArray bubbles=o.getJSONArray("bubbles");
+            JSONObject bubbles0=bubbles.getJSONObject(0);
+            JSONObject data=bubbles0.getJSONObject("data");
+            String description=(String) data.get("description");
+            System.out.println("--->"+description);
+            
+            return description;
 	    }
 
 
@@ -164,7 +173,6 @@ public class ChatbotController {
 	        }
 
 	        return requestBody;
-
 	    }
 	    
 	}
