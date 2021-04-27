@@ -7,8 +7,11 @@
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script type="text/javascript">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../js/my.js"></script>
+<script>
 var localstream;
 
 	$(document).ready(function(){
@@ -42,7 +45,7 @@ var localstream;
 		}); //카메라 켜기 버튼 처리
 		
 		
-		$("#pauseBtn").click(function(){
+		$("#faceSubmitBtn").click(function(){
 			video.pause();	
 			
 			localstream.getTracks()[0].stop();
@@ -64,13 +67,13 @@ var localstream;
 			const file = new Blob([ new Uint8Array(array) ], {
 				type : 'image/jpeg'
 			});
-			const fileName = 'web_snapshot_'+Date.now()+'.jpg';
+			const fileName = 'face.jpg';
 			let formData = new FormData();
 			formData.append('file', file, fileName);
 			
 			$.ajax({
 				type : 'post',
-				url : '../upload',
+				url : '../../upload',
 				cache : false,
 				data : formData,
 				processData : false,
@@ -79,10 +82,6 @@ var localstream;
 					alert('Uploaded !!');
 				}
 			});
-		});
-		
-		$("#offBtn").click(function(){
-			video.src="";
 		});
 		
 	});//end ready
@@ -97,10 +96,13 @@ var localstream;
 		</canvas>
 		<br>
 		<input type="button" value="카메라 켜기" id="onBtn">
-		<input type="button" value="찰칵" id="pauseBtn">
-		<input type="button" value="카메라 끄기" id="offBtn">
+		<input type="button" value="사진 전송하기" id="faceSubmitBtn">	
 	</center>
 	
+	<br><br><br><br>
+	-----------------------------<br>
+	와!! <star></star>을(를) 닮은 <age></age>세의 <gender></gender>이시군요!!<br>
+	당신 같은 사람들이 좋아하는 책은.....(밑에 추천)<br>
 
 	
 </body>

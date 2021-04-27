@@ -15,8 +15,11 @@ public class UploadController {
 	public String upload(@RequestParam("file") MultipartFile file) {
 		System.out.println(file);
 		
+		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
+		newdir.mkdir();
+		
 		try {
-			file.transferTo(new File("d:\\tool\\temp\\"+file.getOriginalFilename()));
+			file.transferTo(new File("C:/Users/Public/Pictures/Shotting-face/"+file.getOriginalFilename()));
 			return "upload ok!!!";
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
@@ -30,12 +33,3 @@ public class UploadController {
 	}
 
 }
-
-
-
-
-
-
-
-
-

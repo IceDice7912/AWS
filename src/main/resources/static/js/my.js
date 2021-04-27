@@ -167,6 +167,13 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 			alert(chat);
 	    }
 	});
+	
+	$("#faceSubmitBtn").click( function () { // 페이스 테스트
+			alert("찍은 사진을 서버에 전송해서 정보를 읽어옵니다.");
+			
+			$.post("../../face-celebrity.jes");
+			$.post("../../face-face.jes");			
+	});
 
 	
 });

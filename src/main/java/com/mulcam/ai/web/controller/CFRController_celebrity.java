@@ -5,20 +5,33 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-// 네이버 얼굴인식 API 예제
-public class CFRController {
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-    public static void main(String[] args) {
+// 네이버 얼굴인식 API 예제
+@Controller
+public class CFRController_celebrity {
+
+	@RequestMapping(value = "face-celebrity.jes", 
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/text; charset=utf8")			
+	@ResponseBody		
+    public static String main(String[] args) {
 
         StringBuffer reqStr = new StringBuffer();
-        String clientId = "YOUR_CLIENT_ID";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "YOUR_CLIENT_SECRET";//애플리케이션 클라이언트 시크릿값";
+        String clientId = "cwbj4zqzi3";//애플리케이션 클라이언트 아이디값";
+        String clientSecret = "MWpEyxSE9MsMbEARKuCxEt8E2naInJwjpbm5zaR9";//애플리케이션 클라이언트 시크릿값";
+        StringBuffer response = new StringBuffer();
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = "이미지 파일 경로 ";
+            String imgFile = "C:\\Users\\Public\\Pictures\\Shotting-face\\face.jpg";
             File uploadFile = new File(imgFile);
-            String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"; // 얼굴 감지
+            String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/celebrity"; // 유명인 얼굴 인식
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setUseCaches(false);
@@ -60,7 +73,6 @@ public class CFRController {
             }
             String inputLine;
             if(br != null) {
-                StringBuffer response = new StringBuffer();
                 while ((inputLine = br.readLine()) != null) {
                     response.append(inputLine);
                 }
@@ -72,5 +84,16 @@ public class CFRController {
         } catch (Exception e) {
             System.out.println(e);
         }
+ 
+        //닮은꼴 연예인만 파싱
+        System.out.println("response의 값 : " + response);
+        JSONObject o=new JSONObject(response);
+        JSONArray bubbles=o.getJSONArray("faces[].celebrity");
+        JSONObject bubbles0=bubbles.getJSONObject(0);
+        JSONObject data=bubbles0.getJSONObject("celebrity");
+        String star=(String) data.get("value");
+        System.out.println("--->"+star);
+        
+		return star;
     }
 }
