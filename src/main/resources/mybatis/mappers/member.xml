@@ -18,4 +18,10 @@
 		]]>
 	</insert>
 	
+	<select id="viewM" resultType="String" parameterType="memberVO">
+		<![CDATA[
+			select * from member
+		]]>
+	</select>
+	
 </mapper>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!------------- 쇼핑몰 haed 시작(css, js, 외부jquery link, favicon 등)  -------------->
+<head>
+
+	<meta charset="UTF-8">
+	 <!-- '반응형 웹'-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- 익스플로러 최신버전으로 랜더링 -->
+	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 	 
+	 <!-- favicon -->
+	 <link rel="apple-touch-icon" sizes="57x57" href="image/favicon/apple-icon-57x57.png">
+	 <link rel="apple-touch-icon" sizes="60x60" href="image/favicon/apple-icon-60x60.png">
+	 <link rel="apple-touch-icon" sizes="72x72" href="image/favicon/apple-icon-72x72.png">
+	 <link rel="apple-touch-icon" sizes="76x76" href="image/favicon/apple-icon-76x76.png">
+	 <link rel="apple-touch-icon" sizes="114x114" href="image/favicon/apple-icon-114x114.png">
+	 <link rel="apple-touch-icon" sizes="120x120" href="image/favicon/apple-icon-120x120.png">
+	 <link rel="apple-touch-icon" sizes="144x144" href="image/favicon/apple-icon-144x144.png">
+	 <link rel="apple-touch-icon" sizes="152x152" href="image/favicon/apple-icon-152x152.png">
+	 <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+	 <link rel="icon" type="image/png" sizes="192x192"  href="image/favicon/android-icon-192x192.png">
+	 <link rel="icon" type="image/png" sizes="32x32" href="image/favicon/favicon-32x32.png">
+	 <link rel="icon" type="image/png" sizes="96x96" href="image/favicon/favicon-96x96.png">
+	 <link rel="icon" type="image/png" sizes="16x16" href="image/favicon/favicon-16x16.png">
+	 <link rel="manifest" href="image/favicon/manifest.json">
+	 <meta name="msapplication-TileColor" content="#ffffff">
+	 <meta name="msapplication-TileImage" content="image/favicon/ms-icon-144x144.png">
+	 <meta name="theme-color" content="#ffffff">
+	 	 
+	<title>온라인 쇼핑몰 - 쇼팅</title>
+	
+<!--------------외부 css/js ------------------->
+  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	
+	<!-- bxslider -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+  	
+
+
+	
+<!--------------내부 css/js ------------------->	
+  	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle.css">
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="../../css/reset.css">
+
+
+	
+  	<!-- 쇼핑몰 JS -->
+  	
+
+
+</head>
+<!------------------------------ 쇼핑몰 body 시작 ------------------------------>
+<body>
+	<div id="wrap">
+	<!-- 첫 번째 구역 -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+					<ul class="list1">
+						<li class="green"><a href="#">매장안내</a></li>
+						<li><a href="#">이벤트</a></li>
+						<li><a href="#">공지사항</a></li>
+					</ul>
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+						<li><a href="#">장바구니</a></li>
+						<li><a href="#">고객센터</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- //header -->
+		<!-- 두 번째 구역 -->
+		
+		<div id="banner">
+			<div class="container" >
+<!--		<div class="main_banner">
+			 <img src=  "../img/main_banner02.png" alt="ad">
+			 </div> -->
+				<div class="main_add_swiper">
+					<img src="img/main_banner.png" alt="">
+				</div>
+				<div class="ban_right">
+					<div class="br_tit">
+
+					</div>
+					<div class="br_btn">
+						<ul>
+							<li><a href="#">요즘 이 책</a></li>
+							<li><a href="#">핫이슈</a></li>
+							<li><a href="#">새로나온책</a></li>
+							<li><a href="#">기획/테마</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //banner -->
+		<!-- 세 번째 구역 --->
+		<div id="contents">
+			<div id="cont1">
+				<div class="container" >
+					<nav id="nav">
+						<ul class="gnb">
+							<li><a href="html/ProductList/ProductList_01.html">도서장르</a></li>
+							<li><a href="#">베스트셀러</a></li>
+							<li><a href="#">최신 도서</a></li>
+							<li><a href="#">추천 도서</a></li>
+							<li><a href="#">오늘의 책</a></li>
+							<li><a href="#">이럴 땐 이런 책</a></li>
+							<li><a href="#"></a></li>
+						</ul>
+						<ul class="gnb_right">
+							<li class="gr1"><a href="#">간편서비스</a></li>
+							<li class="gr2"><a href="#">전체메뉴 <i class="fa fa-bars" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="#" class="gnb_search"><span class="ir">통합검색</span><i class="ir">레이어팝업 열림</i></a>
+						<a href="#" class="gnb_event">메뉴 <i class="fa fa-plus" aria-hidden="true"></i></a>
+					</nav>
+					<!-- //nav -->
+			</div>
+	<!------- 상위 페이지-------->
+		<div id="contents">
+			<div id="cont1">
+			asdsadas
+			</div>
+			</div>
+		<div id="contents">
+			<div id="cont2">
+			asdsadas
+			</div>
+			</div>
+		<div id="contents">
+			<div id="cont3">
+			asdsadas
+			</div>
+			</div>
+
+
+
+</div>
+
+<!-- 마지막 구역 -->	
+		<div id="footer">
+			<div id="footer_notice">
+				<div class="container">
+                    <div class="notice">
+                        <h3>알려드립니다 <i class="fa fa-plus" aria-hidden="true"></i></h3>
+                        <ul>
+                            <li><a href="#">[공지] 쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅</a></li>
+                            <li><a href="#">[공지] 쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅 </a></li>
+                        </ul>
+                        <a href="#" class="notice_btn">서비스변경 안내</a>
+                    </div>
+                </div>
+			</div>
+			<!-- //footer_notice -->
+			<div id="footer_info">
+				<div class="container">
+                    <div class="info">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                <li><a href="#"><strong>파트너센터</strong></a></li>                                
+                                                      
+                            </ul>
+                        </div>
+                        <address class="f_address">
+                            <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+                            <span>이메일상담 </span>
+                            <span>자주하는 질문 </span>
+                            <span>사업자번호 104-86-56659 </span><br>
+                            <span>대표전화 : 1544-1544	평일 : 09:00~20:00   휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+                            <span>팩스:0502-123123-123213 </span>
+                            <span>이메일: multicampus@multicampus.com </span><br>
+                            <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
+                        </address>
+                        
+
+                        <div class="family_site"><a href="#">패밀리 사이트 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                        <div class="sns_icon">
+                            <ul>
+                                <li><a href="#"><img src="img/sns_facebook.png" alt="페이스북 바로가기"></a></li>
+                                <li><a href="#"><img src="img/sns_kakao.png" alt="카카오스토리 바로가기"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<!-- //footer_info -->
+		</div>
+		<!-- //footer -->
+	</div>
+	<!-- //wrap -->
+</body>
+</html>

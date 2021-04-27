@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	$("#orderBtn").click(function(){
 		
 		let confirm_data=confirm("다음과 같이 주문하시겠습니까?\n"+items);		
@@ -78,8 +78,8 @@ $("#loginBtn").click(function(){//로그인 처리
 			  function(data, status){	
 				  var obj=JSON.parse(data);
 				  	if(obj.name){
-				  		data ="<input type='button' value='logout' id='logoutBtn' class='btn btn-outline-secondary'>"
-				  		$.cookie("logined",data);	    
+				  		data ="<input type='button' value='로그아웃' id='logoutBtn' class='btn btn-outline-secondary'>"
+				  		$.cookie("logined",data,{expires: 1, path: '/' }); // cookie expires in 10 days 
 				  		window.opener.document.getElementById("logoutDiv").innerHTML=data;
 				  		window.opener.document.getElementById("logoutDiv2").innerHTML="";
 				  		window.opener.document.getElementById("logoutDiv3").innerHTML="";
@@ -92,6 +92,7 @@ $("#loginBtn").click(function(){//로그인 처리
 			  }//end function
 		);//end post() 
 	});//end 로그인 처리
+
 
 
 $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
@@ -160,9 +161,10 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	        $.post("../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-			    $("p").append(data+"<br><br>");
+	            alert("Data: " + data + "\nStatus: " + status);
 	        });
-			alert("내가 챗봇에게 보낸 메시지 : " + chat);
+			alert(chat);
+		    $("p").append(chat+"\n");
 	    }
 	});
 

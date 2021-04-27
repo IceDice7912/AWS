@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!------------- 쇼핑몰 haed 시작(css, js, 외부jquery link, favicon 등)  -------------->
+<head>
+
+	<meta charset="UTF-8">
+	 <!-- '반응형 웹'-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- 익스플로러 최신버전으로 랜더링 -->
+	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 	 
+	 <!-- favicon -->
+	 <link rel="apple-touch-icon" sizes="57x57" href="image/favicon/apple-icon-57x57.png">
+	 <link rel="apple-touch-icon" sizes="60x60" href="image/favicon/apple-icon-60x60.png">
+	 <link rel="apple-touch-icon" sizes="72x72" href="image/favicon/apple-icon-72x72.png">
+	 <link rel="apple-touch-icon" sizes="76x76" href="image/favicon/apple-icon-76x76.png">
+	 <link rel="apple-touch-icon" sizes="114x114" href="image/favicon/apple-icon-114x114.png">
+	 <link rel="apple-touch-icon" sizes="120x120" href="image/favicon/apple-icon-120x120.png">
+	 <link rel="apple-touch-icon" sizes="144x144" href="image/favicon/apple-icon-144x144.png">
+	 <link rel="apple-touch-icon" sizes="152x152" href="image/favicon/apple-icon-152x152.png">
+	 <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+	 <link rel="icon" type="image/png" sizes="192x192"  href="image/favicon/android-icon-192x192.png">
+	 <link rel="icon" type="image/png" sizes="32x32" href="image/favicon/favicon-32x32.png">
+	 <link rel="icon" type="image/png" sizes="96x96" href="image/favicon/favicon-96x96.png">
+	 <link rel="icon" type="image/png" sizes="16x16" href="image/favicon/favicon-16x16.png">
+	 <link rel="manifest" href="image/favicon/manifest.json">
+	 <meta name="msapplication-TileColor" content="#ffffff">
+	 <meta name="msapplication-TileImage" content="image/favicon/ms-icon-144x144.png">
+	 <meta name="theme-color" content="#ffffff">
+	 	 
+	<title>온라인 쇼핑몰 - 쇼팅</title>
+	
+<!-- ================= #1 External css/js ================= -->
+  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	
+	<!-- bxslider -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+  	
+	<!-- Swiper CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+	
+	<!-- Swiper js -->
+    <script src="../package/swiper-bundle.min.js"></script>	
+
+	
+<!-- ================= #2 Internal css/js ================= -->	
+  	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle_02.css">
+	<link rel="stylesheet" href="../../css/ProductList/ListPageBanner.css">
+	
+	<link rel="stylesheet" href="../../css/bxslider.css">
+
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="../../css/font-awesome.css">
+
+  	<!-- #2.1 쇼핑몰 js -->
+  	<!-- swiper js --> 
+  	<link rel="stylesheet" href="../../js/ProductList/ListPageBanner.js">
+  	<link rel="stylesheet" href="../../js/ProductList/ListPage.js">
+	<script src="../../js/ie-checker.js"></script>
+	
+	<!-- #2.2 기능 js -->
+
+
+</head>
+<!-- ================= 쇼핑몰 body 시작 ================= -->
+<body>
+<!-- ================= 전체포장(wrap) ================= -->
+	<div id="wrap">
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+					<ul class="list1">
+						<li class="green"><a href="#">매장안내</a></li>
+						<li><a href="#">이벤트</a></li>
+						<li><a href="#">공지사항</a></li>
+					</ul>
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+						<li><a href="#">장바구니</a></li>
+						<li><a href="#">고객센터</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!--  ================= //header  ================= -->
+		
+<!-- ================= 두 번째 구역(banner) ================= -->
+	<div id="banner">
+		 <div class="container" >
+		  <!-- Swiper -->
+		  <div class="swiper-container first">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner01.png" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner02.png" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner03.png" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner04.png" class="swiper-lazy" alt=""></div>
+<!--		  <div class="swiper-slide">Slide 5</div>  -->
+		    </div>
+		  <!-- Add Pagination (부가요소) -->
+		    <div class="swiper-pagination"></div>
+		    <div class="swiper-pagination"></div>
+    		<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>
+    		<div class="swiper-scollbar"></div>
+		 </div>
+<!-- ================= Swiper js ================= -->
+		  <script src="../package/swiper-bundle.min.js"></script>
+	
+<!-- ================= Initialize Swiper 오류날수있으니 여기에 ================= -->
+		  <script>var swiper = new Swiper('.first', {pagination: {el: '.swiper-pagination',},});</script>		   
+<!-- ================= 로그인창 ================= -->  		 
+  		 <div class="ban_right">
+			<div class="br_tit">
+				<h3>북나잇<br> 책과 나를 IT다</h3>
+				<p>맞춤형 AI를 이용하여 나에게 맞는 도서를 추천받으세요<br><strong>지금 가입하면 쿠폰 10% 증정</strong></p>
+				<div class="login_btn">
+					<ul>
+					<div id="logoutDiv3">
+					  <ul>						
+						<li class="lb1"><a href="#" onclick="window.open('html/LoginPage.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li class="lb2"><a href="#" onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					  </ul>
+					</div>
+					</ul>
+				</div>
+			</div>
+				<div class="br_btn">
+					<ul>
+					<li><a href="#">요즘 이 책</a></li>
+					<li><a href="#">핫이슈</a></li>
+					<li><a href="#">새로나온책</a></li>
+					<li><a href="#">기획/테마</a></li>
+					</ul>
+				</div>
+			</div> 
+		</div>
+	</div>
+<!--  ------------------>
+<!-- ================= //banner ================= -->
+<!-- ================= 세 번째 구역 (contents) ================= --->
+		<div id="contents">
+			<div id="cont1">
+				<div class="container" >
+					<nav id="nav">
+						<ul class="gnb">
+							<li><a href="html/ProductList/ProductList_01.html">도서장르</a></li>
+							<li><a href="#">베스트셀러</a></li>
+							<li><a href="#">최신 도서</a></li>
+							<li><a href="#">추천 도서</a></li>
+							<li><a href="#">오늘의 책</a></li>
+							<li><a href="#">이럴 땐 이런 책</a></li>
+							<li><a href="#"></a></li>
+						</ul>
+						<ul class="gnb_right">
+							<li class="gr1"><a href="#">간편서비스</a></li>
+							<li class="gr2"><a href="#">전체메뉴 <i class="fa fa-bars" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="#" class="gnb_search"><span class="ir">통합검색</span><i class="ir">레이어팝업 열림</i></a>
+						<a href="#" class="gnb_event">메뉴 <i class="fa fa-plus" aria-hidden="true"></i></a>
+					</nav>
+<!-- ================= //메뉴(nav) ================= -->
+				</div>
+<!-- ================= //container ================= -->
+			</div>
+<!-- ================= //cont1 ================= -->
+        </div>
+<!-- ================= //contents ================= -->                                       
+		
+<!-- ================= cont2 (카테고리, 중간 베너) ================= -->
+		
+		<div id="cont2">
+			<div class="container">
+				<div id="side_category">>
+				<div class="categroy_box">
+					<h2><strong>국내도서</strong></h2>
+					<ul>
+						<li>
+							<a href="" target="_black">가정 / 살림</a>
+								<ul class="sub_cate">
+								<li><a href="" target="_black">카테고리1-1</a>
+								<li><a href="" target="_black">카테고리1-2</a>
+								<li><a href="" target="_black">카테고리1-3</a>
+								<li><a href="" target="_black">카테고리1-4</a>
+								<li><a href="" target="_black">카테고리1-5</a>
+								<li><a href="" target="_black">카테고리1-6</a>							
+								</ul>
+						</li>
+						<li>
+							<a href="" target="_black">건강 / 취미 </a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리2-1</a>
+									<li><a href="" target="_black">카테고리2-2</a>
+									<li><a href="" target="_black">카테고리2-3</a>									
+								</ul>
+						</li>
+						<li>
+							<a href="" target="_black">경제 / 경영</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리3-1</a>
+									<li><a href="" target="_black">카테고리3-2</a>
+									<li><a href="" target="_black">카테고리3-3</a>									
+								</ul>
+						</li>
+						<li>
+							<a href="" target="_black">국어 / 외국어</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리4-1</a>
+									<li><a href="" target="_black">카테고리4-2</a>
+									<li><a href="" target="_black">카테고리4-3</a>									
+								</ul>
+						</li>
+						<li>
+							<a href="" target="_black">대학교재</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리5-1</a>
+									<li><a href="" target="_black">카테고리5-2</a>
+									<li><a href="" target="_black">카테고리5-3</a>									
+								</ul>
+						</li>
+						<li>
+							<a href="" target="_black">만화</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리6-1</a>
+									<li><a href="" target="_black">카테고리6-2</a>
+									<li><a href="" target="_black">카테고리6-3</a>									
+								</ul>
+						</li>	
+						<li>
+							<a href="" target="_black">사회정치</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리7-1</a>
+									<li><a href="" target="_black">카테고리7-2</a>
+									<li><a href="" target="_black">카테고리7-3</a>									
+								</ul>
+						</li>	
+						<li>
+							<a href="" target="_black">소설/시/희곡</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리8-1</a>
+									<li><a href="" target="_black">카테고리8-2</a>
+									<li><a href="" target="_black">카테고리8-3</a>	
+									<li><a href="" target="_black">카테고리8-4</a>									
+									<li><a href="" target="_black">카테고리8-5</a>									
+									<li><a href="" target="_black">카테고리8-6</a>									
+																	
+								</ul>
+						</li>	
+						<li>
+							<a href="" target="_black">수험서/자격증</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리9-1</a>
+									<li><a href="" target="_black">카테고리9-2</a>
+									<li><a href="" target="_black">카테고리9-3</a>		
+									<li><a href="" target="_black">카테고리9-4</a>									
+									<li><a href="" target="_black">카테고리9-5</a>									
+									<li><a href="" target="_black">카테고리9-6</a>																					
+								</ul>								
+						</li>
+						<li>
+							<a href="" target="_black">에세이</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리9-1</a>
+									<li><a href="" target="_black">카테고리9-2</a>
+									<li><a href="" target="_black">카테고리9-3</a>		
+									<li><a href="" target="_black">카테고리9-4</a>									
+									<li><a href="" target="_black">카테고리9-5</a>									
+									<li><a href="" target="_black">카테고리9-6</a>																					
+								</ul>								
+						</li>
+						<li>
+							<a href="" target="_black">여행</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리9-1</a>
+									<li><a href="" target="_black">카테고리9-2</a>
+									<li><a href="" target="_black">카테고리9-3</a>		
+									<li><a href="" target="_black">카테고리9-4</a>									
+									<li><a href="" target="_blank">카테고리9-5</a>									
+									<li><a href="" target="_blank">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+						<li>
+							<a href="" target="_black">역사</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_blank">카테고리9-1</a>
+									<li><a href="" target="_blank">카테고리9-2</a>
+									<li><a href="" target="_blank">카테고리9-3</a>		
+									<li><a href="" target="_blank">카테고리9-4</a>									
+									<li><a href="" target="_blank">카테고리9-5</a>									
+									<li><a href="" target="_blank">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+						<li>
+							<a href="" target="_black">예술</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_blank">카테고리9-1</a>
+									<li><a href="" target="_blank">카테고리9-2</a>
+									<li><a href="" target="_blank">카테고리9-3</a>		
+									<li><a href="" target="_blank">카테고리9-4</a>									
+									<li><a href="" target="_blank">카테고리9-5</a>									
+									<li><a href="" target="_blank">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+						<li>
+							<a href="" target="_black">인문</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_blank">카테고리9-1</a>
+									<li><a href="" target="_blank">카테고리9-2</a>
+									<li><a href="" target="_blank">카테고리9-3</a>		
+									<li><a href="" target="_blank">카테고리9-4</a>									
+									<li><a href="" target="_blank">카테고리9-5</a>									
+									<li><a href="" target="_blank">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+						<li>
+							<a href="" target="_black">인물</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_blank">카테고리9-1</a>
+									<li><a href="" target="_blank">카테고리9-2</a>
+									<li><a href="" target="_blank">카테고리9-3</a>		
+									<li><a href="" target="_blank">카테고리9-4</a>									
+									<li><a href="" target="_blank">카테고리9-5</a>									
+									<li><a href="" target="_blank">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+						<li>
+							<a href="" target="_black">자기계발</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_blank">카테고리9-1</a>
+									<li><a href="" target="_blank">카테고리9-2</a>
+									<li><a href="" target="_blank">카테고리9-3</a>		
+									<li><a href="" target="_blank">카테고리9-4</a>									
+									<li><a href="" target="_blank">카테고리9-5</a>									
+									<li><a href="" target="_blank">카테고리9-6</a>																					
+								</ul>								
+						</li>
+						<li>
+							<a href="" target="_black">자연과학</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리9-1</a>
+									<li><a href="" target="_black">카테고리9-2</a>
+									<li><a href="" target="_black">카테고리9-3</a>		
+									<li><a href="" target="_black">카테고리9-4</a>									
+									<li><a href="" target="_black">카테고리9-5</a>									
+									<li><a href="" target="_black">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+						<li>
+							<a href="" target="_black">IT</a>
+								<ul class="sub_cate">
+									<li><a href="" target="_black">카테고리9-1</a>
+									<li><a href="" target="_black">카테고리9-2</a>
+									<li><a href="" target="_black">카테고리9-3</a>		
+									<li><a href="" target="_black">카테고리9-4</a>									
+									<li><a href="" target="_black">카테고리9-5</a>									
+									<li><a href="" target="_black">카테고리9-6</a>																					
+								</ul>								
+						</li>								
+																																																										
+					</ul>				
+				</div>
+				</div>
+				
+			 <!-- Swiper 중간 베너 1 -->
+			<div class="swiper-container second" id="second_banner_container">
+				<div class="swiper-wrapper" id="second_banner_wrapper">
+					<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner01.png" class="swiper-lazy" alt="베너01"></div>
+					<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner01.png" class="swiper-lazy" alt="베너02"></div>
+					<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner01.png" class="swiper-lazy" alt="베너03"></div>
+					<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner01.png" class="swiper-lazy" alt="베너04"></div>
+			<!--	<div class="swiper-slide" id="second_banner_slide">Slide 5</div>  -->
+				</div>
+			<!-- Add Pagination (부가요소) -->
+					<div class="swiper-pagination" id="second-pagination"></div>
+					<div class="swiper-pagination" id="second-pagination"></div>
+			    	<div class="swiper-button-prev"id="second-button-prev"></div>
+			    	<div class="swiper-button-next" id="second-button-next"></div>
+			    	<div class="swiper-scollbar" id="second-scrollbar"></div>
+			</div>
+			<!-- ================= Swiper js ================= -->
+				<script src="../package/swiper-bundle.min.js"></script>
+				
+			<!-- ================= Initialize Swiper 오류날수있으니 여기에 ================= -->
+				<script>var swiper = new Swiper('.second', {pagination: {el: '#second-pagination',},});</script>			
+					
+
+				 <div class="tab_content">
+				 	<input type="radio" name="tabmenu" id="tab01" checked>
+				 	<label for="tab01">베스트셀러01</label>
+				 	<input type="radio" name="tabmenu" id="tab02">
+				 	<label for="tab02">베스트셀러02</label>
+				 	<input type="radio" name="tabmenu" id="tab03">
+				 	<label for="tab03">베스트셀러03</label>
+				 	
+				 	<div class="conbox con1">베스트셀러 내용01</div>
+				 	<div class="conbox con2">베스트셀러 내용02</div>
+				 	<div class="conbox con3">베스트셀러 내용03</div>
+				 </div>
+				 
+	 
+
+			</div>
+
+		</div>
+<!-- 	
+		<div id="cont2">
+			<div class="container">
+				 <div class="Product_list">
+				 	<input type="radio" name="pagenum" id="num01" checked>
+				 	<label for="num01">1</label>
+				 	<input type="radio" name="pagenum" id="num02">
+				 	<label for="num02">2</label>
+				 	<input type="radio" name="pagenum" id="num03">
+				 	<label for="num03">3</label>
+				 	
+				 	<div class="prod list1">베스트셀러 내용01</div>
+				 	<div class="prod list2">베스트셀러 내용02</div>
+				 	<div class="prod list3">베스트셀러 내용03</div>
+				 </div>
+				 
+			</div>
+		</div>
+ -->
+ 		<div id="cont3">
+ 			<div class="container">
+	 			<div class="prod_box">
+					<h3> 전체 상픔</h3>
+					<p>판매자추천순 ㅣ 인기도순 ㅣ 평점높은순 ㅣ 최신등록순</p>
+					<div class="clear"></div>	
+					
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>						
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>						
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title">여기는 책 제목입니다.</li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="review">리뷰<span>5</span>평점 · <span>4.5/5</span></li>
+					</ul>						
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>	
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">여기는 가격<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>						
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>						
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>					
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">여기는 가격<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>	
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>	
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>	
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>					
+					<ul class="items">
+						<li><img src="../../img/sample.jpg"></li>
+						<li class="title"><a href="">여기는 책 제목입니다.</a></li>
+						<li class="price">12,000<span> (할인가격)%</span></li>
+						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
+						<li class="point">P:<span>990</span></li>
+					</ul>					
+				</div>			
+ 			</div>
+ 		</div>
+
+
+<!-- 
+<style>
+
+	input[type="radio"] {display:none;}
+	input[type="radio"] + label{display:inline-block; padding:30px; width:260px; backround:#ccc; color:#999; text-align:center; font-size:14px;cursor:pointer;}
+	input[type="radio"]:checked+label{background:#aaa;color:#000;}
+	
+	.conbox{width:970px; height:500px; background:#aaa;margin:0; auto; display:none;}
+
+	input[id="tab01"]:checked ~ .con1{display:block;}
+	input[id="tab02"]:checked ~ .con2{display:block;}
+	input[id="tab03"]:checked ~ .con3{display:block;}
+	
+</style>
+
+ -->
+
+
+
+
+<!-- ================= 마지막구역  ================= -->                                       	
+	
+<!-- ================= footer-notice ================= -->                                       	
+	<div id="footer">
+		<div id="footer_notice">
+		 <div class="container">
+           <div class="notice">
+              <h3>알려드립니다 <i class="fa fa-plus" aria-hidden="true"></i></h3>
+                  <ul>
+                    <li><a href="#">[공지] 쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅</a></li>
+                    <li><a href="#">[공지] 쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅 </a></li>
+                 </ul>
+              <a href="#" class="notice_btn">서비스변경 안내</a>
+           </div>
+        </div>
+		</div>
+<!-- ================= //footer-notice ================= -->                                       	
+<!-- ================= footer-info ================= -->                                       	
+			<div id="footer_info">
+				<div class="container">
+                    <div class="info">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                <li><a href="#"><strong>파트너센터</strong></a></li>                                
+                                                      
+                            </ul>
+                        </div>
+                        <address class="f_address">
+                            <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+                            <span>이메일상담 </span>
+                            <span>자주하는 질문 </span>
+                            <span>사업자번호 104-86-56659 </span><br>
+                            <span>대표전화 : 1544-1544	평일 : 09:00~20:00   휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+                            <span>팩스:0502-123123-123213 </span>
+                            <span>이메일: multicampus@multicampus.com </span><br>
+                            <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
+                        </address>
+                        
+
+                        <div class="family_site"><a href="#">패밀리 사이트 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                        <div class="sns_icon">
+                            <ul>
+                                <li><a href="#"><img src="img/sns_facebook.png" alt="페이스북 바로가기"></a></li>
+                                <li><a href="#"><img src="img/sns_kakao.png" alt="카카오스토리 바로가기"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>                
+			</div>
+<!-- ================= // footer-info ================= -->                                       			
+		</div>
+<!-- ================= // footer ================= -->                                       				
+	</div>
+<!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
+</body>
+
+<!-- ================= conbox css ================= -->                                       				
+
+<style>
+
+	input[type="radio"] {display:none;}
+	input[type="radio"] + label{display:inline-block; padding:30px; width:260px; backround:#ccc; color:#999; text-align:center; font-size:14px;cursor:pointer;}
+	input[type="radio"]:checked+label{background:#eaeaea;color:#000;}
+	
+	.conbox{width:970px; height:500px; background:#eaeaea;margin:0; auto; display:none;}
+
+	input[id="tab01"]:checked ~ .con1{display:block;}
+	input[id="tab02"]:checked ~ .con2{display:block;}
+	input[id="tab03"]:checked ~ .con3{display:block;}
+	
+</style>
+
+</html>
