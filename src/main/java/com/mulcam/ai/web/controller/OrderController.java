@@ -76,6 +76,7 @@ public class OrderController {
 				String prodname = (String) j.get("name");
 				Long quantity = (Long) j.get("quantity");
 				OrderVO orderVO = new OrderVO("web", prodname, quantity);
+				
 				/*
 				 * HttpSession session=request.getSession(); MemberVO memberVO=(MemberVO)
 				 * session.getAttribute("member"); if(memberVO!=null) {//로그인 된 사용자라면 id를 추가해준다

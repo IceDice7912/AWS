@@ -69,7 +69,8 @@
 	<script src="../../js/ie-checker.js"></script>
 	
 	<!-- #2.2 기능 js -->
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	
 
 </head>
 <!-- ================= 쇼핑몰 body 시작 ================= -->
@@ -637,6 +638,16 @@
 	</div>
 <!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
 </body>
+
+
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#logoutDiv").html(login);
+});
+</script>
+
+
 
 <!-- ================= conbox css ================= -->                                       				
 

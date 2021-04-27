@@ -1,82 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<title>간단한 지도 표시하기</title>
-<script type="text/javascript"
-	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=bhyyxniyi3"></script>
-<!-- 
-네이버 Client ID (X-NCP-APIGW-API-KEY-ID): bhyyxniyi3
-Client Secret (X-NCP-APIGW-API-KEY): bba8I5E3OxHZwZfgRq8BFawoMQBwAl3zhaLYQ9up 
--->
-
-	<script>
-
-	
-	
-</script>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
 </head>
-<body>
-	<div id="map" style="width: 100%; height: 400px;"></div>
+<script>
+function getLocation() {
+	
+    var address;
+    
+	  if (navigator.geolocation) { // GPS를 지원하면
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      alert(position.coords.latitude + ' ' + position.coords.longitude);      
+	      
+	    address1 = "https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=" + position.coords.longitude + "," + position.coords.latitude + "&level=16&maptype=basic&X-NCP-APIGW-API-KEY-ID=8c94s1kta5";
+	    address2 = "https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=" + position.coords.longitude + "," + position.coords.latitude + "&level=16&maptype=satellite&X-NCP-APIGW-API-KEY-ID=8c94s1kta5";
+	    //https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.1054221,37.3591614&level=16&X-NCP-APIGW-API-KEY-ID=8c94s1kta5   
+	    
+	    document.getElementById("address1").src = address1;
+	    document.getElementById("address2").src = address2;
 
-<script type="text/javascript">
-	var latitude;
-	var longitude;
-	
-	function onGeolocationSuccess(position) { 
-		// 좌표 출력 
-		latitude=position.coords.latitude;
-		longitude=position.coords.longitude;
-		
-		console.log("lat: " + latitude + ", lon: " + longitude ); 
-		var mapOptions = {
-			    center: new naver.maps.LatLng(latitude, longitude),
-			    zoom: 15
-			};
-			
-			var map = new naver.maps.Map('map', mapOptions);
-			
-			var marker = new naver.maps.Marker({
-			    position: new naver.maps.LatLng(latitude, longitude),
-			    map: map,
-			    icon: {
-			        url: '../img/marker.png',
-			        size: new naver.maps.Size(100, 125),
-			        origin: new naver.maps.Point(0, 0),
-			        anchor: new naver.maps.Point(25, 26)
-			    }
-			});
-	} 
-	function onGeolocationFail(error) { 
-		// 에러 출력
-		console.log("Error Code: " + error.code + ", Error Description: " + error.message); 
-	} 
-	
-	if (navigator.geolocation) { 
-		  
-		var positionOptions = { 
-			enableHighAccuracy : true, // 정확한 위치 사용
-			maximumAge : 0, // 캐시 사용 안함
-			timeout : 3000 // timeout 3초 (3000ms) 
-		}; 
-		navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationFail, positionOptions); 
+	    
+	    }, function(error) {
+	      console.error(error);
+	    }, {
+	      enableHighAccuracy: true,
+	      maximumAge: 0,
+	      timeout: Infinity
+	    });
+	  } else {
+	    alert('GPS를 지원하지 않습니다');
+	  }
 	}
-
-		
-		
-
+	getLocation();
 </script>
 
+
+<body>
+	<div>
+		<img id="address1" src="">		<img id="address2" src="">
+	</div>
+	<br>
+	현재 당신이 사는 곳은 <p></p>이군요!!<br>
+	<p></p> 지역 사람들이 많이 산 책으로는....
 </body>
 </html>
-
-
-
-
-
-
-

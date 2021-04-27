@@ -158,13 +158,13 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	    if ((chat.length == 0 || chat == "")) {
 	        alert("뭐라도 입력하시오.");
 	    } else {
-	        $.post("../chat.jes", {
+	        $.post("../../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
 	            alert("Data: " + data + "\nStatus: " + status);
+			    $("p").append(data+"<br>");
 	        });
 			alert(chat);
-		    $("p").append(chat+"\n");
 	    }
 	});
 

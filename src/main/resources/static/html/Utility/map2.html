@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기-GeoCoding 이용</title>
+<script type="text/javascript"
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=bhyyxniyi3"></script>
+<!-- 
+네이버 Client ID (X-NCP-APIGW-API-KEY-ID): bhyyxniyi3
+Client Secret (X-NCP-APIGW-API-KEY): bba8I5E3OxHZwZfgRq8BFawoMQBwAl3zhaLYQ9up 
+-->
+</head>
+<body>
+<div id="map" style="width:100%;height:400px;"></div>
+<script>
+function GeoCodingMap() {
+  
+	  if (navigator.geolocation) { // GPS를 지원하면
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      alert(position.coords.latitude + ' ' + position.coords.longitude);
+	      
+	      var location = new naver.maps.LatLng(position.coords.latitude,
+                  position.coords.longitude);
+	    
+	      var mapOptions = {
+	    		    center: new naver.maps.LatLng(position.coords.latitude, position.coords.longitude),
+	    		    zoom: 15	    		    
+	    		};
+	     
+	      
+	      var map = new naver.maps.Map('map', mapOptions);
+
+	  
+	    }, function(error) {
+	      console.error(error);
+	    }, {
+	      enableHighAccuracy: true,
+	      maximumAge: 0,
+	      timeout: Infinity
+	    });
+	  } else {
+	    alert('GPS를 지원하지 않습니다');
+	  }
+}
+
+GeoCodingMap();
+</script>
+</body>
+</html>

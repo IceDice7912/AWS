@@ -72,6 +72,8 @@
 	
 	<!-- #2.2 기능 js -->
   	<script type="text/javascript" src="../../js/my.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    	
 
 
 </head>
@@ -93,6 +95,12 @@
 						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
 						<li><a href="#">장바구니</a></li>
 						<li><a href="#">고객센터</a></li>
+						<li><a href="#" onclick="window.open('../../html/Utility/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇</a></li>
+						<li><a href="#" onclick="window.open('../../html/test/orderForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">테스트-주문처리</a></li>						
+						<li><a href="#" onclick="window.open('../../html/test/carttest.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">테스트-장바구니</a></li>
+						<li><a href="#" onclick="window.open('../../html/Utility/map.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">테스트-지도(삽질함)</a></li>
+						<li><a href="#" onclick="window.open('../../html/Utility/map2.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">테스트-지도</a></li>
+						<li><a href="#" onclick="window.open('../../html/Utility/cameraWeb.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">테스트-얼굴인식</a></li>						
 					</ul>
 				</div>
 			</div>
@@ -515,5 +523,13 @@
 	</div>
 <!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
 </body>
+
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#logoutDiv").html(login);
+});
+</script>
+
 
 </html>
