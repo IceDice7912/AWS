@@ -153,7 +153,8 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	});
 	
 	
-	$("#chatBtn").click( function () { // 챗봇 테스트
+	
+	$("#chatBtn").click( function () { // 챗봇-텍스트 대화
 	    var chat=$("#chat").val();
 	    if ((chat.length == 0 || chat == "")) {
 	        alert("뭐라도 입력하시오.");
@@ -166,6 +167,22 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 			alert(chat);
 	    }
 	});
+	
+	
+	$("#sayBtn").click( function () { // 챗봇-음성 대화
+
+	    alert("음성으로 챗봇에게 할 말을 녹음합니다. (제한시간 4초)");
+	    	
+	    	$.post("../../stt.jes", {
+	    		
+	    	}, function(data) {
+	            alert(data);
+	            $('say').empty();
+			    $('say').append(data);	            
+	    	});
+	});	
+	
+	
 	
 	$("#faceSubmitBtn").click( function () { // 페이스 테스트
 			alert("찍은 사진을 서버에 전송해서 정보를 읽어옵니다.");
