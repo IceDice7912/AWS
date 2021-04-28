@@ -22,15 +22,15 @@
       align-items: center;
     }
 
-    
-#second_banner_container {display:block; position:relative;  width: 970px; height: 250px; left:115px; top:-1000px; z-index:4; /* border:1px solid black;*/}
-#second_banner_wrapper{position:relative; width: 980px;; height: 250px; }
+#middle_banner{position:relative; width:1030px; height:180px; top:-980px; left: 170px; border:1px solid #eaeaea; z-index:3;}
+#second_banner_container {width: 1030px; height: 180px; background:#eaeaea; left:0px; top:0px; z-index:2; /* border:1px solid black;*/}
+#second_banner_wrapper{position:relative; width: 1030px;  background:#eaeaea; height: 180px; }
 #second_banner_slide {
       text-align: center;
       font-size: 18px;
-      background: #fff;
-      height:250px;
-      width:980px;
+      background: #eaeaea;
+      height:180px;
+      width:1100px;
 
       /* Center slide text vertically */
       display: -webkit-box;

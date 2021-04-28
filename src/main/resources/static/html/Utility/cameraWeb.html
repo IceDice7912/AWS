@@ -22,10 +22,10 @@ var localstream;
 			
 			if(navigator.getUserMedia){
 				navigator.getUserMedia(
-					{audio:false, video:true},
+					{audio:true, video:true},
 					function(stream){
 						//카메라 접근 성공
-						//alert("ok");
+						alert("ok");
 						video=document.querySelector('video');
 						video.srcObject=stream;
 						localstream=stream;
