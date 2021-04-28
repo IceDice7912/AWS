@@ -25,8 +25,8 @@ public class CFRController_celebrity {
         StringBuffer reqStr = new StringBuffer();
         String clientId = "cwbj4zqzi3";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "MWpEyxSE9MsMbEARKuCxEt8E2naInJwjpbm5zaR9";//애플리케이션 클라이언트 시크릿값";
-        StringBuffer response = new StringBuffer();
-
+        String response = "";
+        
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
             String imgFile = "C:\\Users\\Public\\Pictures\\Shotting-face\\face.jpg";
@@ -72,28 +72,34 @@ public class CFRController_celebrity {
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             }
             String inputLine;
-            if(br != null) {
+            if(br != null) {            	
                 while ((inputLine = br.readLine()) != null) {
-                    response.append(inputLine);
+                    response += inputLine;
                 }
                 br.close();
                 System.out.println(response.toString());
             } else {
                 System.out.println("error !!!");
             }
+            
+          //닮은꼴 연예인만 파싱
+            System.out.println("response의 값 : " + response);
+            JSONObject o=new JSONObject(response);
+            JSONArray bubbles=o.getJSONArray("faces");
+            JSONObject bubbles0=bubbles.getJSONObject(0);
+            JSONObject data=bubbles0.getJSONObject("celebrity");
+            String star=(String) data.get("value");
+            System.out.println("--->"+star);            
+            
+            StringBuffer page = new StringBuffer();
+            	page.append("<>");
+            return star;
+            
         } catch (Exception e) {
             System.out.println(e);
+            return "error CFR_celebrity";
         }
- 
-        //닮은꼴 연예인만 파싱
-        System.out.println("response의 값 : " + response);
-        JSONObject o=new JSONObject(response);
-        JSONArray bubbles=o.getJSONArray("faces[].celebrity");
-        JSONObject bubbles0=bubbles.getJSONObject(0);
-        JSONObject data=bubbles0.getJSONObject("celebrity");
-        String star=(String) data.get("value");
-        System.out.println("--->"+star);
         
-		return star;
+		
     }
 }

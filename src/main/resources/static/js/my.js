@@ -161,7 +161,6 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	        $.post("../../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-	            alert("Data: " + data + "\nStatus: " + status);
 			    $("p").append(data+"<br>");
 	        });
 			alert(chat);
@@ -170,10 +169,50 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	
 	$("#faceSubmitBtn").click( function () { // 페이스 테스트
 			alert("찍은 사진을 서버에 전송해서 정보를 읽어옵니다.");
+			var star;
+			var personinfo;
+			var ages1;
+			var agecut = /[^0-9]/gi;
+			var ages2;
+			var agei;
+			var gender1;
+			var gendercut = /[^a-z]/gi;
+			var gender2;
 			
-			$.post("../../face-celebrity.jes");
-			$.post("../../face-face.jes");			
-	});
+			$.post("../../face-celebrity.jes", 
+					{
+
+					}, function(data, status){
+			            star = data;
+			            $('star').empty();
+					    $('star').append(star);
+					});
+			$.post("../../face-face.jes",
+					{
+
+					}, function(data, status){
+			            
+			            personinfo = data;
+			            
+			            ages1 = (personinfo).replaceAll("~", "");			            
+			            ages2 = (ages1).replaceAll(agecut, "");			            
+			            agei = Number(ages2);			            
+			            agei = parseInt(agei / 100);
+			            $('age').empty();
+					    $('age').append(agei);  
+					    
+					    gender1 = (personinfo).replaceAll("~", "");
+			            gender2 = (gender1).replaceAll(gendercut, "");
+			            if(gender2=="male")
+			          	  gender2 = "남성";
+			            if(gender2=="female")
+			          	  gender2 = "여성";
+			            if(gender2=="child")
+			          	  gender2 = "어린이";
+			            $('gender').empty();
+					    $('gender').append(gender2);	            
+					});
+		});
 
 	
 });

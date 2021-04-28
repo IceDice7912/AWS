@@ -29,11 +29,11 @@ public class CFRController_face {
         StringBuffer reqStr = new StringBuffer();
         String clientId = "lv0h6xt1fj";//애플리케이션 클라이언트 아이디값";
         String clientSecret = "EOX8UlngHnfHxKsq2TmYfZ1HiRIpgJe0xs6RBvx1";//애플리케이션 클라이언트 시크릿값";
-        StringBuffer response = new StringBuffer();
+        String response = "";
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = "C:\\Users\\Public\\Pictures\\Shotting-face\\face.jpg";
+            String imgFile = "C:/Users/Public/Pictures/Shotting-face/face.jpg";
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"; // 얼굴 감지
             URL url = new URL(apiURL);
@@ -78,27 +78,52 @@ public class CFRController_face {
             String inputLine;
             if(br != null) {
                 while ((inputLine = br.readLine()) != null) {
-                    response.append(inputLine);
+                	response += inputLine;
                 }
                 br.close();
                 System.out.println(response.toString());
             } else {
                 System.out.println("error !!!");
             }
+            
+          //나이, 성별만 파싱
+            System.out.println("response의 값 : " + response);
+            JSONObject o=new JSONObject(response);
+            JSONArray bubbles=o.getJSONArray("faces");
+            JSONObject bubbles0=bubbles.getJSONObject(0);
+            JSONObject data1=bubbles0.getJSONObject("age");
+            JSONObject data2=bubbles0.getJSONObject("gender");       
+            String personinfo=(String) data1.get("value") + (String) data2.get("value");
+            System.out.println("--->"+personinfo);
+            
+          //어린 나이 int
+          String ages1 = (String) (personinfo).replaceAll("~", "");
+          String ages2 = (String) (ages1).replaceAll("[a-z]", "");
+          int agei = Integer.parseInt(ages2);
+          agei = agei / 100;
+          System.out.println("나이 : " + agei);
+          //성별
+          String gender1 = (String) (personinfo).replaceAll("~", "");
+          String gender2 = (String) (gender1).replaceAll("[0-9]", "");
+          String male = "male";
+          String female = "female";
+          String child = "child";
+          
+          if(male.equals(gender2)==true)
+        	  gender2 = "남성";
+          if(female.equals(gender2)==true)
+        	  gender2 = "여성";
+          if(child.equals(gender2)==true)
+        	  gender2 = "어린이";         
+          
+          System.out.println("성별 : " + gender2);
+          
+          return personinfo;
+            
         } catch (Exception e) {
             System.out.println(e);
-        }
-        
-        //나이, 성별만 파싱
-        System.out.println("response의 값 : " + response);
-        JSONObject o=new JSONObject(response);
-        JSONArray bubbles=o.getJSONArray("faces[].gender");
-        JSONObject bubbles0=bubbles.getJSONObject(0);
-        JSONObject data1=bubbles0.getJSONObject("age");
-        JSONObject data2=bubbles0.getJSONObject("gender");       
-        String personinfo=(String) data1.get("value") + (String) data2.get("value");
-        System.out.println("--->"+personinfo);
-        
-		return personinfo;
+            return "error CFR face";
+        }      
+		
     }
 }
