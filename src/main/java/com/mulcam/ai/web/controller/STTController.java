@@ -25,9 +25,8 @@ public class STTController {
 			produces = "application/text; charset=utf8")			
 	@ResponseBody	
 	public static String main(String[] args) {
-		String response="";
-		int count;
-		
+		String response="";  
+        
 		try {
 			AudioFormat format=new AudioFormat(16000,8,2,true,true);
 			DataLine.Info info=new DataLine.Info(TargetDataLine.class, format);
@@ -36,6 +35,8 @@ public class STTController {
 			}
 			
 			final TargetDataLine targetDataLine=(TargetDataLine)AudioSystem.getLine(info);
+	        targetDataLine.close();
+	        targetDataLine.flush(); 
 			targetDataLine.open();
 			System.out.println("할 말 있으면 해보세요. (제한시간 4초)");
 			targetDataLine.start();
