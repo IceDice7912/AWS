@@ -105,7 +105,7 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 		  function(data, status){		  	
 		  	
 		  	$.removeCookie("logined");	    
-			location.reload();						   
+			location.reload();	   
 		  }
 	);//end post() 
 });//end 로그아웃 처리
@@ -162,24 +162,39 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	        $.post("../../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-			    $("p").append(data+"<br>");
+			    $('p').append(data + "<br>");  
 	        });
-			alert(chat);
+
 	    }
 	});
 	
 	
 	$("#sayBtn").click( function () { // 챗봇-음성 대화
-
+	    var chat;
 	    alert("음성으로 챗봇에게 할 말을 녹음합니다. (제한시간 4초)");
 	    	
 	    	$.post("../../stt.jes", {
-	    		
+	    		chat: chat
 	    	}, function(data) {
-	            alert(data);
+	    		chat = data;
+
 	            $('say').empty();
-			    $('say').append(data);	            
-	    	});
+			    $('say').append(data);    	
+	            	$.post("../../chat.jes", {
+	            		chat: chat
+	            	}, function(data) {
+
+	    			    $('p').append(data + "<br>");
+	    			    chat = data;
+	    			    	$.post("../../tts.jes", {
+	    			    		chat: chat
+	    			    	}, function(data, status) {
+
+	    			    	})
+	            	},
+	            	);
+	    		});
+	    	
 	});	
 	
 	

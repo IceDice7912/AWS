@@ -26,6 +26,8 @@ public class STTController {
 	@ResponseBody	
 	public static String main(String[] args) {
 		String response="";
+		int count;
+		
 		try {
 			AudioFormat format=new AudioFormat(16000,8,2,true,true);
 			DataLine.Info info=new DataLine.Info(TargetDataLine.class, format);
@@ -57,6 +59,8 @@ public class STTController {
 			stopper.start();
 			Thread.sleep(4000);
 			targetDataLine.stop();
+            targetDataLine.close();
+            targetDataLine.flush();    
 			
 			
 			////////////////////////////
@@ -126,6 +130,7 @@ public class STTController {
         String isay = o.getString("text");
         System.out.println("--->"+isay);
         response = "";
+        o=null;
         
         return isay;
 	}
