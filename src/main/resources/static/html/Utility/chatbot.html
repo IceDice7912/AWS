@@ -1,54 +1,106 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta charset="UTF-8">
 <title>쇼팅 챗봇 연계방</title>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="../../js/my.js"></script>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-var localstream;
-
-	$(document).ready(function(){
-		$("#sayBtn").click(function(){
-			navigator.getUserMedia = navigator.getUserMedia
-			|| navigator.webkitGetUserMedia
-			|| navigator.mozGetUserMedia;
-			
-			if(navigator.getUserMedia){
-				navigator.getUserMedia(
-					{audio:true, video:false},
-					function(stream){
-						//카메라 접근 성공					
-						
-						video=document.querySelector('video');
-						video.srcObject=stream;
-						localstream=stream;
-						
-						video.onloadedmetadata=function(e){
-							video.play();
-						}
-					},
-					function(){
-						//카메라 작동 에러
-						alert("fail");
-					}
-				);
-				
-			}
-			
-		}); //카메라 켜기 버튼 처리
-		
-		
-	});//end ready
-</script>
 </head>
 <body>
-챗봇 대화 확인 중.......!!-----------------<say>[할 말 있으면 4초안에 말하시오.]</say><br>
+<br>
+챗봇 대화 확인 중.......!!-----------------<say>[할 말 있으면 말하시오.]</say><br>
 <input type="text" id="chat" placeholder="채팅을 입력하세요"><button type="button" id="chatBtn" value="chatBtn">Chat</button><button type="button" id="sayBtn" value="sayBtn">음성으로 말하기</button><br>
-Shotting : <p></p>
+<button type="button" id="saySubmitBtn" value="saySubmitBtn">녹음 종료, 대화 내보내기</button><br>
+Shotting : <p></p> <br>
+
 </body>
+
+<script>
+        const record = document.getElementById("sayBtn")
+        const stop = document.getElementById("saySubmitBtn")
+        const soundClips = document.getElementById("sound-clips")
+const audioCtx = new(window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
+const analyser = audioCtx.createAnalyser()
+
+function makeSound(stream) {
+    const source = audioCtx.createMediaStreamSource(stream)
+    source.connect(analyser)
+    analyser.connect(audioCtx.destination)
+
+}
+
+if (navigator.mediaDevices) {
+    console.log('마이크 연결 됨')
+
+    const constraints = {
+        audio: true
+    }
+    let chunks = []
+
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(stream => {
+
+            const mediaRecorder = new MediaRecorder(stream)
+       
+            record.onclick = () => {
+                mediaRecorder.start()
+                console.log(mediaRecorder.state)
+                console.log("recorder started")
+                record.style.background = "red"
+                record.style.color = "black"
+            }
+
+            stop.onclick = () => {
+                mediaRecorder.stop()
+                console.log(mediaRecorder.state)
+                console.log("recorder stopped")
+                record.style.background = ""
+                record.style.color = ""
+            }
+            
+            mediaRecorder.onstop = e => {
+                console.log("data available after MediaRecorder.stop() called.")
+
+                const blob = new Blob(chunks, {
+                    'type': 'audio/ogg codecs=opus'
+                })
+                chunks = []
+                const audioURL = URL.createObjectURL(blob)
+                console.log("recorder stopped")
+                
+                			const fileName = 'Audio-user.wav';
+			let formData = new FormData();
+			formData.append('file', blob, fileName);
+			
+			$.ajax({
+				type : 'post',
+				url : '../../upload',
+				cache : false,
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(data) {
+					alert('Uploaded !!');
+				}	
+                
+            });
+            }
+
+            mediaRecorder.ondataavailable = e => {
+                chunks.push(e.data)
+            }
+        })
+        .catch(err => {
+            console.log('The following error occurred: ' + err)
+        })
+    
+    
+    
+}           
+</script>
+
 </html>

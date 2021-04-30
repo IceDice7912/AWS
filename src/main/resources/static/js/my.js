@@ -169,13 +169,13 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	});
 	
 	
-	$("#sayBtn").click( function () { // 챗봇-음성 대화
+	$("#saySubmitBtn").click( function () { // 챗봇-음성 대화
 	    var chat;
-	    alert("음성으로 챗봇에게 할 말을 녹음합니다. (제한시간 4초)");
 	    	
 	    	$.post("../../stt.jes", {
 	    		chat: chat
 	    	}, function(data) {
+	    		alert("js가 받은 데이터 : " + data);
 	    		chat = data;
 
 	            $('say').empty();

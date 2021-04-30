@@ -30,11 +30,8 @@ public class UploadController {
 //			      }
 //			 }
 			 		
-			 		System.out.println("사진 생성 위치 : " + FileSystemView.getFileSystemView().getHomeDirectory().toString());
-			 		file.transferTo(new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+file.getOriginalFilename()));
-			 		
-//서버용(의미없었다 그냥 뻘짓이였다.)	 file.transferTo(new File("/home/ubuntu/4team/git_registry/AWS/shotting-fch/"+file.getOriginalFilename()));			
-			
+			 		System.out.println("파일 생성 위치 : " + FileSystemView.getFileSystemView().getHomeDirectory().toString());
+			 		file.transferTo(new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+file.getOriginalFilename()));		
 		
 			return "upload ok!!!";
 		} catch (IllegalStateException e) {

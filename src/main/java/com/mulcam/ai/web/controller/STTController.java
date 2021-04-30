@@ -9,6 +9,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
+import javax.sound.sampled.Line.Info;
 import javax.sound.sampled.TargetDataLine;
 import javax.swing.filechooser.FileSystemView;
 
@@ -27,42 +28,40 @@ public class STTController {
 	@ResponseBody	
 	public static String main(String[] args) {
 		String response="";  
-        
+		
 		try {
-			AudioFormat format=new AudioFormat(16000,8,2,true,true);
-			DataLine.Info info=new DataLine.Info(TargetDataLine.class, format);
-			if(!AudioSystem.isLineSupported(info)) {
-				System.out.println("Line is not supported");
-			}
-			
-			final TargetDataLine targetDataLine=(TargetDataLine)AudioSystem.getLine(info);
-	        targetDataLine.close();
-	        targetDataLine.flush(); 
-			targetDataLine.open();
-			System.out.println("할 말 있으면 해보세요. (제한시간 4초)");
-			targetDataLine.start();
-			Thread stopper=new Thread(new Runnable() {
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-//		    		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
-//		    		newdir.mkdir();
-					
-					AudioInputStream audioStream=new AudioInputStream(targetDataLine);
-					File wavFile=new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-user.wav");
-					try {
-						AudioSystem.write(audioStream,  AudioFileFormat.Type.WAVE, wavFile);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			});
-			stopper.start();
-			Thread.sleep(4000);
-			targetDataLine.stop();
-            targetDataLine.close();
-            targetDataLine.flush();    
+
+//			AudioFormat format=new AudioFormat(16000,8,2,true,true);
+//			DataLine.Info info=new DataLine.Info(TargetDataLine.class, format);
+//			if(!AudioSystem.isLineSupported(info)) {
+//				System.out.println("Line is not supported");
+//			}
+//			
+//			final TargetDataLine targetDataLine=(TargetDataLine)AudioSystem.getLine(info);
+//	        targetDataLine.close();
+//	        targetDataLine.flush(); 
+//			targetDataLine.open();
+//			System.out.println("할 말 있으면 해보세요. (제한시간 4초)");
+//			targetDataLine.start();
+//			Thread stopper=new Thread(new Runnable() {
+//				@Override
+//				public void run() {
+//					
+//					AudioInputStream audioStream=new AudioInputStream(targetDataLine);
+//					File wavFile=new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-user.wav");
+//					try {
+//						AudioSystem.write(audioStream,  AudioFileFormat.Type.WAVE, wavFile);
+//					} catch (IOException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			});
+//			stopper.start();
+//			Thread.sleep(4000);
+//			targetDataLine.stop();
+//            targetDataLine.close();
+//            targetDataLine.flush();    
 			
 			
 			////////////////////////////
