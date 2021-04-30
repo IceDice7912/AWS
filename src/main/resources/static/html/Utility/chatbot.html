@@ -6,7 +6,29 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="../../js/my.js"></script>
-
+<script>
+$("#sayBtn").click(function(){
+    var reader = new FileReader();
+    reader.onload = function(event){
+        var fd = new FormData();
+        var mp3Name = encodeURIComponent('audio_recording_' + new Date().getTime() + '.mp3');
+        console.log("mp3name = " + mp3Name);
+        fd.append('fname', mp3Name);
+        fd.append('data', event.target.result);
+        $.ajax({
+            type: 'POST',
+            url: 'upload.php',
+            data: fd,
+            processData: false,
+            contentType: false
+        }).done(function(data) {
+            //console.log(data);
+            log.innerHTML += "\n" + data;
+        });
+    };      
+    reader.readAsDataURL(mp3Data);
+}
+</script>
 </head>
 <body>
 챗봇 대화 확인 중.......!!-----------------<say>[할 말 있으면 4초안에 말하시오.]</say><br>

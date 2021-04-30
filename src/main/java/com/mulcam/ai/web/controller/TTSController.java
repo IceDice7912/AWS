@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.filechooser.FileSystemView;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,9 +54,9 @@ public class TTSController {
                 int read = 0;
                 byte[] bytes = new byte[1024];
                 // 랜덤한 이름으로 mp3 파일 생성 x -> 오디오 챗봇 쩜 엠피쓰리
-	    		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
-	    		newdir.mkdir();                
-                f = new File("C:/Users/Public/Pictures/Shotting-face/Audio-chatbot.wav");
+//	    		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
+//	    		newdir.mkdir();                
+                f = new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-chatbot.wav");
                 f.createNewFile();
                 OutputStream outputStream = new FileOutputStream(f);
                 

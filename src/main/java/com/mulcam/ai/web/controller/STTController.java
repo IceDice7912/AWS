@@ -10,6 +10,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.TargetDataLine;
+import javax.swing.filechooser.FileSystemView;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -44,11 +45,11 @@ public class STTController {
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-		    		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
-		    		newdir.mkdir();
+//		    		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
+//		    		newdir.mkdir();
 					
 					AudioInputStream audioStream=new AudioInputStream(targetDataLine);
-					File wavFile=new File("C:/Users/Public/Pictures/Shotting-face/Audio-user.wav");
+					File wavFile=new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-user.wav");
 					try {
 						AudioSystem.write(audioStream,  AudioFileFormat.Type.WAVE, wavFile);
 					} catch (IOException e) {
@@ -71,7 +72,7 @@ public class STTController {
 			String clientId ="cwbj4zqzi3";
 			String clientSecret = "MWpEyxSE9MsMbEARKuCxEt8E2naInJwjpbm5zaR9";
 	        try {       	
-	            String imgFile = "C:/Users/Public/Pictures/Shotting-face/Audio-user.wav";
+	            String imgFile = FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-user.wav";
 	            File voiceFile = new File(imgFile);
 
 	            String language = "Kor";        // 언어 코드 ( Kor, Jpn, Eng, Chn )

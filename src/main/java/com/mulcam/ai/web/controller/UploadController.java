@@ -3,6 +3,8 @@ package com.mulcam.ai.web.controller;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.filechooser.FileSystemView;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,20 +18,22 @@ public class UploadController {
 		
 		try {
 			
-			 File dir = new File("/shotting-fch/");
-			 if(!dir.exists()) {
-			      //Creating the directory
-			      boolean bool = dir.mkdir();
-			      if(bool){
-			         System.out.println("Directory created successfully");
-			         
-			      }else{
-			         System.out.println("Sorry couldn’t create specified directory");
-			      }
-			 }
-			 
-//로컬용		 file.transferTo(new File("D:/shotting-fch/"+file.getOriginalFilename()));
-			 file.transferTo(new File("/home/ubuntu/4team/git_registry/AWS/shotting-fch/"+file.getOriginalFilename()));			
+//			 File dir = new File("../shotting-fch/");
+//			 if(!dir.exists()) {
+//			      //Creating the directory
+//			      boolean bool = dir.mkdir();
+//			      if(bool){
+//			         System.out.println("Directory created successfully");
+//			         
+//			      }else{
+//			         System.out.println("Sorry couldn’t create specified directory");
+//			      }
+//			 }
+			 		
+			 		System.out.println("사진 생성 위치 : " + FileSystemView.getFileSystemView().getHomeDirectory().toString());
+			 		file.transferTo(new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+file.getOriginalFilename()));
+			 		
+//서버용(의미없었다 그냥 뻘짓이였다.)	 file.transferTo(new File("/home/ubuntu/4team/git_registry/AWS/shotting-fch/"+file.getOriginalFilename()));			
 			
 		
 			return "upload ok!!!";
