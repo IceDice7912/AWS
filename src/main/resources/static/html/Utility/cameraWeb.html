@@ -16,6 +16,7 @@ var localstream;
 
 	$(document).ready(function(){
 		$("#onBtn").click(function(){
+			alert("카메라 on버튼 눌렀다.");
 			navigator.getUserMedia = navigator.getUserMedia
 			|| navigator.webkitGetUserMedia
 			|| navigator.mozGetUserMedia;
