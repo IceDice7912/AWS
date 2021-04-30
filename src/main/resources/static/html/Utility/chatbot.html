@@ -6,28 +6,44 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="../../js/my.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
-$("#sayBtn").click(function(){
-    var reader = new FileReader();
-    reader.onload = function(event){
-        var fd = new FormData();
-        var mp3Name = encodeURIComponent('audio_recording_' + new Date().getTime() + '.mp3');
-        console.log("mp3name = " + mp3Name);
-        fd.append('fname', mp3Name);
-        fd.append('data', event.target.result);
-        $.ajax({
-            type: 'POST',
-            url: 'upload.php',
-            data: fd,
-            processData: false,
-            contentType: false
-        }).done(function(data) {
-            //console.log(data);
-            log.innerHTML += "\n" + data;
-        });
-    };      
-    reader.readAsDataURL(mp3Data);
-}
+var localstream;
+
+	$(document).ready(function(){
+		$("#sayBtn").click(function(){
+			navigator.getUserMedia = navigator.getUserMedia
+			|| navigator.webkitGetUserMedia
+			|| navigator.mozGetUserMedia;
+			
+			if(navigator.getUserMedia){
+				navigator.getUserMedia(
+					{audio:true, video:false},
+					function(stream){
+						//카메라 접근 성공					
+						
+						video=document.querySelector('video');
+						video.srcObject=stream;
+						localstream=stream;
+						
+						video.onloadedmetadata=function(e){
+							video.play();
+						}
+					},
+					function(){
+						//카메라 작동 에러
+						alert("fail");
+					}
+				);
+				
+			}
+			
+		}); //카메라 켜기 버튼 처리
+		
+		
+	});//end ready
 </script>
 </head>
 <body>
