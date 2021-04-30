@@ -13,13 +13,25 @@ public class UploadController {
 	
 	@PostMapping("upload")
 	public String upload(@RequestParam("file") MultipartFile file) {
-		System.out.println(file);
-		
-		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
-		newdir.mkdir();
 		
 		try {
-			file.transferTo(new File("C:/Users/Public/Pictures/Shotting-face/"+file.getOriginalFilename()));
+			
+			 File dir = new File("/shotting-fch/");
+			 if(!dir.exists()) {
+			      //Creating the directory
+			      boolean bool = dir.mkdir();
+			      if(bool){
+			         System.out.println("Directory created successfully");
+			         
+			      }else{
+			         System.out.println("Sorry couldn’t create specified directory");
+			      }
+			 }
+			 
+			 file.transferTo(new File("C:/shotting-fch/"+file.getOriginalFilename()));
+			
+			
+		
 			return "upload ok!!!";
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block

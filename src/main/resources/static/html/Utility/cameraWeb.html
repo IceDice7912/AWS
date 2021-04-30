@@ -23,7 +23,7 @@ var localstream;
 			
 			if(navigator.getUserMedia){
 				navigator.getUserMedia(
-					{audio:true, video:true},
+					{audio:false, video:true},
 					function(stream){
 						//카메라 접근 성공
 						alert("ok");
