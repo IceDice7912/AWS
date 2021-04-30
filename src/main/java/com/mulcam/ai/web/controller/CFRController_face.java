@@ -33,7 +33,7 @@ public class CFRController_face {
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = "/shotting-fch/face.jpg";
+            String imgFile = "/face.jpg";
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"; // 얼굴 감지
             URL url = new URL(apiURL);

@@ -28,8 +28,8 @@ public class UploadController {
 			      }
 			 }
 			 
-			 file.transferTo(new File("C:/shotting-fch/"+file.getOriginalFilename()));
-			
+//로컬용		 file.transferTo(new File("D:/shotting-fch/"+file.getOriginalFilename()));
+			 file.transferTo(new File("/home/ubuntu/4team/git_registry/AWS/shotting-fch/"+file.getOriginalFilename()));			
 			
 		
 			return "upload ok!!!";
