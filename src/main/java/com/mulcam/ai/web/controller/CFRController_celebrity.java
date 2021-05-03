@@ -31,7 +31,7 @@ public class CFRController_celebrity {
         
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"face.jpg";
+            String imgFile = FileSystemView.getFileSystemView().getHomeDirectory().toString()+"/shotting-fv/"+"\\"+"face.jpg";
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/celebrity"; // 유명인 얼굴 인식
             URL url = new URL(apiURL);

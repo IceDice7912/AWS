@@ -11,9 +11,8 @@
 <script type="text/javascript" src="../../js/my.js"></script>
 </head>
 <body>
-<br>
-챗봇 대화 확인 중.......!!-----------------<say>[할 말 있으면 말하시오.]</say><br>
-<input type="text" id="chat" placeholder="채팅을 입력하세요"><button type="button" id="chatBtn" value="chatBtn">Chat</button><button type="button" id="sayBtn" value="sayBtn">음성으로 말하기</button><br>
+<say>[할 말 있으면 녹음버튼 누르고 말하고, 다 했으면 종료 버튼을 누르시오.]</say><br>
+<input type="text" id="chat" placeholder="채팅을 입력하세요"><br><button type="button" id="chatBtn" value="chatBtn">Chat</button><br><button type="button" id="sayBtn" value="sayBtn">음성으로 말하기</button><br>
 <button type="button" id="saySubmitBtn" value="saySubmitBtn">녹음 종료, 대화 내보내기</button><br>
 Shotting : <p></p> <br>
 
@@ -22,7 +21,6 @@ Shotting : <p></p> <br>
 <script>
         const record = document.getElementById("sayBtn")
         const stop = document.getElementById("saySubmitBtn")
-        const soundClips = document.getElementById("sound-clips")
 const audioCtx = new(window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
 const analyser = audioCtx.createAnalyser()
 
@@ -72,7 +70,7 @@ if (navigator.mediaDevices) {
                 const audioURL = URL.createObjectURL(blob)
                 console.log("recorder stopped")
                 
-                			const fileName = 'Audio-user.wav';
+            const fileName = 'chatbot.wav';
 			let formData = new FormData();
 			formData.append('file', blob, fileName);
 			
@@ -98,7 +96,10 @@ if (navigator.mediaDevices) {
             console.log('The following error occurred: ' + err)
         })
     
-    
+//    var os=require('os');
+//    var homedir=os.homedir();
+//	var audio = new Audio(homedir+"/shotting/chatbot.wav");
+//	audio.play();
     
 }           
 </script>

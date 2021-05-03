@@ -71,7 +71,7 @@ public class STTController {
 			String clientId ="cwbj4zqzi3";
 			String clientSecret = "MWpEyxSE9MsMbEARKuCxEt8E2naInJwjpbm5zaR9";
 	        try {       	
-	            String imgFile = FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-user.wav";
+	            String imgFile = FileSystemView.getFileSystemView().getHomeDirectory().toString()+"/shotting-fv/"+"\\"+"chatbot.wav";
 	            File voiceFile = new File(imgFile);
 
 	            String language = "Kor";        // 언어 코드 ( Kor, Jpn, Eng, Chn )

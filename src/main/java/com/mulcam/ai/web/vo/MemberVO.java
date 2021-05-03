@@ -19,21 +19,13 @@ public class MemberVO {
 		setId(id);
 		setPw(pw);
 	}
-	
-	public MemberVO(String id, String pw, String name) throws CafeException {
-		
-		this(id,pw);
-		setName(name);
-	}
 
 	public MemberVO() throws CafeException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address,
-			String favorite, String job) throws CafeException {
-		
+
+	public MemberVO(String name, String id, String pw, String gender, int age, String email, String address, String favorite, String job) throws CafeException {		
 		setName(name);
 		setId(id);
 		setPw(pw);

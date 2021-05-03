@@ -1,9 +1,16 @@
 package com.mulcam.ai.web.controller;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.JspWriter;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.sym.Name;
 import com.mulcam.ai.web.service.MemberService;
 import com.mulcam.ai.web.vo.MemberVO;
+
 
 @Controller
 public class MemberController {
@@ -91,15 +100,6 @@ public class MemberController {
 		String address=request.getParameter("address");
 		String favorite=request.getParameter("favorite");
 		String job=request.getParameter("job");
-		System.out.println(name);
-		System.out.println(id);
-		System.out.println(pw);
-		System.out.println(gender);
-		System.out.println(age);
-		System.out.println(email);	
-		System.out.println(address);
-		System.out.println(favorite);
-		System.out.println(job);	
 
 		try {
 			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
@@ -109,6 +109,44 @@ public class MemberController {
 			e.printStackTrace();
 			return e.getMessage();
 		}
+	}
+	
+	
+	@RequestMapping(value = "memberList.jes", 
+			method=  {RequestMethod.GET,RequestMethod.POST},
+	 		produces = "application/text; charset=utf8")	
+	@ResponseBody
+	public List<MemberVO> memberList(HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
+
+		System.out.println("맴버 리스트를  출력합니다.");
+		
+		try {
+			//Select * from Member 결과를 m 리스트에 담음.
+			List<MemberVO> m= memberService.memberList();
+//			System.out.println(m);
+			List<MemberVO> listMap = m;
+			
+			//리스트에서 정보들 뽑아오기 //굳이 또 다른 리스트에 옮겨 담을 필요는 없었는데 인터넷 참고하다가 어쩌다보니 이렇게 되었다. 그냥 하자.
+			for(int i=0; i<m.size(); i++) {
+				String NAME = ((Map) listMap.get(i)).get("NAME").toString();
+				String ID = ((Map) listMap.get(i)).get("ID").toString();
+				String PW = ((Map) listMap.get(i)).get("PW").toString();
+				String GENDER = ((Map) listMap.get(i)).get("GENDER").toString();
+				String AGE = ((Map) listMap.get(i)).get("AGE").toString();
+				String EMAIL = ((Map) listMap.get(i)).get("EMAIL").toString();
+				String ADDRESS = ((Map) listMap.get(i)).get("ADDRESS").toString();
+				String FAVORITE = ((Map) listMap.get(i)).get("FAVORITE").toString();
+				String JOB = ((Map) listMap.get(i)).get("JOB").toString();
+				
+				System.out.println(i+" "+NAME+" "+ID+" "+PW+" "+GENDER+" "+AGE+" "+EMAIL+" "+ADDRESS+" "+FAVORITE+" "+JOB);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 	
 

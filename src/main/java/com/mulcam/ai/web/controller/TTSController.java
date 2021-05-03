@@ -56,7 +56,7 @@ public class TTSController {
                 // 랜덤한 이름으로 mp3 파일 생성 x -> 오디오 챗봇 쩜 엠피쓰리
 //	    		File newdir = new File("C:/Users/Public/Pictures/Shotting-face");
 //	    		newdir.mkdir();                
-                f = new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+"Audio-chatbot.wav");
+                f = new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"/shotting-fv/"+"\\"+"chatbot.wav");
                 f.createNewFile();
                 OutputStream outputStream = new FileOutputStream(f);
                 
@@ -83,10 +83,10 @@ public class TTSController {
         
         try {
             
-            AudioInputStream stream = AudioSystem.getAudioInputStream(f);
-            Clip clip = AudioSystem.getClip();
-            clip.open(stream);
-            clip.start();
+//            AudioInputStream stream = AudioSystem.getAudioInputStream(f);
+//            Clip clip = AudioSystem.getClip();
+//            clip.open(stream);
+//            clip.start();
             
         } catch(Exception e) {
             

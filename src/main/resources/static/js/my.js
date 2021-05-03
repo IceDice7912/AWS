@@ -156,13 +156,20 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	
 	$("#chatBtn").click( function () { // 챗봇-텍스트 대화
 	    var chat=$("#chat").val();
+
 	    if ((chat.length == 0 || chat == "")) {
 	        alert("뭐라도 입력하시오.");
 	    } else {
 	        $.post("../../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-			    $('p').append(data + "<br>");  
+			    $('p').append(data + "<br>");
+			    chat = data;
+//		    		$.post("../../tts.jes", {
+//		    			chat: chat
+//		    		}, function(data, status) {
+//
+//	    		})
 	        });
 
 	    }
@@ -171,7 +178,9 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	
 	$("#saySubmitBtn").click( function () { // 챗봇-음성 대화
 	    var chat;
-	    	
+	    var root = document.location.origin;
+		var audio = new Audio(root+"/shotting/chatbot.wav");
+		
 	    	$.post("../../stt.jes", {
 	    		chat: chat
 	    	}, function(data) {
@@ -189,7 +198,7 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	    			    	$.post("../../tts.jes", {
 	    			    		chat: chat
 	    			    	}, function(data, status) {
-
+	    			    		audio.play();
 	    			    	})
 	            	},
 	            	);
@@ -242,7 +251,7 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 			            if(gender2=="child")
 			          	  gender2 = "어린이";
 			            $('gender').empty();
-					    $('gender').append(gender2);	            
+					    $('gender').append(gender2);            
 					});
 		});
 

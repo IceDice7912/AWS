@@ -31,7 +31,9 @@ public class UploadController {
 //			 }
 			 		
 			 		System.out.println("파일 생성 위치 : " + FileSystemView.getFileSystemView().getHomeDirectory().toString());
-			 		file.transferTo(new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"\\"+file.getOriginalFilename()));		
+					File dir = new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"/shotting-fv/");
+					dir.mkdir();
+			 		file.transferTo(new File(FileSystemView.getFileSystemView().getHomeDirectory().toString()+"/shotting-fv/"+"\\"+file.getOriginalFilename()));		
 		
 			return "upload ok!!!";
 		} catch (IllegalStateException e) {

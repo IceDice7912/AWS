@@ -18,7 +18,7 @@
 		]]>
 	</insert>
 	
-	<select id="viewM" resultType="String" parameterType="memberVO">
+	<select id="memberList" parameterType="memberVO" resultType="hashMap">
 		<![CDATA[
 			select * from member
 		]]>
