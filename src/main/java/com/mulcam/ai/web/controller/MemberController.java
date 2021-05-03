@@ -2,6 +2,7 @@ package com.mulcam.ai.web.controller;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,16 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
 
+import org.apache.catalina.startup.SetAllPropertiesRule;
+import org.apache.ibatis.javassist.compiler.MemberResolver;
 import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.sym.Name;
 import com.mulcam.ai.web.service.MemberService;
+import com.mulcam.ai.web.vo.BoardVO;
 import com.mulcam.ai.web.vo.MemberVO;
 
 
@@ -116,36 +124,54 @@ public class MemberController {
 			method=  {RequestMethod.GET,RequestMethod.POST},
 	 		produces = "application/text; charset=utf8")	
 	@ResponseBody
-	public List<MemberVO> memberList(HttpServletRequest request,
+	public String memberList(HttpServletRequest request,
 			HttpServletResponse response) throws Exception{
-
-		System.out.println("맴버 리스트를  출력합니다.");
+			
+			List<HashMap<String, Object>> m;
+		
+			List<Object> NAME = new ArrayList<Object>();
+			List<Object> ID = new ArrayList<Object>();
+			List<Object> PW = new ArrayList<Object>();
+			List<Object> GENDER = new ArrayList<Object>();
+			List<Object> AGE = new ArrayList<Object>();
+			List<Object> EMAIL = new ArrayList<Object>();
+			List<Object> ADDRESS = new ArrayList<Object>();
+			List<Object> FAVORITE = new ArrayList<Object>();
+			List<Object> JOB = new ArrayList<Object>();
+			
+			System.out.println("맴버 리스트를  출력합니다.");
 		
 		try {
 			//Select * from Member 결과를 m 리스트에 담음.
-			List<MemberVO> m= memberService.memberList();
+			m= memberService.memberList();
 //			System.out.println(m);
-			List<MemberVO> listMap = m;
 			
-			//리스트에서 정보들 뽑아오기 //굳이 또 다른 리스트에 옮겨 담을 필요는 없었는데 인터넷 참고하다가 어쩌다보니 이렇게 되었다. 그냥 하자.
+			//m 리스트에서 정보들 뽑아와서 그걸 또 각자 리스트에 담기(배열로하면 동적 할당이 안됨) //
 			for(int i=0; i<m.size(); i++) {
-				String NAME = ((Map) listMap.get(i)).get("NAME").toString();
-				String ID = ((Map) listMap.get(i)).get("ID").toString();
-				String PW = ((Map) listMap.get(i)).get("PW").toString();
-				String GENDER = ((Map) listMap.get(i)).get("GENDER").toString();
-				String AGE = ((Map) listMap.get(i)).get("AGE").toString();
-				String EMAIL = ((Map) listMap.get(i)).get("EMAIL").toString();
-				String ADDRESS = ((Map) listMap.get(i)).get("ADDRESS").toString();
-				String FAVORITE = ((Map) listMap.get(i)).get("FAVORITE").toString();
-				String JOB = ((Map) listMap.get(i)).get("JOB").toString();
+				NAME.add(((Map) m.get(i)).get("NAME").toString());
+				ID.add(((Map) m.get(i)).get("ID").toString());
+				PW.add(((Map) m.get(i)).get("PW").toString());
+				GENDER.add(((Map) m.get(i)).get("GENDER").toString());
+				AGE.add(((Map) m.get(i)).get("AGE").toString());
+				EMAIL.add(((Map) m.get(i)).get("EMAIL").toString());
+				ADDRESS.add(((Map) m.get(i)).get("ADDRESS").toString());
+				FAVORITE.add(((Map) m.get(i)).get("FAVORITE").toString());
+				JOB.add(((Map) m.get(i)).get("JOB").toString());
 				
-				System.out.println(i+" "+NAME+" "+ID+" "+PW+" "+GENDER+" "+AGE+" "+EMAIL+" "+ADDRESS+" "+FAVORITE+" "+JOB);
-			}
+				
+			}			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		
+		System.out.println("테스트 - 이름들만 출력");
+		for(int i=0; i<NAME.size(); i++) {
+			System.out.print(NAME.get(i) + "  ");
+		}
+		
+		String NAMES = NAME.toString();
+		return NAMES;	
 		
 	}
 	

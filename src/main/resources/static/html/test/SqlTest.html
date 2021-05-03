@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>SQL 출력 실험창</title>
@@ -7,10 +8,18 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script>
-$.post("../../memberList.jes")
+var name;
+
+$.post("../../memberList.jes", 
+		{
+	
+		}, function(data, status){
+			alert(data+"\n"+status);
+		});
 </script>
 </head>
 <body>
 	나와라 sql.<br>
+<div th:text="${NAME}"></div>
 </body>
 </html>
