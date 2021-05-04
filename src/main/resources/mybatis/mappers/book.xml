@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mulcam.ai.web.dao.BookDAO">
+	
+	<select id="bookList" parameterType="bookVO" resultType="hashMap">
+		<![CDATA[
+			select * from book where
+		]]>
+	</select>
+	
+	<select id="selectbookisbn" resultType="hashMap" parameterType="bookVO">
+		<![CDATA[
+			select * from book where ISBN=#{ISBN}
+		]]>
+	</select>
+	
+</mapper>

@@ -254,6 +254,10 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 					    $('gender').append(gender2);            
 					});
 		});
+	
+	
+	
+	
 
 	
 });

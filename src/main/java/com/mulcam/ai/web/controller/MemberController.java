@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
+import javax.swing.ListModel;
 
 import org.apache.catalina.startup.SetAllPropertiesRule;
 import org.apache.ibatis.javassist.compiler.MemberResolver;
@@ -120,58 +121,60 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value = "memberList.jes", 
-			method=  {RequestMethod.GET,RequestMethod.POST},
-	 		produces = "application/text; charset=utf8")	
-	@ResponseBody
-	public String memberList(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
-			
-			List<HashMap<String, Object>> m;
+	@GetMapping("memberList")
+	public String showMember(Model model) throws Exception{
+
+		System.out.println("맴버 리스트 호출됨");
 		
-			List<Object> NAME = new ArrayList<Object>();
-			List<Object> ID = new ArrayList<Object>();
-			List<Object> PW = new ArrayList<Object>();
-			List<Object> GENDER = new ArrayList<Object>();
-			List<Object> AGE = new ArrayList<Object>();
-			List<Object> EMAIL = new ArrayList<Object>();
-			List<Object> ADDRESS = new ArrayList<Object>();
-			List<Object> FAVORITE = new ArrayList<Object>();
-			List<Object> JOB = new ArrayList<Object>();
-			
-			System.out.println("맴버 리스트를  출력합니다.");
+//			이것들은 js에게 값을 리턴하는 방식의 sql 전달방식. 이러면 그냥 단순 텍스트만 전해지는거라서 안된다.		
+//			List<HashMap<String, Object>> m;
+//		
+//			List<Object> NAME = new ArrayList<Object>();
+//			List<Object> ID = new ArrayList<Object>();
+//			List<Object> PW = new ArrayList<Object>();
+//			List<Object> GENDER = new ArrayList<Object>();
+//			List<Object> AGE = new ArrayList<Object>();
+//			List<Object> EMAIL = new ArrayList<Object>();
+//			List<Object> ADDRESS = new ArrayList<Object>();
+//			List<Object> FAVORITE = new ArrayList<Object>();
+//			List<Object> JOB = new ArrayList<Object>();
+//			
+//			System.out.println("맴버 리스트를  출력합니다.");
+//		
+//		try {
+//			m= memberService.memberList();
+//
+//			for(int i=0; i<m.size(); i++) {
+//				NAME.add(((Map) m.get(i)).get("NAME").toString());
+//				ID.add(((Map) m.get(i)).get("ID").toString());
+//				PW.add(((Map) m.get(i)).get("PW").toString());
+//				GENDER.add(((Map) m.get(i)).get("GENDER").toString());
+//				AGE.add(((Map) m.get(i)).get("AGE").toString());
+//				EMAIL.add(((Map) m.get(i)).get("EMAIL").toString());
+//				ADDRESS.add(((Map) m.get(i)).get("ADDRESS").toString());
+//				FAVORITE.add(((Map) m.get(i)).get("FAVORITE").toString());
+//				JOB.add(((Map) m.get(i)).get("JOB").toString());
+//				
+//				
+//			}			
+//			
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println("테스트 - 이름들만 출력");
+//		for(int i=0; i<NAME.size(); i++) {
+//			System.out.print(NAME.get(i) + "  ");
+//		}
+//		
+//		String NAMES = NAME.toString();
+//		return NAMES;
 		
-		try {
-			//Select * from Member 결과를 m 리스트에 담음.
-			m= memberService.memberList();
-//			System.out.println(m);
-			
-			//m 리스트에서 정보들 뽑아와서 그걸 또 각자 리스트에 담기(배열로하면 동적 할당이 안됨) //
-			for(int i=0; i<m.size(); i++) {
-				NAME.add(((Map) m.get(i)).get("NAME").toString());
-				ID.add(((Map) m.get(i)).get("ID").toString());
-				PW.add(((Map) m.get(i)).get("PW").toString());
-				GENDER.add(((Map) m.get(i)).get("GENDER").toString());
-				AGE.add(((Map) m.get(i)).get("AGE").toString());
-				EMAIL.add(((Map) m.get(i)).get("EMAIL").toString());
-				ADDRESS.add(((Map) m.get(i)).get("ADDRESS").toString());
-				FAVORITE.add(((Map) m.get(i)).get("FAVORITE").toString());
-				JOB.add(((Map) m.get(i)).get("JOB").toString());
-				
-				
-			}			
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("테스트 - 이름들만 출력");
-		for(int i=0; i<NAME.size(); i++) {
-			System.out.print(NAME.get(i) + "  ");
-		}
-		
-		String NAMES = NAME.toString();
-		return NAMES;	
+		List<MemberVO> memberList = new ArrayList<>();
+		memberList = memberService.memberList(); 
+		model.addAttribute("memberList", memberList);
+		System.out.println("리턴하려는 memberList : " + memberList.toString());
+		return "memberList"; 
 		
 	}
 	

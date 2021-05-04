@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SQL 출력 실험창</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+</head>
+<body>
+	나와라 sql.<br>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th style="text=align: center;">이름</th>
+				<th style="text=align: center;">아이디</th>
+				<th style="text=align: center;">비밀번호</th>
+				<th style="text=align: center;">성별</th>
+				<th style="text=align: center;">나이</th>
+				<th style="text=align: center;">이메일</th>
+				<th style="text=align: center;">주소</th>
+				<th style="text=align: center;">취향</th>
+				<th style="text=align: center;">직업</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="data : ${memberList}">
+				<td><span th:text="${data.NAME}">이름</span></td>
+				<td><span th:text="${data.ID}">아이디</span></td>
+				<td><span th:text="${data.PW}">비밀번호</span></td>
+				<td><span th:text="${data.GENDER}">성별</span></td>
+				<td><span th:text="${data.AGE}">나이</span></td>
+				<td><span th:text="${data.EMAIL}">이메일</span></td>
+				<td><span th:text="${data.ADDRESS}">주소</span></td>
+				<td><span th:text="${data.FAVORITE}">취향</span></td>
+				<td><span th:text="${data.JOB}">직업</span></td>			
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

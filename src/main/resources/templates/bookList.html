@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SQL 출력 실험창-이번에는 책</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+</head>
+<body>
+	나와라 책 정보.<br>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th style="text=align: center;">책 제목</th>
+				<th style="text=align: center;">작가</th>
+				<th style="text=align: center;">가격</th>
+				<th style="text=align: center;">출판사</th>
+				<th style="text=align: center;">ISBN</th>
+				<th style="text=align: center;">카테고리</th>
+				<th style="text=align: center;">이미지</th>
+				<th style="text=align: center;">설명</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="data : ${bookList}">
+				<td><span th:text="${data.TITLE}">책 제목</span></td>
+				<td><span th:text="${data.AUTHOR}">작가</span></td>
+				<td><span th:text="${data.PRICE}">가격</span></td>
+				<td><span th:text="${data.PUBLISHER}">출판사</span></td>
+				<td><span th:text="${data.ISBN}">ISBN</span></td>
+				<td><span th:text="${data.CATEGORY}">카테고리</span></td>
+				<td><img th:src=${data.IMGURL}></span></td>
+				<td><span th:text="${data.DETAIL}">설명</span></td>		
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
