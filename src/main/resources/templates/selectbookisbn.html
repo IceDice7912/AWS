@@ -25,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="data : ${bookList}">
+			<tr th:each="data : ${selectbookisbn}">
 				<td><span th:text="${data.TITLE}">책 제목</span></td>
 				<td><span th:text="${data.AUTHOR}">작가</span></td>
 				<td><span th:text="${data.PRICE}">가격</span></td>
