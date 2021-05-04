@@ -11,7 +11,7 @@
 <body>
 	나와라 책 정보.<br>
 <div>
-	<table border="1">
+	<table>
 		<thead>
 			<tr>
 				<th style="text=align: center;">책 제목</th>
@@ -32,7 +32,7 @@
 				<td><span th:text="${data.PUBLISHER}">출판사</span></td>
 				<td><span th:text="${data.ISBN}">ISBN</span></td>
 				<td><span th:text="${data.CATEGORY}">카테고리</span></td>
-				<td><img th:src=${data.IMGURL} height=150px weight=100px></span></td>
+				<td><img th:src=${data.IMGURL}></span></td>
 				<td><span th:text="${data.DETAIL}">설명</span></td>		
 			</tr>
 		</tbody>

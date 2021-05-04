@@ -21,11 +21,6 @@ public class BookVO {
 	
 	public BookVO() throws CafeException {
 		super();
-	}
-	
-	public BookVO(int Isbn) throws CafeException {
-		super();
-		setIsbn(Isbn);
 	}	
 	
 	
