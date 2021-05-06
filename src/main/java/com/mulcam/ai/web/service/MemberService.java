@@ -1,9 +1,8 @@
 package com.mulcam.ai.web.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.mulcam.ai.util.CafeException;
 import com.mulcam.ai.web.dao.MemberDAO;
 import com.mulcam.ai.web.vo.MemberVO;
@@ -14,15 +13,14 @@ public class MemberService {
 	MemberDAO memberDAO;
 	
 	public void memberInsert(MemberVO m) throws CafeException{
+		System.out.println(memberDAO);
 		memberDAO.memberInsert(m);
 	}
 
 	public String login(MemberVO m) throws CafeException{
 		return memberDAO.login(m);		
 	}
-
-	public List<MemberVO> memberList() {
-		return memberDAO.memberList();
-	}
+	
+	
 
 }

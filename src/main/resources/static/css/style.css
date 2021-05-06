@@ -5,6 +5,8 @@
 /* font-family: 'Do Hyeon', sans-serif; */
 /* font-family: "Noto Sans KR", sans-serif; 100,300,400,500,700,900 */
 
+/*========================구역설정==========================*/
+
 /* layout */
 #wrap {width: 100%;}
 #header {background-color: #fff;}
@@ -14,18 +16,25 @@
 #footer {}
 
 /* container */
-.container {width: 1200px; margin: 0 auto; position: relative; /* background-color: rgba(0,0,0,0.4); */}
-.product_container {width: 1200px; margin: 0 auto; position: relative;  background-color: rgba(0,0,0,0.4); }
+.container {width: 1200px; margin: 0 auto; position: relative;  /* background-color: rgba(0,0,0,0.4); */}
 
 /* cont layout */
-#cont1 {width: 100%; height: 940px; background-color: #f5f6f8; }
-#cont2 {width: 100%; height: 100%; background-color: blue; background: url(../image/indexPage02.png) 0 14px; border-bottom: 1px solid #e6e6e6;}
-#cont3 {width: 100%; height: 100%; background-color: yellow; border-bottom: 1px solid #e6e6e6;}
-#cont4 {width: 100%; height: 940px; background-color: #fff;border-bottom: 1px solid #e6e6e6; }
-#cont5 {width: 100%; height: 940px; background-color: orange;}
-#cont6 {width: 100%; height: 100%; background-color: green;}
+#cont{display:float;}
+#cont1 {width: 100%; height: 50px; background-color: #fff; }
+#cont2 {display:flex; width: 1200px; height: 80%; margin:10px auto;/*background: url(../../image/indexPage02.png) 0 14px;*/ border-bottom: 1px solid #e6e6e6;}
+#cont3 {display:flex; width:1200px; height: 20%; margin:10px auto; border-bottom: 1px solid #e6e6e6;}
+#cont4 {width:1200px; height: 20%; margin:10px auto; border-bottom: 1px solid #e6e6e6;}
 
-/* footer lyaou */
+#left_section{width:14%; height: 100%; float: left;  background-color: #fff; border-right:1px solid #404b57; }
+#right_section{width:86%; height: 100%; float:right;  background-color: #fff; border-right:3px solid  #e6e6e6;}
+#middle_left_section{width:25%; height: 100%; float: left;  background-color: #fff; border-right:1px solid #e6e6e6; }
+#middle_right_section{width:75%; height: 100%; float:right;  background-color: #fff; border-right:3px solid  #e6e6e6;}
+#bottom_section{width:100%; height:50%; float:bottom; background-color: #fff; border-right:3px solid #e6e6e6; border-left:1px solid #e6e6e6;}
+
+/*========================//구역설정==========================*/
+
+
+/* footer layout */
 #footer_notice {width: 100%; height: 71px; line-height: 71px; background-color: #fff; border-bottom: 1px solid #e6e6e6;}
 #footer_info {width: 100%; height: 242px; background-color: #f7f8f9;}
 
@@ -88,7 +97,7 @@
 .main_add_swiper {padding:50px 0 0;}
 
 /* card */
-#card {overflow: hidden; position:relative; padding-top: 260px; top: -300px; }
+#card {overflow: hidden; padding-top: 260px; ; }
 #card .card_img {float: left; width: 50%; height: 285px; background-color: #fff;}
 #card .card_desc {float: left; width: 50%; height: 285px; background: #db3360 url(../img/card_desc05.png) no-repeat;}
 

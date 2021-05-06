@@ -15,11 +15,13 @@ import javax.swing.ListModel;
 import org.apache.catalina.startup.SetAllPropertiesRule;
 import org.apache.ibatis.javassist.compiler.MemberResolver;
 import org.apache.jasper.tagplugins.jstl.core.Out;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,18 +56,60 @@ public class BookController {
 	}
 	
 	
-	@GetMapping("selectbookisbn")
-	public String Bookisbn(Model model) throws Exception{
+	
+	@PostMapping("selectbookisbn")
+	@ResponseBody
+	public String Bookisbn() throws Exception{
 
-		System.out.println("선택학 isbn에 대한 책 정보 출력");
+		List<BookVO> list=bookService.selectbookisbn();
+		JSONArray array=new JSONArray();
+		for(BookVO vo:list) {
+			JSONObject o=new JSONObject();
+			o.put("title", vo.getTitle());
+			o.put("author",vo.getAuthor());
+			o.put("price", vo.getPrice());
+			o.put("publisher", vo.getPublisher());
+			o.put("isbn", vo.getIsbn());
+			o.put("category", vo.getCategory());
+			o.put("imgurl", vo.getImgurl());
+			o.put("detail", vo.getDetail());
+			array.add(o);
+			System.out.println("선택학 isbn에 대한 책 정보 출력" + o);	
+		}
 		
-		List<BookVO> selectbookisbn = new ArrayList<>();
-		selectbookisbn = bookService.selectbookisbn();
-		model.addAttribute("selectbookisbn", selectbookisbn);
-		System.out.println("선택한 isbn에 대한 book 정보 : " + selectbookisbn.toString());
-		return "selectbookisbn"; 
+		return array.toJSONString(); 
 		
 	}
+	
+	
+	
+	@PostMapping("topicBook")
+	@ResponseBody
+	public String topicBook() throws Exception{
+
+		System.out.println("topicBook search...");		
+		
+		List<BookVO> list=bookService.topicBook();
+		JSONArray array=new JSONArray();
+		for(BookVO vo:list) {
+			JSONObject o=new JSONObject();
+			o.put("title", vo.getTitle());
+			o.put("author",vo.getAuthor());
+			o.put("price", vo.getPrice());
+			o.put("publisher", vo.getPublisher());
+			o.put("isbn", vo.getIsbn());
+			o.put("category", vo.getCategory());
+			o.put("imgurl", vo.getImgurl());
+			o.put("detail", vo.getDetail());
+			array.add(o);
+		}
+
+		
+		
+		return array.toJSONString(); 
+		
+	}
+
 	
 
 

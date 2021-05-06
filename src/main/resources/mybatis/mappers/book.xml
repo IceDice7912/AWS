@@ -11,9 +11,15 @@
 		]]>
 	</select>
 	
-	<select id="selectbookisbn" resultType="hashMap" parameterType="bookVO">
+	<select id="selectbookisbn"  resultType="bookVO">
 		<![CDATA[
-			select * from book where ISBN='9788937437564'
+			select * from book where ISBN=#{ISBN}
+		]]>
+	</select>
+	
+	<select id="topicBook"  resultType="bookVO">
+		<![CDATA[
+			select * from book inner join topicbook on book.isbn=topicbook.isbn
 		]]>
 	</select>
 	

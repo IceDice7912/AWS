@@ -22,4 +22,8 @@ public class BookService {
 		return bookDAO.selectbookisbn();
 	}
 
+	public List<BookVO> topicBook() {
+		return bookDAO.topicBook();
+	}
+
 }

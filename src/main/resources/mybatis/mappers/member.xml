@@ -14,11 +14,11 @@
 
 	<insert id="memberInsert" parameterType="memberVO" >
 		<![CDATA[
-			insert into member values(#{name},#{id},#{pw},#{gender},#{age},#{email},#{address},#{favorite},#{job})
+			insert into member values(#{name},#{id},#{pw},#{gender},#{favorite})
 		]]>
 	</insert>
 	
-	<select id="memberList" parameterType="memberVO" resultType="hashMap">
+	<select id="viewM" resultType="String" parameterType="memberVO">
 		<![CDATA[
 			select * from member
 		]]>

@@ -15,4 +15,6 @@ public interface BookDAO {
 
 	public List<BookVO> selectbookisbn();
 
+	public List<BookVO> topicBook();
+
 }

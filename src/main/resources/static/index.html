@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- ================ haed - css, js, jquery, favicon, font ================ -->
+<head>
+
+	<meta charset="UTF-8">
+	 <!-- '반응형 웹'-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- 익스플로러 최신버전으로 랜더링 -->
+	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	 	 
+	 <!-- favicon -->
+	 <link rel="apple-touch-icon" sizes="57x57" href="image/favicon/apple-icon-57x57.png">
+	 <link rel="apple-touch-icon" sizes="60x60" href="image/favicon/apple-icon-60x60.png">
+	 <link rel="apple-touch-icon" sizes="72x72" href="image/favicon/apple-icon-72x72.png">
+	 <link rel="apple-touch-icon" sizes="76x76" href="image/favicon/apple-icon-76x76.png">
+	 <link rel="apple-touch-icon" sizes="114x114" href="image/favicon/apple-icon-114x114.png">
+	 <link rel="apple-touch-icon" sizes="120x120" href="image/favicon/apple-icon-120x120.png">
+	 <link rel="apple-touch-icon" sizes="144x144" href="image/favicon/apple-icon-144x144.png">
+	 <link rel="apple-touch-icon" sizes="152x152" href="image/favicon/apple-icon-152x152.png">
+	 <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+	 <link rel="icon" type="image/png" sizes="192x192"  href="image/favicon/android-icon-192x192.png">
+	 <link rel="icon" type="image/png" sizes="32x32" href="image/favicon/favicon-32x32.png">
+	 <link rel="icon" type="image/png" sizes="96x96" href="image/favicon/favicon-96x96.png">
+	 <link rel="icon" type="image/png" sizes="16x16" href="image/favicon/favicon-16x16.png">
+	 <link rel="manifest" href="image/favicon/manifest.json">
+	 <meta name="msapplication-TileColor" content="#ffffff">
+	 <meta name="msapplication-TileImage" content="image/favicon/ms-icon-144x144.png">
+	 <meta name="theme-color" content="#ffffff">
+	 	 
+	<title>온라인 쇼핑몰 - 쇼팅 초특급 간소화</title>
+	
+<!-- ================= #1 External css/js ================= -->
+  	<!-- JQUERY 순서 : JQUERY다음 CDN-->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	
+	<!-- bxslider -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+  	
+	<!-- Swiper CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+	
+	<!-- Swiper js -->
+    <script src="../package/swiper-bundle.min.js"></script>	
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	
+<!-- ================= #2 Internal css/js ================= -->	
+  	<!-- 쇼핑몰 CSS -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle.css">
+	<link rel="stylesheet" href="../../css/ProductList/ListPageBanner.css">
+	
+	<link rel="stylesheet" href="../../css/bxslider.css">
+
+	<link rel="stylesheet" href="../../css/font.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+
+  	<!-- #2.1 쇼핑몰 js -->
+  	<!-- swiper js --> 
+  	<link rel="stylesheet" href="../../js/ProductList/ListPageBanner.js">
+	<!-- bxslide js --> 
+	<script src="../../js/bxslide.js"></script>
+
+	<script src="../../js/ie-checker.js"></script>
+	
+	<!-- #2.2 기능 js -->
+  	<script type="text/javascript" src="../../js/my.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    	
+  	<script src="js/card_banner.js"></script>
+
+</head>
+<!-- ================= 쇼핑몰 body 시작 ================= -->
+<body>
+<!-- ================= 전체포장(wrap) ================= -->
+	<div id="wrap">
+<!-- ================= header-top  ================= -->
+		<div id="header-top">
+			   <div class="hTopIn"> 
+			     <div class="adver">광고등등..여기여기</div> 
+			     <input type="button" value="▼" class="down" title="메뉴"> 
+			   </div>				
+				<script>
+					$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
+					$(".adver").slideToggle(300); //토글작동!!
+					return false; 
+					});
+				</script>
+		</div>
+	<!-- ================= 첫 번째 구역(header)  ================= -->
+		<div id="header">
+			<div class="container">
+				<div class="header">
+					<ul class="list1">
+					</ul>
+					<ul class="list2">
+					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+						<li><a href="#" onclick="window.open('../../html/test/CookieTest2.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">테스트 - 물건 장바구니 담기</a></li>
+						<li><a href="#" onclick="window.open('../../html/test/CookieTest.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">테스트 - 장바구니</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!--  ================= //header  ================= -->
+		<div id="header_sub">
+				<div id="logoArea">
+					<div class="logo">
+				  	 	<img src="../../img/Logo/Logo01.png" alt="로고">
+					</div>
+				</div>
+				<div id="searchBarArea">
+					<div id="searchWrap">
+						<div class=searchBar>
+							<form action="search.php" method="get" class="search-form" role="search">
+								<input type="text" value="" placeholder="찾고싶은 도서를 검색해주세요">
+								<input type="submit" value="검색" alt="검색" class="fas fa-search">
+								<i class="fas fa-search"></i>
+							</form>
+						</div>
+					</div>			
+				</div>
+		</div>
+				
+<!-- ================= banner ================= -->
+	<div id="banner">
+		 <div class="container" >
+		  <!-- Swiper -->
+		  <div class="swiper-container">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner01.png" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner02.png" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner03.png" class="swiper-lazy" alt=""></div>
+		      <div class="swiper-slide"><img src="../../img/Banner/First_banner04.png" class="swiper-lazy" alt=""></div>
+<!--		  <div class="swiper-slide">Slide 5</div>  -->
+		    </div>
+		  <!-- Add Pagination (부가요소) -->
+		    <div class="swiper-pagination"></div>
+		    <div class="swiper-pagination"></div>
+    		<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>
+    		<div class="swiper-scollbar"></div>
+		 </div>
+<!-- ================= Swiper js ================= -->
+		  <script src="../package/swiper-bundle.min.js"></script>
+	
+<!-- ================= Initialize Swiper 오류날수있으니 여기에 ================= -->
+		  <script>var swiper = new Swiper('.swiper-container', {pagination: {el: '.swiper-pagination',},});</script>		   
+<!-- ================= 로그인창 ================= -->  		 
+  		 <div class="ban_right">
+			<div class="br_tit">
+				<h3>북나잇<br> 책과 나를 IT다</h3>
+				<p>맞춤형 AI를 이용하여 나에게 맞는 도서를 추천받으세요<br><strong>지금 가입하면 쿠폰 10% 증정</strong></p>
+				<div class="login_btn">
+					<ul>
+					<div id="logoutDiv3">
+					  <ul>						
+						<li class="lb1"><a href="#" onclick="window.open('html/LoginPage.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
+						<li class="lb2"><a href="#" onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
+					  </ul>
+					</div>
+					</ul>
+				</div>
+			</div>
+			</div> 
+		</div>
+	</div>
+<!--  ------------------>
+<!-- ================= //banner ================= -->
+<!-- ================= contents ================= --->
+		<div id="contents">
+			<div id="cont1">
+				<div class="container" >
+					<nav id="nav">
+						<ul class="gnb">
+							<li><a href="html/ProductList/ProductList_03.html">베스트셀러</a></li>
+							<li>/</li>
+							<li><a href="#" onclick="window.open('html/Utility/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇</a></li>							
+							<li>/</li>
+							<li><a href="#" onclick="window.open('html/Utility/cameraWeb.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식</a></li>
+							<li>/</li>
+							<li><a href="#" onclick="window.open('html/recommend/recommend.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">추천받아보기</a></li>
+						</ul>
+					</nav>		
+<!-- ================= //메뉴(nav) ================= -->
+					<div id="card">
+						<div class="card_img">
+							<h4>도서 장르</h4>
+							<div class="card_banner" id="topicBook">
+
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+			
+<!-- ================= //cont1 ================= -->
+			<div id="section1">
+				<div id="one_section">
+				<h2 style="margin: 40px 0 16px">오늘의 책</h2>				
+					<div class="today" style="position:relative; margin-bottom:40px;">
+							<div style="clear:both;"></div>
+							 <div class="page-wrapper" style="position:relative;">
+							      <!--page slider -->
+							      <div class="todaybook-slider">
+							        <h1 class="silder-title">오늘의 책</h1>
+							        <i class="fas fa-chevron-left prev"></i>
+							        <i class="fas fa-chevron-right next"></i>
+							        <div class="todaybook-wrapper">
+							          <div class="today_book">
+							          	<div class="book-img">
+							            <img src="img/Book_01.jpg" class="slider-image">
+							            </div>
+							            <div class="book-info">
+							              <div class="sub-title">신용권의 JAVA프로그래밍 정복 </div>
+							              <div class="title"><a href="#">이것이 자바다</a></div>
+										  <div class="prod_pubGrp">
+												<span class="prod_auth">
+												<a href="">신용권</a> 저
+												</span>
+												<em class="divi">｜</em>
+												<span class="prod_pub">한빛미디어</span>
+												<em class="divi">｜</em>
+												<span class="prod_date">2021년  05월</span>				              
+							              <div class="price">
+							              	<em class="price">가격 </em>원
+							              </div>
+										<div class="prod_bref">
+					 						마케팅 리서치의 이론을 정리하고 실무 접근방법을 소개한 마케팅 이론서. 
+					 						리서치 디자인의 다양한 방법과 통계 분석 절차들을 소개했으며, 미래 리서치 방향을 제시하고 있다....
+					 					</div>							              
+							            </div>
+							          </div>
+							          </div>
+							          <div class="today_book">
+							          	<div class="book-img">
+							            <img src="img/Book_01.jpg" class="slider-image">
+							            </div>
+							            <div class="book-info">
+							              <div class="sub-title">부제목 </div>
+							              <div class="title"><a href="#">책 제목</a></div>
+										  <div class="prod_pubGrp">
+												<span class="prod_auth">
+												<a href="">저자</a> 저
+												</span>
+												<em class="divi">｜</em>
+												<span class="prod_pub">출판사</span>
+												<em class="divi">｜</em>
+												<span class="prod_date">2021년  05월</span>				              
+							              <div class="price">
+							              	<em class="price">가격 </em>원
+							              </div>
+										<div class="prod_bref">
+					 						마케팅 리서치의 이론을 정리하고 실무 접근방법을 소개한 마케팅 이론서. 
+					 						리서치 디자인의 다양한 방법과 통계 분석 절차들을 소개했으며, 미래 리서치 방향을 제시하고 있다....
+					 					</div>							              
+							            </div>
+							          </div>
+							          </div>
+							        </div>
+							      </div>
+							      <!--post slider-->
+							    </div>
+							</div>
+						</div>
+					</div>
+						<script>
+						$('.todaybook-wrapper').slick({
+							  slidesToShow: 1,
+							  slidesToScroll: 1,
+							  autoplay: true,
+							  autoplaySpeed: 5000,
+							  nextArrow:$('.next'),
+							  prevArrow:$('.prev'),
+							});
+						</script>
+
+	
+<!-- ================= footer-notice ================= -->                                       	
+	<div id="footer">
+
+		</div>
+<!-- ================= //footer-notice ================= -->                                       	
+<!-- ================= footer-info ================= -->                                       	
+			<div id="footer_info">
+				<div class="container">
+                    <div class="info">
+                        <div class="f_nav">
+                        </div>
+                        <address class="f_address">
+                            <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
+                            <span>이메일상담 </span>
+                            <span>자주하는 질문 </span>
+                            <span>사업자번호 104-86-56659 </span><br>
+                            <span>대표전화 : 1544-1544	평일 : 09:00~20:00   휴일 : 09:00~1800(점심시간 12:00~13:00제외) </span>
+                            <span>팩스:0502-123123-123213 </span>
+                            <span>이메일: multicampus@multicampus.com </span><br>
+                            <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
+                        </address>
+                    </div>
+                </div>                
+			</div>
+<!-- ================= // footer-info ================= -->                                       			
+		</div>
+<!-- ================= // footer ================= -->       
+						
+</div>						
+
+<!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
+</body>
+
+<script>
+$(function(){
+	var login=$.cookie('logined');
+		$("#logoutDiv").html(login);
+});
+</script>
+
+<!-- ================= conbox css ================= -->                                       				
+<style>
+	input[type="radio"] {display:none;}
+	input[type="radio"] + label{display:inline-block; padding:30px; width:105px;  backround:#ccc; color:#999; text-align:center; font-size:14px;cursor:pointer;}
+	input[type="radio"]:checked+label{background:#eaeaea;color:#000;}
+	
+	.conbox{width:1020px; height:400px; background:#eaeaea;margin:0; auto; display:none;}
+
+	input[id="tab01"]:checked ~ .con1{display:block;}
+	input[id="tab02"]:checked ~ .con2{display:block;}
+	input[id="tab03"]:checked ~ .con3{display:block;}
+	input[id="tab04"]:checked ~ .con4{display:block;}
+	input[id="tab05"]:checked ~ .con5{display:block;}
+	input[id="tab06"]:checked ~ .con6{display:block;}
+</style>
+
+
+</html>

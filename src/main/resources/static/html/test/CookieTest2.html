@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쿠키 있나 없나 테스트</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../../js/selectBookTest.js"></script>
+</head>
+<body>
+		<div class="selectBookTest" id="selectBookTest">
+				<div class="img">
+					<img src="../../img/detail_sample.jpg" alt="">
+				</div>					
+				<div class="product_info">
+					<h2 id="title">2021트렌드 코리아</h2>
+					<table>
+						<caption>
+						</caption>
+						<colgroup>
+						<col style="width:173px;">
+						<col>
+						</colgroup>
+						<tbody>
+						<tr>
+							<th>판매가</th>
+							<td id="price">12,000</td>
+						</tr>
+						<tr>
+							<th>ISBN</th>
+							<td id="isbn">123456789</td>
+						</tr>
+						<tr>
+							<th>출판사/저자사</th>
+							<td id="publisher">멀캠 / 멀티캠퍼스</td>
+						</tr>
+						<tr>
+							<th>구매수량</th>
+							<td>
+								<div class="length">
+									<input type="number" min="1" value="1">
+								</div>
+							</td>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+							<th>배송비</th>
+							<td>무료배송</td>
+						</tr>
+						<tr>
+							<th>결제금액</th>
+							<td id="total"><b>12,000</b>원</td>
+						</tr>
+						</tbody>
+					</table>
+					
+					<div class="btns">
+						<a href="#" onclick="">장바구니</a>
+					</div>
+				</div>
+		</div>
+</body>
+
+
+<script>
+function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i <ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return null;
+	}
+
+var cookieCH = getCookie("logined_name");
+if(cookieCH == null){
+	alert('일단 로그인부터 하시오');
+	window.close();
+} else if(cookieCH != null) {
+	alert(cookieCH + '님, 이 책을 장바구니에 담으세요.');
+}
+</script>
+
+
+</html>

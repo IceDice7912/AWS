@@ -94,11 +94,7 @@
 					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
 						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
 						<li><a href="#">장바구니</a></li>
-						<li><a href="../html/OrderPage/OrderPage.html">고객센터</a></li>
-						<li><a href="#" onclick="window.open('../../html/Utility/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇</a></li>						
-						<li><a href="#" onclick="window.open('../../html/Utility/cameraWeb.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">얼굴인식</a></li>
-						<li><a href="#" onclick="window.open('../memberList', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">회원정보 전부 출력</a></li>
-						<li><a href="#" onclick="window.open('../bookList', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1500,height=1000');">책정보 전부 출력</a></li>						
+						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
 			</div>
@@ -147,7 +143,7 @@
 			</div>
 				<div class="br_btn">
 					<ul>
-					<li><a href="html/recommend/recommend.html">요즘 이 책</a></li>
+					<li><a href="#">요즘 이 책</a></li>
 					<li><a href="#">핫이슈</a></li>
 					<li><a href="#">새로나온책</a></li>
 					<li><a href="#">기획/테마</a></li>
@@ -166,7 +162,7 @@
 						<ul class="gnb">
 							<li><a href="html/ProductList/ProductList_01.html">도서장르</a></li>
 							<li><a href="html/ProductList/ProductList_02.html">베스트셀러</a></li>
-							<li><a href="#">최신 도서</a></li>
+							<li><a href="html/ProductList/ProductList_03.html">최신 도서</a></li>
 							<li><a href="#">추천 도서</a></li>
 							<li><a href="#">오늘의 책</a></li>
 							<li><a href="#">이럴 땐 이런 책</a></li>
@@ -179,6 +175,10 @@
 						<a href="#" class="gnb_search"><span class="ir">통합검색</span><i class="ir">레이어팝업 열림</i></a>
 						<a href="#" class="gnb_event">메뉴 <i class="fa fa-plus" aria-hidden="true"></i></a>
 					</nav>
+					<form action="search.php" method="get">
+						<input type="text">
+						<input type="submit" value="검색" class="gnb_searcht"> 
+					</form>					
 <!-- ================= //메뉴(nav) ================= -->
 					<div id="card">
 						<div class="card_img">

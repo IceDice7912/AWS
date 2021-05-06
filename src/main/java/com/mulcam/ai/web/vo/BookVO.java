@@ -14,14 +14,10 @@ public class BookVO {
 	private String Author;
 	private int Price;
 	private String Publisher;
-	private int Isbn;
+	private String Isbn;
 	private String Category;
 	private String Imgurl;
 	private String Detail;
-	
-	public BookVO() throws CafeException {
-		super();
-	}	
 	
 	
 	public String getTitle() {
@@ -56,11 +52,11 @@ public class BookVO {
 		Publisher = publisher;
 	}
 
-	public int getIsbn() {
+	public String getIsbn() {
 		return Isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		Isbn = isbn;
 	}
 

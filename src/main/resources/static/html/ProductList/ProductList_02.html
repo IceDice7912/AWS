@@ -29,12 +29,11 @@
 	 <meta name="msapplication-TileImage" content="image/favicon/ms-icon-144x144.png">
 	 <meta name="theme-color" content="#ffffff">
 	 	 
-	<title>온라인 쇼핑몰 - 쇼팅</title>
+	<title>온라인 쇼핑몰 - 쇼팅 - 간소화 중</title>
 	
 <!-- ================= #1 External css/js ================= -->
   	<!-- JQUERY 순서 : JQUERY다음 CDN-->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-
 	
 	<!-- bxslider -->
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
@@ -57,16 +56,16 @@
 	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle_02.css">
 	<link rel="stylesheet" href="../../css/ProductList/ListPageBanner.css">
 	
-	<link rel="stylesheet" href="../../css/bxslider.css">
-
 	<link rel="stylesheet" href="../../css/font.css">
 	<link rel="stylesheet" href="../../css/font-awesome.css">
 
   	<!-- #2.1 쇼핑몰 js -->
   	<!-- swiper js --> 
   	<link rel="stylesheet" href="../../js/ProductList/ListPageBanner.js">
+  	<script src="../../js/ie-checker.js"></script>
+  	
+  	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script> 	
   	<link rel="stylesheet" href="../../js/ProductList/ListPage.js">
-	<script src="../../js/ie-checker.js"></script>
 	
 	<!-- #2.2 기능 js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -171,6 +170,10 @@
 						<a href="#" class="gnb_search"><span class="ir">통합검색</span><i class="ir">레이어팝업 열림</i></a>
 						<a href="#" class="gnb_event">메뉴 <i class="fa fa-plus" aria-hidden="true"></i></a>
 					</nav>
+					<form action="search.php" method="get">
+						<input type="text">
+						<input type="submit" value="검색" class="gnb_searcht"> 
+					</form>
 <!-- ================= //메뉴(nav) ================= -->
 				</div>
 <!-- ================= //container ================= -->
@@ -189,186 +192,27 @@
 					<h2><strong>국내도서</strong></h2>
 					<ul>
 						<li>
-							<a href="" target="_black">가정 / 살림</a>
-								<ul class="sub_cate">
-								<li><a href="" target="_black">카테고리1-1</a>
-								<li><a href="" target="_black">카테고리1-2</a>
-								<li><a href="" target="_black">카테고리1-3</a>
-								<li><a href="" target="_black">카테고리1-4</a>
-								<li><a href="" target="_black">카테고리1-5</a>
-								<li><a href="" target="_black">카테고리1-6</a>							
-								</ul>
+							<a href="" target="_black">소설 / 시 / 희곡</a>
 						</li>
 						<li>
-							<a href="" target="_black">건강 / 취미 </a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리2-1</a>
-									<li><a href="" target="_black">카테고리2-2</a>
-									<li><a href="" target="_black">카테고리2-3</a>									
-								</ul>
+							<a href="" target="_black">만화 / 라이트노벨 </a>
 						</li>
 						<li>
 							<a href="" target="_black">경제 / 경영</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리3-1</a>
-									<li><a href="" target="_black">카테고리3-2</a>
-									<li><a href="" target="_black">카테고리3-3</a>									
-								</ul>
 						</li>
 						<li>
-							<a href="" target="_black">국어 / 외국어</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리4-1</a>
-									<li><a href="" target="_black">카테고리4-2</a>
-									<li><a href="" target="_black">카테고리4-3</a>									
-								</ul>
+							<a href="" target="_black">자연 / 과학</a>
 						</li>
 						<li>
-							<a href="" target="_black">대학교재</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리5-1</a>
-									<li><a href="" target="_black">카테고리5-2</a>
-									<li><a href="" target="_black">카테고리5-3</a>									
-								</ul>
+							<a href="" target="_black">IT / 모바일</a>
 						</li>
 						<li>
-							<a href="" target="_black">만화</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리6-1</a>
-									<li><a href="" target="_black">카테고리6-2</a>
-									<li><a href="" target="_black">카테고리6-3</a>									
-								</ul>
+							<a href="" target="_black">사회 / 정치</a>
 						</li>	
-						<li>
-							<a href="" target="_black">사회정치</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리7-1</a>
-									<li><a href="" target="_black">카테고리7-2</a>
-									<li><a href="" target="_black">카테고리7-3</a>									
-								</ul>
-						</li>	
-						<li>
-							<a href="" target="_black">소설/시/희곡</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리8-1</a>
-									<li><a href="" target="_black">카테고리8-2</a>
-									<li><a href="" target="_black">카테고리8-3</a>	
-									<li><a href="" target="_black">카테고리8-4</a>									
-									<li><a href="" target="_black">카테고리8-5</a>									
-									<li><a href="" target="_black">카테고리8-6</a>									
-																	
-								</ul>
-						</li>	
-						<li>
-							<a href="" target="_black">수험서/자격증</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리9-1</a>
-									<li><a href="" target="_black">카테고리9-2</a>
-									<li><a href="" target="_black">카테고리9-3</a>		
-									<li><a href="" target="_black">카테고리9-4</a>									
-									<li><a href="" target="_black">카테고리9-5</a>									
-									<li><a href="" target="_black">카테고리9-6</a>																					
-								</ul>								
-						</li>
-						<li>
-							<a href="" target="_black">에세이</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리9-1</a>
-									<li><a href="" target="_black">카테고리9-2</a>
-									<li><a href="" target="_black">카테고리9-3</a>		
-									<li><a href="" target="_black">카테고리9-4</a>									
-									<li><a href="" target="_black">카테고리9-5</a>									
-									<li><a href="" target="_black">카테고리9-6</a>																					
-								</ul>								
-						</li>
-						<li>
-							<a href="" target="_black">여행</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리9-1</a>
-									<li><a href="" target="_black">카테고리9-2</a>
-									<li><a href="" target="_black">카테고리9-3</a>		
-									<li><a href="" target="_black">카테고리9-4</a>									
-									<li><a href="" target="_blank">카테고리9-5</a>									
-									<li><a href="" target="_blank">카테고리9-6</a>																					
-								</ul>								
-						</li>								
 						<li>
 							<a href="" target="_black">역사</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_blank">카테고리9-1</a>
-									<li><a href="" target="_blank">카테고리9-2</a>
-									<li><a href="" target="_blank">카테고리9-3</a>		
-									<li><a href="" target="_blank">카테고리9-4</a>									
-									<li><a href="" target="_blank">카테고리9-5</a>									
-									<li><a href="" target="_blank">카테고리9-6</a>																					
-								</ul>								
-						</li>								
-						<li>
-							<a href="" target="_black">예술</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_blank">카테고리9-1</a>
-									<li><a href="" target="_blank">카테고리9-2</a>
-									<li><a href="" target="_blank">카테고리9-3</a>		
-									<li><a href="" target="_blank">카테고리9-4</a>									
-									<li><a href="" target="_blank">카테고리9-5</a>									
-									<li><a href="" target="_blank">카테고리9-6</a>																					
-								</ul>								
-						</li>								
-						<li>
-							<a href="" target="_black">인문</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_blank">카테고리9-1</a>
-									<li><a href="" target="_blank">카테고리9-2</a>
-									<li><a href="" target="_blank">카테고리9-3</a>		
-									<li><a href="" target="_blank">카테고리9-4</a>									
-									<li><a href="" target="_blank">카테고리9-5</a>									
-									<li><a href="" target="_blank">카테고리9-6</a>																					
-								</ul>								
-						</li>								
-						<li>
-							<a href="" target="_black">인물</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_blank">카테고리9-1</a>
-									<li><a href="" target="_blank">카테고리9-2</a>
-									<li><a href="" target="_blank">카테고리9-3</a>		
-									<li><a href="" target="_blank">카테고리9-4</a>									
-									<li><a href="" target="_blank">카테고리9-5</a>									
-									<li><a href="" target="_blank">카테고리9-6</a>																					
-								</ul>								
-						</li>								
-						<li>
-							<a href="" target="_black">자기계발</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_blank">카테고리9-1</a>
-									<li><a href="" target="_blank">카테고리9-2</a>
-									<li><a href="" target="_blank">카테고리9-3</a>		
-									<li><a href="" target="_blank">카테고리9-4</a>									
-									<li><a href="" target="_blank">카테고리9-5</a>									
-									<li><a href="" target="_blank">카테고리9-6</a>																					
-								</ul>								
-						</li>
-						<li>
-							<a href="" target="_black">자연과학</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리9-1</a>
-									<li><a href="" target="_black">카테고리9-2</a>
-									<li><a href="" target="_black">카테고리9-3</a>		
-									<li><a href="" target="_black">카테고리9-4</a>									
-									<li><a href="" target="_black">카테고리9-5</a>									
-									<li><a href="" target="_black">카테고리9-6</a>																					
-								</ul>								
-						</li>								
-						<li>
-							<a href="" target="_black">IT</a>
-								<ul class="sub_cate">
-									<li><a href="" target="_black">카테고리9-1</a>
-									<li><a href="" target="_black">카테고리9-2</a>
-									<li><a href="" target="_black">카테고리9-3</a>		
-									<li><a href="" target="_black">카테고리9-4</a>									
-									<li><a href="" target="_black">카테고리9-5</a>									
-									<li><a href="" target="_black">카테고리9-6</a>																					
-								</ul>								
-						</li>								
+						</li>																																																																																																												
+					</ul>											
 																																																										
 					</ul>				
 				</div>
@@ -426,7 +270,6 @@
 				 </div>
 				 
 	 
-
 			</div>
 
 		</div>
@@ -449,6 +292,10 @@
 			</div>
 		</div>
  -->
+ 
+ 
+ 
+ 
  		<div id="cont3">
  			<div class="container">
 	 			<div class="prod_box">
@@ -472,7 +319,7 @@
 					</ul>						
 					<ul class="items">
 						<li><img src="../../img/sample.jpg"></li>
-						<li class="title"><a href="../../selectbookisbn">여기는 책 제목입니다.</a></li>
+						<li class="title"><a href="../../html/ProductDetail/list.html">여기는 책 제목입니다.</a></li>
 						<li class="price">12,000<span> (할인가격)%</span></li>
 						<li class="info">&quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명 </li>
 						<li class="point">P:<span>990</span></li>

@@ -1,36 +1,18 @@
 package com.mulcam.ai.web.controller;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.JspWriter;
-import javax.swing.ListModel;
 
-import org.apache.catalina.startup.SetAllPropertiesRule;
-import org.apache.ibatis.javassist.compiler.MemberResolver;
-import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.sym.Name;
 import com.mulcam.ai.web.service.MemberService;
-import com.mulcam.ai.web.vo.BoardVO;
 import com.mulcam.ai.web.vo.MemberVO;
-
 
 @Controller
 public class MemberController {
@@ -91,91 +73,27 @@ public class MemberController {
 			method=  {RequestMethod.GET,RequestMethod.POST},
 	 		produces = "application/text; charset=utf8")	
 	@ResponseBody
-	public String memberInsert(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
+	public String memberInsert(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String name=request.getParameter("name");
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		String gender=request.getParameter("gender");
-		String ages=request.getParameter("age");		
-		int age;
-		if(ages!=null) {
-			age=Integer.parseInt(ages); 
-		} else {
-				System.out.println("어째서인지 자꾸 age가 null 처리되어서 어쩔 수 없이 0 으로 셋팅합니다.");
-				age=0;
-		} 
-		String email=request.getParameter("email"); 
-		String address=request.getParameter("address");
 		String favorite=request.getParameter("favorite");
-		String job=request.getParameter("job");
+		
+		System.out.println(name);
+		System.out.println(id);
+		System.out.println(pw);
+		System.out.println(gender);
+		System.out.println(favorite);
 
 		try {
-			MemberVO m=new MemberVO(name, id, pw, gender, age, email, address, favorite, job); 
+			MemberVO m=new MemberVO(name, id, pw, gender, favorite); 
 			memberService.memberInsert(m);
 			return name+"님 회원가입 되셨습니다";
 		}catch(Exception e) {
 			e.printStackTrace();
 			return e.getMessage();
 		}
-	}
-	
-	
-	@GetMapping("memberList")
-	public String showMember(Model model) throws Exception{
-
-		System.out.println("맴버 리스트 호출됨");
-		
-//			이것들은 js에게 값을 리턴하는 방식의 sql 전달방식. 이러면 그냥 단순 텍스트만 전해지는거라서 안된다.		
-//			List<HashMap<String, Object>> m;
-//		
-//			List<Object> NAME = new ArrayList<Object>();
-//			List<Object> ID = new ArrayList<Object>();
-//			List<Object> PW = new ArrayList<Object>();
-//			List<Object> GENDER = new ArrayList<Object>();
-//			List<Object> AGE = new ArrayList<Object>();
-//			List<Object> EMAIL = new ArrayList<Object>();
-//			List<Object> ADDRESS = new ArrayList<Object>();
-//			List<Object> FAVORITE = new ArrayList<Object>();
-//			List<Object> JOB = new ArrayList<Object>();
-//			
-//			System.out.println("맴버 리스트를  출력합니다.");
-//		
-//		try {
-//			m= memberService.memberList();
-//
-//			for(int i=0; i<m.size(); i++) {
-//				NAME.add(((Map) m.get(i)).get("NAME").toString());
-//				ID.add(((Map) m.get(i)).get("ID").toString());
-//				PW.add(((Map) m.get(i)).get("PW").toString());
-//				GENDER.add(((Map) m.get(i)).get("GENDER").toString());
-//				AGE.add(((Map) m.get(i)).get("AGE").toString());
-//				EMAIL.add(((Map) m.get(i)).get("EMAIL").toString());
-//				ADDRESS.add(((Map) m.get(i)).get("ADDRESS").toString());
-//				FAVORITE.add(((Map) m.get(i)).get("FAVORITE").toString());
-//				JOB.add(((Map) m.get(i)).get("JOB").toString());
-//				
-//				
-//			}			
-//			
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println("테스트 - 이름들만 출력");
-//		for(int i=0; i<NAME.size(); i++) {
-//			System.out.print(NAME.get(i) + "  ");
-//		}
-//		
-//		String NAMES = NAME.toString();
-//		return NAMES;
-		
-		List<MemberVO> memberList = new ArrayList<>();
-		memberList = memberService.memberList(); 
-		model.addAttribute("memberList", memberList);
-		System.out.println("리턴하려는 memberList : " + memberList.toString());
-		return "memberList"; 
-		
 	}
 	
 
