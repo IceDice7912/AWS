@@ -7,6 +7,7 @@ import java.net.URLConnection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.filechooser.FileSystemView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,7 +34,7 @@ public class CFRController_face {
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = "C:/Users/Public/Pictures/Shotting-face/face.jpg";
+            String imgFile = FileSystemView.getFileSystemView().getHomeDirectory().toString()+"/shotting-fv/"+"\\"+"face.jpg";
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"; // 얼굴 감지
             URL url = new URL(apiURL);
