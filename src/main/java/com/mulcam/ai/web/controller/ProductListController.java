@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +27,12 @@ public class ProductListController {
 			produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String getProductAll(HttpServletRequest request, HttpServletResponse response){
-		JSONObject json = null;
+		String pnum = request.getParameter("page_num");
+		int page_num = Integer.parseInt(pnum);	
+		// 페이지 당 20개 띄움
+		int end = page_num * 20;
 		ArrayList<ProductListVO> list = new ArrayList<ProductListVO>();
-		list = productListService.getAll();
+		list = productListService.getAll(end);
 		
 		JSONObject obj = new JSONObject();
 		JSONArray jArray = new JSONArray();
@@ -41,8 +42,7 @@ public class ProductListController {
 			sObject.put("book", list.get(i));
 			jArray.put(sObject);		
 		}
-		obj.put("data", jArray);
-		System.out.println(obj.toString());
+		obj.put("data", jArray);		
 		return obj.toString();
 		
 		

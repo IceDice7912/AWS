@@ -17,6 +17,7 @@ public class BookVO {
 	private String Isbn;
 	private String Category;
 	private String Imgurl;
+	private String Imgurl2;
 	private String Detail;
 	
 	
@@ -76,6 +77,14 @@ public class BookVO {
 		Imgurl = imgurl;
 	}
 
+	public String getImgurl2() {
+		return Imgurl2;
+	}
+
+	public void setImgurl2(String imgurl2) {
+		Imgurl2 = imgurl2;
+	}
+
 	public String getDetail() {
 		return Detail;
 	}
@@ -87,7 +96,12 @@ public class BookVO {
 	@Override
 	public String toString() {
 		return "BookVO [title=" + title + ", Author=" + Author + ", Price=" + Price + ", Publisher=" + Publisher
-				+ ", Isbn=" + Isbn + ", Category=" + Category + ", Imgurl=" + Imgurl + ", Detail=" + Detail + "]";
+				+ ", Isbn=" + Isbn + ", Category=" + Category + ", Imgurl=" + Imgurl + ", Imgurl2=" + Imgurl2
+				+ ", Detail=" + Detail + "]";
 	}
+
+
+	
+	
 
 }

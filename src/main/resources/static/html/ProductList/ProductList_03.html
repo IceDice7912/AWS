@@ -145,6 +145,8 @@
 				<div class="container" >
 					<nav id="nav">
 						<ul class="gnb">
+							<li><a href="./ProductList_03.html">국내도서</a></li>
+							<li>/</li>
 							<li><a href="./ProductList_02.html">베스트셀러</a></li>
 							<li>/</li>
 							<li><a href="html/index_v2.html">챗봇</a></li>
@@ -180,7 +182,7 @@
 					<h2><strong>국내도서</strong></h2>
 					<ul>
 						<li>
-							<a href="" target="_black">소설 / 시 / 희곡</a>
+							<a href="" target="_black" onclick=";" value="소설_시_희곡">소설 / 시 / 희곡</a>
 						</li>
 						<li>
 							<a href="" target="_black">만화 / 라이트노벨 </a>
@@ -236,38 +238,20 @@
 <div style="text-align:center; margin-top:5px;">　</div>		
 
 <!-- ================= prod_list ================= -->	
-				 
-			<div class="prod_sort_area">
-				<div class="prod_sortTop">
-				<span class="prod_sortLft">
-			        <a href="" class="on" title="기본순">기본순</a>
-			        <a href="" class="" title="최저가순">최저가순</a>
-			        <a href="" class="" title="최고가순">최고가순</a>       
-			        <a href="" class="" title="상품명순">상품명순</a>
-				</div>
+	
+	 <div class="prod_sort_area">
+				
 				<div class="prod_sortNum">
 					<span class="prod_sortLft">
 						<div class="prod_page">
-							<a href="" class="bgYUI first dim">처음</a>
-							<a href="" class="bgYUI prev dim">이전</a>
-							<a href="" class="num">1</a>
-							<a href="" class="num">2</a>
-							<a href="" class="num">3</a>
-							<a href="" class="num">4</a>
-							<a href="" class="num">5</a>
-							<a href="" class="num">6</a>
-							<a href="" class="num">7</a>
-							<a href="" class="num">8</a>
-							<a href="" class="num">9</a>
-							<a href="" class="num">10</a>
-							<a href="" class="bgYUI next">다음</a>
-							<a href="" class="bgYUI end">끝</a>
+							<input type="button" id="previousBtn" onclick="prev_click();" value="이전" />
+							<span id="paging">1</span>							
+							<input type="button" id="nextBtn" onclick="next_click();" value="다음" />
 						</div>
 					</span>
 				</div>
     		<input id="category_checkAll" name="category_checkAll" type="checkbox" value="" style="display:none">    
-		</div>			
-	 
+		</div>
 	<div style="text-align:center; margin-top:5px;"><br></div>		
 						 
 			<div id="prod_list" class="prod_list_area">
@@ -276,12 +260,36 @@
 	                             	                         	
 	
 <!-- ================= footer-notice ================= -->                                       	
-	
+	<div id="footer">
+		<div id="footer_notice">
+		 <div class="container">
+           <div class="notice">
+              <h3>알려드립니다 <i class="fa fa-plus" aria-hidden="true"></i></h3>
+                  <ul>
+                    <li><a href="#">[공지] 쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅</a></li>
+                    <li><a href="#">[공지] 쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅쇼팅 </a></li>
+                 </ul>
+              <a href="#" class="notice_btn">서비스변경 안내</a>
+           </div>
+        </div>
+		</div>
 <!-- ================= //footer-notice ================= -->                                       	
 <!-- ================= footer-info ================= -->                                       	
 			<div id="footer_info">
 				<div class="container">
                     <div class="info">
+                        <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                <li><a href="#"><strong>파트너센터</strong></a></li>                                
+                                                      
+                            </ul>
+                        </div>
                         <address class="f_address">
                             <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
                             <span>이메일상담 </span>
@@ -292,6 +300,15 @@
                             <span>이메일: multicampus@multicampus.com </span><br>
                             <span>COPYRIGHT&copy; 2021 Shotting. All RIGHTS RESERVED</span>
                         </address>
+                        
+
+                        <div class="family_site"><a href="#">패밀리 사이트 <i class="fa fa-caret-down" aria-hidden="true"></i></a></div>
+                        <div class="sns_icon">
+                            <ul>
+                                <li><a href="#"><img src="img/sns_facebook.png" alt="페이스북 바로가기"></a></li>
+                                <li><a href="#"><img src="img/sns_kakao.png" alt="카카오스토리 바로가기"></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>                
 			</div>

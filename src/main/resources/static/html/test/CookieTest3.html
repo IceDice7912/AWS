@@ -68,14 +68,14 @@ if(cookieCH == null){
 		function(data, status){
 			alert(data);
 			var obj=JSON.parse(data);
-			document.getElementById("title").innerHTML=obj.title;
-			document.getElementById("author").innerHTML=obj.author;
-			document.getElementById("price").innerHTML=obj.price;
-			document.getElementById("publisher").innerHTML=obj.publisher;
-			document.getElementById("isbn").innerHTML=obj.isbn;
-			document.getElementById("category").innerHTML=obj.category;
-			document.getElementById("imgurl").innerHTML=obj.imgurl;
-			document.getElementById("detail").innerHTML=obj.detail;
+			document.getElementById("title").innerHTML=obj[0].title;
+			document.getElementById("author").innerHTML=obj[0].author;
+			document.getElementById("price").innerHTML=obj[0].price;
+			document.getElementById("publisher").innerHTML=obj[0].publisher;
+			document.getElementById("isbn").innerHTML=obj[0].isbn;
+			document.getElementById("category").innerHTML=obj[0].category;
+			document.getElementById("imgurl").innerHTML=obj[0].imgurl2;
+			document.getElementById("detail").innerHTML=obj[0].detail;
 	}
 	);
 	setCookie('isbn', '', '-1'); //쿠키를 과거로 보냄 (소멸) --> 근데 상품 설명 페이지에서 굳이 이래야하는지는 의논해봐야함

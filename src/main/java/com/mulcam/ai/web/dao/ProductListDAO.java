@@ -12,6 +12,6 @@ import com.mulcam.ai.web.vo.ProductListVO;
 @Repository("ProductListDAO")
 public interface ProductListDAO {
 
-	public ArrayList<ProductListVO> getAll();
+	public ArrayList<ProductListVO> getAll(int end);
 
 }

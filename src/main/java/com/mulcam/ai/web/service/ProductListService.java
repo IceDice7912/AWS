@@ -1,5 +1,6 @@
 package com.mulcam.ai.web.service;
 
+
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class ProductListService {
 	@Autowired
 	ProductListDAO productListDAO;
 
-	public ArrayList<ProductListVO> getAll() {
-		return productListDAO.getAll();
+	public ArrayList<ProductListVO> getAll(int end) {
+		return productListDAO.getAll(end);
 	}
 
 }

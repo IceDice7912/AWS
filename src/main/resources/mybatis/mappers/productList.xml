@@ -5,12 +5,11 @@
     
 <mapper namespace="com.mulcam.ai.web.dao.ProductListDAO">
 	
-	<select id="getAll" resultType="ProductListVO">
+	<select id="getAll" resultType="ProductListVO" parameterType="int">
 		<![CDATA[
-			select title, author, publisher, category, imgurl, price from book WHERE ROWNUM <= 10
+			select title, author, publisher, isbn, category, imgurl, imgurl2, price from book where bno>=#{end}-19 and bno<=#{end}
 		]]>
 	</select>
-
 
 	
 </mapper>

@@ -22,7 +22,7 @@ $(document).ready(function(){
 			  null,
 			  function(data, status){	
 		
-			  	data=JSON.parse(data);			  	
+			  	data=JSON.parse(data);
 			  	data.forEach(function(item,index){
 			  		console.log(">>>"+index);		  		
 			  		topicBookList +="<li><a href='#'  onclick=alert("+item.isbn+")+setCookie("+item.isbn+","+1	+")+window.open('html/test/CookieTest3.html')><img src='"+item.imgurl+"' ><em>"+item.isbn+"</em></a></li>";

@@ -1,17 +1,19 @@
 package com.mulcam.ai.web.vo;
 
 public class ProductListVO {
-	private String title, author, publisher, category, imgurl;
+	private String title, author, publisher, category, imgurl, imgurl2, isbn;
 	private int price;
 	
 		
-	public ProductListVO(String title, String author, String publisher, String category, String imgurl, int price) {
+	public ProductListVO(String title, String author, String publisher, String isbn, String category, String imgurl, int price) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
+		this.isbn = isbn;
 		this.category = category;
 		this.imgurl = imgurl;
+		this.imgurl2 = imgurl2;
 		this.price = price;
 	}
 	
@@ -40,6 +42,13 @@ public class ProductListVO {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
+	
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
 	public String getCategory() {
 		return category;
 	}
@@ -52,6 +61,12 @@ public class ProductListVO {
 	public void setImgurl(String imgurl) {
 		this.imgurl = imgurl;
 	}
+	public String getImgurl2() {
+		return imgurl2;
+	}
+	public void setImgurl2(String imgurl2) {
+		this.imgurl2 = imgurl2;
+	}
 	public int getPrice() {
 		return price;
 	}
@@ -60,11 +75,16 @@ public class ProductListVO {
 	}
 
 
+
 	@Override
 	public String toString() {
-		return "[title=" + title + ", author=" + author + ", publisher=" + publisher + ", category="
-				+ category + ", imgurl=" + imgurl + ", price=" + price + "]";
+		return "ProductListVO [title=" + title + ", author=" + author + ", publisher=" + publisher + ", category="
+				+ category + ", imgurl=" + imgurl + ", isbn=" + isbn + ", price=" + price + "]";
 	}
+
+
+
+	
 	
 	
 }

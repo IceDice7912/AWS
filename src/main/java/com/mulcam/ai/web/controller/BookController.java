@@ -78,6 +78,7 @@ public class BookController {
 			o.put("isbn", vo.getIsbn());
 			o.put("category", vo.getCategory());
 			o.put("imgurl", vo.getImgurl());
+			o.put("imgurl2", vo.getImgurl2());
 			o.put("detail", vo.getDetail());
 			array.add(o);
 			System.out.println("선택학 isbn에 대한 책 정보 출력" + o);	
