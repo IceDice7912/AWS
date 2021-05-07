@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품 누르면 해당 상품 isbn 쿠키로 정보 읽기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+<body>
+
+앞의 인덱스에서 선택한 책의 isbn 번호 : <class id="cookieisbn"></class>
+<br><br><br>
+책 이름 : <clasee id="title"></clasee><br>
+작가 : <clasee id="author"></clasee><br>
+가격 : <clasee id="price"></clasee><br>
+출판사 : <clasee id="publisher"></clasee><br>
+ISBN : <clasee id="isbn"></clasee><br>
+카테고리 : <clasee id="category"></clasee><br>
+이미지 : <clasee id="imgurl"></clasee><br>
+설명 : <clasee id="detail"></clasee><br>
+</body>
+
+
+<script>
+function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i <ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return null;
+	}
+	
+
+function setCookie(cname, cvalue, exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	  var expires = "expires="+ d.toUTCString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+	
+
+var cookieCH = getCookie("isbn");
+if(cookieCH == null){
+	alert('isbn 쿠키가 제대로 저장되지 않았습니다');
+	window.close();
+} else if(cookieCH != null) {
+	alert(cookieCH);
+	document.getElementById("cookieisbn").innerHTML=cookieCH;
+	var isbn=cookieCH;
+	console.log(isbn);
+	$.post("../../selectbookisbn", {
+		isbn: isbn
+	},
+		function(data, status){
+			alert(data);
+			var obj=JSON.parse(data);
+			document.getElementById("title").innerHTML=obj.title;
+			document.getElementById("author").innerHTML=obj.author;
+			document.getElementById("price").innerHTML=obj.price;
+			document.getElementById("publisher").innerHTML=obj.publisher;
+			document.getElementById("isbn").innerHTML=obj.isbn;
+			document.getElementById("category").innerHTML=obj.category;
+			document.getElementById("imgurl").innerHTML=obj.imgurl;
+			document.getElementById("detail").innerHTML=obj.detail;
+	}
+	);
+	setCookie('isbn', '', '-1'); //쿠키를 과거로 보냄 (소멸) --> 근데 상품 설명 페이지에서 굳이 이래야하는지는 의논해봐야함
+}
+</script>
+
+
+</html>

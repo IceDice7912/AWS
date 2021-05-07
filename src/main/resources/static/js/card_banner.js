@@ -1,3 +1,20 @@
+var index;
+var title;
+var author;
+var price;
+var isbn;
+var category;
+var imgurl;
+var detail;
+var bookarry=[];
+
+var setCookie = function ci(value, exp){	
+	var date = new Date();
+	date.setTime(date.getTime() + exp*24*60*60*1000);
+	document.cookie = "isbn" + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+};
+
+
 $(document).ready(function(){
 	let topicBookList="<ul>";
 	
@@ -7,26 +24,12 @@ $(document).ready(function(){
 		
 			  	data=JSON.parse(data);			  	
 			  	data.forEach(function(item,index){
-			  		console.log(">>>"+index);
-			  		var total;
-			  		total = index + "번째 책" + "\n" + 
-			  				"제목 : " + item.title + "\n" + 
-			  				"작가 : " + item.author + "\n" + 
-			  				"가격 : " + item.price + "\n" + 
-			  				"ISBN : " + item.isbn + "\n" + 
-			  				"카테고리 : " + item.category + "\n" + 
-			  				"이미지 주소 : " + item.imgurl + "\n" + 
-			  				"설명 : " + item.detail + "\n";
-			  		
-			  		alert(total);
-			  		
-			  		topicBookList +="<li><a href='#'><img src='"+item.imgurl+"' ><em>"+item.isbn+"</em></a></li>";
+			  		console.log(">>>"+index);		  		
+			  		topicBookList +="<li><a href='#'  onclick=alert("+item.isbn+")+setCookie("+item.isbn+","+1	+")+window.open('html/test/CookieTest3.html')><img src='"+item.imgurl+"' ><em>"+item.isbn+"</em></a></li>";
 			  	});
 			  	topicBookList +="</ul>";
 			  	$("#topicBook").html(topicBookList);
 			  }
 			  	
 		);//end post()
-	
-	
 });

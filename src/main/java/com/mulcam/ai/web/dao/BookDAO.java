@@ -13,7 +13,7 @@ public interface BookDAO {
 
 	public List<BookVO> bookList();
 
-	public List<BookVO> selectbookisbn();
+	public List<BookVO> selectbookisbn(String isbn);
 
 	public List<BookVO> topicBook();
 

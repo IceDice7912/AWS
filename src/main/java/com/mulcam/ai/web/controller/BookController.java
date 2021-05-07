@@ -57,11 +57,17 @@ public class BookController {
 	
 	
 	
-	@PostMapping("selectbookisbn")
+	@RequestMapping(value="selectbookisbn",
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/text; charset=utf8")
 	@ResponseBody
-	public String Bookisbn() throws Exception{
+	public String Bookisbn(HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
 
-		List<BookVO> list=bookService.selectbookisbn();
+		String isbn=request.getParameter("isbn");
+		System.out.println("셀렉트북 컨트롤러에 isbncookie값을 넣겠습니다 : " + isbn);
+		
+		List<BookVO> list=bookService.selectbookisbn(isbn);
 		JSONArray array=new JSONArray();
 		for(BookVO vo:list) {
 			JSONObject o=new JSONObject();

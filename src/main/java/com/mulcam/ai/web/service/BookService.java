@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.mulcam.ai.web.dao.BookDAO;
 import com.mulcam.ai.web.vo.BookVO;
-import com.mulcam.ai.web.vo.MemberVO;
 
 @Service
 public class BookService {
@@ -18,8 +17,8 @@ public class BookService {
 		return bookDAO.bookList();
 	}
 
-	public List<BookVO> selectbookisbn() {
-		return bookDAO.selectbookisbn();
+	public List<BookVO> selectbookisbn(String isbn) {
+		return bookDAO.selectbookisbn(isbn);
 	}
 
 	public List<BookVO> topicBook() {
