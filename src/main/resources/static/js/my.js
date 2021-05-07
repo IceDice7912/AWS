@@ -77,13 +77,11 @@ $("#loginBtn").click(function(){//로그인 처리
 			  },
 			  function(data, status){	
 				  var obj=JSON.parse(data);
+				  var name=obj.name;
 				  	if(obj.name){
-				  		data ="<input type='button' value='로그아웃' id='logoutBtn' class='btn btn-outline-secondary'>"
+				  		data =name+"님 환영합니다\t<input type='button' value='로그아웃' id='logoutBtn' class='log'>"
 				  		$.cookie("logined",data,{expires: 1, path: '/' }); // cookie expires in 10 days 
-				  		$.cookie("logined_name",obj.name,{expires: 1, path: '/' }); // cookie expires in 10 days 
-				  		window.opener.document.getElementById("logoutDiv").innerHTML=data;
-				  		window.opener.document.getElementById("logoutDiv2").innerHTML="";
-				  		window.opener.document.getElementById("logoutDiv3").innerHTML="";
+				  		window.opener.document.getElementById("loginArea").innerHTML= data;
 				  		alert(obj.name+"님 로그인 되셨습니다.");
 				  		window.close();
 					}else{
@@ -96,6 +94,8 @@ $("#loginBtn").click(function(){//로그인 처리
 
 
 
+
+
 $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	
 	alert("로그아웃합니다.");
@@ -105,9 +105,7 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 		  },
 		  function(data, status){		  	
 		  	
-		  	$.removeCookie("logined");	
-		  	$.removeCookie("logined_name");
-		  	$.removeCookie("JSESSIONID");
+		  	$.removeCookie("logined");	    
 			location.reload();						   
 		  }
 	);//end post() 
@@ -156,21 +154,87 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	});
 	
 	
-	$("#chatBtn").click( function () { // 챗봇 테스트
+	$("#chatBtn").click( function () { // 챗봇-텍스트 대화
 	    var chat=$("#chat").val();
 	    if ((chat.length == 0 || chat == "")) {
 	        alert("뭐라도 입력하시오.");
 	    } else {
-	        $.post("../chat.jes", {
+	        $.post("../../chat.jes", {
 	            chat: chat
 	        }, function (data, status) {
-	            alert("Data: " + data + "\nStatus: " + status);
+			    $('p').append(data + "<br>");  
 	        });
-			alert(chat);
-		    $("p").append(chat+"\n");
+
 	    }
 	});
+	
+	$("#saySubmitBtn").click( function () { // 챗봇-음성 대화
+	    var chat;
+	    	
+	    	$.post("../../stt.jes", {
+	    		chat: chat
+	    	}, function(data) {
+	    		chat = data;
+	            $('say').empty();
+			    $('say').append(data);    	
+	            	$.post("../../chat.jes", {
+	            		chat: chat
+	            	}, function(data) {
+	    			    $('p').append(data + "<br>");
+	            	},
+	            	);
+	    		});
+	    	
+	});	
+	
+	
+	
+	$("#faceSubmitBtn").click( function () { // 페이스 테스트
+			alert("찍은 사진을 서버에 전송해서 정보를 읽어옵니다.");
+			var star;
+			var personinfo;
+			var ages1;
+			var agecut = /[^0-9]/gi;
+			var ages2;
+			var agei;
+			var gender1;
+			var gendercut = /[^a-z]/gi;
+			var gender2;
+			
+			$.post("../../face-celebrity.jes", 
+					{
 
+					}, function(data, status){
+			            star = data;
+			            $('star').empty();
+					    $('star').append(star);
+					});
+			$.post("../../face-face.jes",
+					{
+
+					}, function(data, status){
+			            
+			            personinfo = data;
+			            
+			            ages1 = (personinfo).replaceAll("~", "");			            
+			            ages2 = (ages1).replaceAll(agecut, "");			            
+			            agei = Number(ages2);			            
+			            agei = parseInt(agei / 100);
+			            $('age').empty();
+					    $('age').append(agei);  
+					    
+					    gender1 = (personinfo).replaceAll("~", "");
+			            gender2 = (gender1).replaceAll(gendercut, "");
+			            if(gender2=="male")
+			          	  gender2 = "남성";
+			            if(gender2=="female")
+			          	  gender2 = "여성";
+			            if(gender2=="child")
+			          	  gender2 = "어린이";
+			            $('gender').empty();
+					    $('gender').append(gender2);	            
+					});
+		});
 	
 });
 

@@ -31,7 +31,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.core.sym.Name;
 import com.mulcam.ai.web.service.BookService;
 import com.mulcam.ai.web.service.MemberService;
-import com.mulcam.ai.web.vo.BoardVO;
 import com.mulcam.ai.web.vo.BookVO;
 import com.mulcam.ai.web.vo.MemberVO;
 

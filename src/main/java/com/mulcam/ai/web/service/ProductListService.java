@@ -19,4 +19,7 @@ public class ProductListService {
 		return productListDAO.getAll(end);
 	}
 
+	public ArrayList<ProductListVO> getCategoryList(String category) {
+		return productListDAO.getCategoryList(category);
+	}
 }

@@ -4,62 +4,37 @@
 <!-- ================ haed - css, js, jquery, favicon, font ================ -->
 <head>
 
-	<meta charset="UTF-8">
+	 <meta charset="UTF-8">
 	 <!-- '반응형 웹'-->
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	 <!-- 익스플로러 최신버전으로 랜더링 -->
 	 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	 	 
-	 <!-- favicon -->
-	 <link rel="apple-touch-icon" sizes="57x57" href="image/favicon/apple-icon-57x57.png">
-	 <link rel="apple-touch-icon" sizes="60x60" href="image/favicon/apple-icon-60x60.png">
-	 <link rel="apple-touch-icon" sizes="72x72" href="image/favicon/apple-icon-72x72.png">
-	 <link rel="apple-touch-icon" sizes="76x76" href="image/favicon/apple-icon-76x76.png">
-	 <link rel="apple-touch-icon" sizes="114x114" href="image/favicon/apple-icon-114x114.png">
-	 <link rel="apple-touch-icon" sizes="120x120" href="image/favicon/apple-icon-120x120.png">
-	 <link rel="apple-touch-icon" sizes="144x144" href="image/favicon/apple-icon-144x144.png">
-	 <link rel="apple-touch-icon" sizes="152x152" href="image/favicon/apple-icon-152x152.png">
-	 <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
-	 <link rel="icon" type="image/png" sizes="192x192"  href="image/favicon/android-icon-192x192.png">
-	 <link rel="icon" type="image/png" sizes="32x32" href="image/favicon/favicon-32x32.png">
-	 <link rel="icon" type="image/png" sizes="96x96" href="image/favicon/favicon-96x96.png">
-	 <link rel="icon" type="image/png" sizes="16x16" href="image/favicon/favicon-16x16.png">
-	 <link rel="manifest" href="image/favicon/manifest.json">
-	 <meta name="msapplication-TileColor" content="#ffffff">
-	 <meta name="msapplication-TileImage" content="image/favicon/ms-icon-144x144.png">
-	 <meta name="theme-color" content="#ffffff">
-	 	 
-	<title>온라인 쇼핑몰 - 쇼팅 초특급 간소화</title>
+	 
+	<title>온라인 쇼핑몰 - 쇼팅</title>
 	
-<!-- ================= #1 External css/js ================= -->
+<!-- ================= #1 ================= -->
   	<!-- JQUERY 순서 : JQUERY다음 CDN-->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
 	
-	<!-- bxslider -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
   	
 	<!-- Swiper CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
-	
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 	
 	<!-- Swiper js -->
     <script src="../package/swiper-bundle.min.js"></script>	
-
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		
 <!-- ================= #2 Internal css/js ================= -->	
   	<!-- 쇼핑몰 CSS -->
 	<link rel="stylesheet" href="../../css/reset.css">
-	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle.css">
-	<link rel="stylesheet" href="../../css/ProductList/ListPageBanner.css">
-	
+	<link rel="stylesheet" href="../../css/Style.css">
+	<link rel="stylesheet" href="../../css/BannerStyle.css">
 	<link rel="stylesheet" href="../../css/bxslider.css">
 
 	<link rel="stylesheet" href="../../css/font.css">
@@ -70,16 +45,16 @@
   	<link rel="stylesheet" href="../../js/ProductList/ListPageBanner.js">
 	<!-- bxslide js --> 
 	<script src="../../js/bxslide.js"></script>
-
 	<script src="../../js/ie-checker.js"></script>
 	
 	<!-- #2.2 기능 js -->
   	<script type="text/javascript" src="../../js/my.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     	
-  	<script src="js/card_banner.js"></script>
+
 
 </head>
+
 <!-- ================= 쇼핑몰 body 시작 ================= -->
 <body>
 <!-- ================= 전체포장(wrap) ================= -->
@@ -87,11 +62,11 @@
 <!-- ================= header-top  ================= -->
 		<div id="header-top">
 			   <div class="hTopIn"> 
-			     <div class="adver">광고등등..여기여기</div> 
+			     <div class="adver"><br>광고등등..여기여기</div> 
 			     <input type="button" value="▼" class="down" title="메뉴"> 
 			   </div>				
 				<script>
-					$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
+				//	$(".adver").hide(); //우선 배너는 안보이게끔 숨긴다.
 					$(".hTopIn .down").click(function(){ // 버튼을 클릭했을 때
 					$(".adver").slideToggle(300); //토글작동!!
 					return false; 
@@ -102,37 +77,40 @@
 		<div id="header">
 			<div class="container">
 				<div class="header">
-					<ul class="list1">
-					</ul>
+				<div id="loginArea">
 					<ul class="list2">
 					    <li class="log" id="logoutDiv"><a href="#" onclick="window.open('../../html/LoginPage.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
 						<li id="logoutDiv2"><a href="#" onclick="window.open('../../html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
-						<li><a href="#" onclick="window.open('../../html/test/CookieTest2.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">테스트 - 물건 장바구니 담기</a></li>
-						<li><a href="#" onclick="window.open('../../html/test/CookieTest.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">테스트 - 장바구니</a></li>
 					</ul>
 				</div>
+				</div>
 			</div>
-		</div>
-<!--  ================= //header  ================= -->
-		<div id="header_sub">
-				<div id="logoArea">
-					<div class="logo">
-				  	 	<img src="../../img/Logo/Logo01.png" alt="로고">
+		</div>	
+		<div id="header-subArea">
+					<nav id="nav">
+						<ul class="gnb">
+							<li class="logo"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></li>						
+							<li class="menu" ><a href="html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="#" onclick="window.open('../../html/Utility/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇 서비스</a></li>
+							<li class="menu" ><a href=""onclick="window.open('../../html/Utility/cameraWeb.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식 서비스</a></li>
+							<li class="menu" onclick="window.open('../../html/Utility/recomand.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');"><a href="">추천 서비스</a></li>												
+						</ul>
+					</nav>
+				<div id="searchBar">	
+					<div class="search-Bar">
+						<form role="search" method="get" class="search-form" action="http://www.google.com/">
+							<label>
+								<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
+							</label>
+							<button type="submit" class="search-submit"><span class="screen-reader-text">찾기</span></button>
+						</form>
 					</div>
-				</div>
-				<div id="searchBarArea">
-					<div id="searchWrap">
-						<div class=searchBar>
-							<form action="search.php" method="get" class="search-form" role="search">
-								<input type="text" value="" placeholder="찾고싶은 도서를 검색해주세요">
-								<input type="submit" value="검색" alt="검색" class="fas fa-search">
-								<i class="fas fa-search"></i>
-							</form>
-						</div>
-					</div>			
-				</div>
+				</div>								
 		</div>
-				
+		
+<!--  ================= //header  ================= -->
+<div style="text-align:center; margin-top:5px;"></div>		
+
 <!-- ================= banner ================= -->
 	<div id="banner">
 		 <div class="container" >
@@ -158,70 +136,172 @@
 <!-- ================= Initialize Swiper 오류날수있으니 여기에 ================= -->
 		  <script>var swiper = new Swiper('.swiper-container', {pagination: {el: '.swiper-pagination',},});</script>		   
 <!-- ================= 로그인창 ================= -->  		 
-  		 <div class="ban_right">
-			<div class="br_tit">
-				<h3>북나잇<br> 책과 나를 IT다</h3>
-				<p>맞춤형 AI를 이용하여 나에게 맞는 도서를 추천받으세요<br><strong>지금 가입하면 쿠폰 10% 증정</strong></p>
-				<div class="login_btn">
-					<ul>
-					<div id="logoutDiv3">
-					  <ul>						
-						<li class="lb1"><a href="#" onclick="window.open('html/LoginPage.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');">로그인</a></li>
-						<li class="lb2"><a href="#" onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">회원가입</a></li>
-					  </ul>
-					</div>
-					</ul>
-				</div>
-			</div>
-			</div> 
+
 		</div>
 	</div>
-<!--  ------------------>
 <!-- ================= //banner ================= -->
 <!-- ================= contents ================= --->
-		<div id="contents">
-			<div id="cont1">
-				<div class="container" >
-					<nav id="nav">
-						<ul class="gnb">
-							<li><a href="html/ProductList/ProductList_03.html">베스트셀러</a></li>
-							<li>/</li>
-							<li><a href="#" onclick="window.open('html/Utility/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇</a></li>							
-							<li>/</li>
-							<li><a href="#" onclick="window.open('html/Utility/cameraWeb.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식</a></li>
-							<li>/</li>
-							<li><a href="#" onclick="window.open('html/recommend/recommend.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">추천받아보기</a></li>
-						</ul>
-					</nav>		
-<!-- ================= //메뉴(nav) ================= -->
-					<div id="card">
-						<div class="card_img">
-							<h4>도서 장르</h4>
-							<div class="card_banner" id="topicBook">
-
-							</div>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
+		<div id="section1">
+			<div id="one_section">
+			<div class="section_title">
+				<h3>Our Service
+					<span>쇼팅에서 제공하는 다양한 서비스를 누려보세요!</span>
+						<a href="" class="a">더보기 ▶</a>
+				</h3>
+			</div>    
+				<div id="tool">
+			        <ul class="icons">
+			          <li>
+			            <div class="icon_img">
+			              <img src="../../img/icon_chatbot.jpg">
+			            </div>
+			            <div class="contents1_bold">챗봇 서비스</div>
+			            <div class="contents2">
+			               	챗봇을 활용하여 독자들에게<br> 더욱 가깝게 다가갑니다.
+			            </div>
+			            <div class="more">
+			              <a href="../../html/Utility/jstalktheme.html">MORE</a>
+			            </div>
+			          </li>
 			
+			          <li>
+			            <div class="icon_img">
+			              <img src="../../img/icon_face.png">
+			            </div>
+			            <div class="contents1_bold">얼굴인식 서비스</div>
+
+			            <div class="contents2">
+			               	얼굴 인식을 통하여 도서를 추천합니다.<br><br>
+			            </div>
+			            <div class="more">
+			              MORE
+			            </div>
+			          </li>
+			
+			          <li>
+			            <div class="icon_img">
+			              <img src="../../img/icon_reco.png">
+			            </div>
+			            <div class="contents1_bold">추천 서비스</div>
+			            <div class="contents2">
+			            데이터와 추천알고리즘 학습을 통하여<br> 독자들에게 맞는 도서를 추천합니다.
+			            </div>
+			            <div class="more">
+			              MORE
+			            </div>
+			          </li>
+			        </ul>
+			      </div>
+			    </div>
+			   </div>
+		<div style="text-align:center; margin-top:20px;"><br></div>		
+			 <div id="section1">
+			 	<div id="one_section">
+				<div class="section_title">
+					<h3>도서 장르
+						<span>여러분에게 맞는 다양한 도서 장르를 누려보세요!</span>
+							<a href="" class="a">더보기 ▶</a>
+					</h3>
+				</div>    
+					<div id="prodline">
+					<figure class="snip1445">
+					  <img src="../../img/gaimg01.jpg" alt="sample84" />
+					  <figcaption>
+					    <div>
+					      <h2>소설 / 시  / 희곡</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					</div>
+					<div id="prodline">					
+					<figure class="snip1445 hover">
+					 <img src="../../img/ga02.jpg" alt="sample21" />
+					  <figcaption>
+					    <div>
+					      <h2>만화 / 라이트노벨</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					</div>
+					<div id="prodline">			
+					<figure class="snip1445">
+					<img src="../../img/ga01.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>경제 / 경영</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					</div>
+					<figure class="snip1445">
+					<img src="../../img/ga02.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>국어 / 외국어</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					<figure class="snip1445">
+					<img src="../../img/ga01.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>IT / 모바일</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+					<figure class="snip1445">
+					<img src="../../img/ga02.jpg" alt="sample51" />
+					  <figcaption>
+					    <div>
+					      <h2>사회 / 정치</h2>
+					      <h4>자세히보기</h4>
+					    </div>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>												
+					
+			</div>							
+					<script>
+					
+					
+					$(".hover").mouseleave(
+							  function () {
+							    $(this).removeClass("hover");
+							  }
+							);
+					
+					</script>				
+			</div>
+	
 <!-- ================= //cont1 ================= -->
 			<div id="section1">
 				<div id="one_section">
-				<h2 style="margin: 40px 0 16px">오늘의 책</h2>				
+				<div class="section_title">
+					<h3>오늘의 책
+						<span>쇼팅's pick</span>
+							<a href="" class="a">더보기 ▶</a>
+					</h3>
+				</div> 			
 					<div class="today" style="position:relative; margin-bottom:40px;">
 							<div style="clear:both;"></div>
-							 <div class="page-wrapper" style="position:relative;">
-							      <!--page slider -->
+							 <div class="Tbook-page-wrapper" style="position:relative;">
 							      <div class="todaybook-slider">
-							        <h1 class="silder-title">오늘의 책</h1>
-							        <i class="fas fa-chevron-left prev"></i>
-							        <i class="fas fa-chevron-right next"></i>
+							        <i class="fas fa-chevron-left prev" id="prevBtn1" style="border:5px solid #000; background-color: #000; opacity: 0.5;"></i>
+							        <i class="fas fa-chevron-right next" id="nextBtn1" style="border:5px solid #000; background-color: #000; opacity: 0.5;"></i>
 							        <div class="todaybook-wrapper">
 							          <div class="today_book">
 							          	<div class="book-img">
-							            <img src="img/Book_01.jpg" class="slider-image">
+							            <a href=""><img src="img/Book_01.jpg" class="slider-image"></a>
 							            </div>
 							            <div class="book-info">
 							              <div class="sub-title">신용권의 JAVA프로그래밍 정복 </div>
@@ -231,7 +311,7 @@
 												<a href="">신용권</a> 저
 												</span>
 												<em class="divi">｜</em>
-												<span class="prod_pub">한빛미디어</span>
+												<span class="prod_pub"><a href="">한빛미디어</a></span>
 												<em class="divi">｜</em>
 												<span class="prod_date">2021년  05월</span>				              
 							              <div class="price">
@@ -240,23 +320,24 @@
 										<div class="prod_bref">
 					 						마케팅 리서치의 이론을 정리하고 실무 접근방법을 소개한 마케팅 이론서. 
 					 						리서치 디자인의 다양한 방법과 통계 분석 절차들을 소개했으며, 미래 리서치 방향을 제시하고 있다....
+
 					 					</div>							              
 							            </div>
 							          </div>
 							          </div>
 							          <div class="today_book">
 							          	<div class="book-img">
-							            <img src="img/Book_01.jpg" class="slider-image">
+							            <a href=""><img src="img/Book_01.jpg" class="slider-image"></a>
 							            </div>
 							            <div class="book-info">
-							              <div class="sub-title">부제목 </div>
-							              <div class="title"><a href="#">책 제목</a></div>
+							              <div class="sub-title">신용권의 JAVA프로그래밍 정복 </div>
+							              <div class="title"><a href="#">이것이 자바다</a></div>
 										  <div class="prod_pubGrp">
 												<span class="prod_auth">
-												<a href="">저자</a> 저
+												<a href="">신용권</a> 저
 												</span>
 												<em class="divi">｜</em>
-												<span class="prod_pub">출판사</span>
+												<span class="prod_pub"><a href="">한빛미디어</a></span>
 												<em class="divi">｜</em>
 												<span class="prod_date">2021년  05월</span>				              
 							              <div class="price">
@@ -271,33 +352,207 @@
 							          </div>
 							        </div>
 							      </div>
-							      <!--post slider-->
 							    </div>
+								<script>
+								$('.todaybook-wrapper').slick({
+									  slidesToShow: 1,
+									  slidesToScroll: 1,
+									  autoplay: true,
+									  autoplaySpeed: 3000,
+									  nextArrow:$('.next'),
+									  prevArrow:$('.prev'),
+									});
+						</script>							    
 							</div>
 						</div>
 					</div>
-						<script>
-						$('.todaybook-wrapper').slick({
+
+<!-- ---------------------------------------------------- -->
+			<div id="section1">
+				<div id="one_section">
+				<div class="section_title">
+					<h3>주간 베스트
+						<span>Best Seller</span>
+							<a href="" class="a">더보기 ▶</a>
+					</h3>
+				</div> 			
+					<div class="today" style="position:relative; margin-bottom:40px;">
+							<div style="clear:both;"></div>
+							 <div class="Bbook-page-wrapper" style="position:relative;">
+							      <div class="BestSeller-slider">
+							        <i class="fas fa-chevron-left prev" style="border:5px solid #000; background-color: #000; opacity: 0.5;"></i>
+							        <i class="fas fa-chevron-right next" style="border:5px solid #000; background-color: #000; opacity: 0.5;"></i>
+							        <div class="BestSeller-wrapper">
+							          <div class="Best_book">
+							          	<div class="book-img">
+							            <a href=""><img src="img/Book_01.jpg" class="slider-image"></a>
+							            </div>
+							            <div class="book-info">
+							              <div class="sub-title">신용권의 JAVA프로그래밍 정복 </div>
+							              <div class="title"><a href="#">이것이 자바다</a></div>
+										  <div class="prod_pubGrp">
+												<span class="prod_auth">
+												<a href="">신용권</a> 저
+												</span>
+												<em class="divi">｜</em>
+												<span class="prod_pub"><a href="">한빛미디어</a></span>
+												<em class="divi">｜</em>
+												<span class="prod_date">2021년  05월</span>				              
+							              <div class="price">
+							              	<em class="price">가격 </em>원
+							              </div>
+										<div class="prod_bref">
+					 						마케팅 리서치의 이론을 정리하고 실무 접근방법을 소개한 마케팅 이론서. 
+					 						리서치 디자인의 다양한 방법과 통계 분석 절차들을 소개했으며, 미래 리서치 방향을 제시하고 있다....
+					 					</div>							              
+							            </div>
+							          </div>
+							          </div>
+							          <div class="Best_book">
+							          	<div class="book-img">
+							            <a href=""><img src="img/Book_01.jpg" class="slider-image"></a>
+							            </div>
+							            <div class="book-info">
+							              <div class="sub-title">신용권의 JAVA프로그래밍 정복 </div>
+							              <div class="title"><a href="#">이것이 자바다</a></div>
+										  <div class="prod_pubGrp">
+												<span class="prod_auth">
+												<a href="">신용권</a> 저
+												</span>
+												<em class="divi">｜</em>
+												<span class="prod_pub"><a href="">한빛미디어</a></span>
+												<em class="divi">｜</em>
+												<span class="prod_date">2021년  05월</span>				              
+							              <div class="price">
+							              	<em class="price">가격 </em>원
+							              </div>
+										<div class="prod_bref">
+					 						마케팅 리서치의 이론을 정리하고 실무 접근방법을 소개한 마케팅 이론서. 
+					 						리서치 디자인의 다양한 방법과 통계 분석 절차들을 소개했으며, 미래 리서치 방향을 제시하고 있다....
+					 					</div>							              
+							            </div>
+							          </div>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							</div>								
+						</div>
+					</div>
+					<script>
+						$('.BestSeller-wrapper').slick({
 							  slidesToShow: 1,
 							  slidesToScroll: 1,
 							  autoplay: true,
-							  autoplaySpeed: 5000,
+							  autoplaySpeed: 4000,
 							  nextArrow:$('.next'),
 							  prevArrow:$('.prev'),
 							});
-						</script>
+					</script>					
+								
+<!-- 				
+	<div id="section1">
+		<div class="container">
+		<div id="one_section">
+				 <div class="tab_content">
+				 	<input type="radio" name="tabmenu" id="tab01" checked>
+				 	<label for="tab01">MD추천도서</label>
+				 	<input type="radio" name="tabmenu" id="tab02">
+				 	<label for="tab02">화제의 신간</label>
+				 	<input type="radio" name="tabmenu" id="tab03">
+				 	<label for="tab03">스테디 셀러</label>
+				 	<input type="radio" name="tabmenu" id="tab04">
+				 	<label for="tab04">베스트셀러04</label>
+				 	<input type="radio" name="tabmenu" id="tab05">
+				 	<label for="tab05">베스트셀러05</label>
+				 	<input type="radio" name="tabmenu" id="tab06">
+				 	<label for="tab06">베스트셀러06</label>
+				 					 					 	
+				 	<div class="conbox con1">
+								<ul>
+								<li> 
+									<span><img src="img/Book_01.jpg" alt=""></span>
+										<dl> 
+										 <dt id="title"><a href="">책 제목 2</a></dt> 
+										 <dd id="price">20,000원<a id="dicount"> 할인가격%</a></dd>										
+										 <dd id="info">&quot;책 부연설명 책 부연설명 책 부연설명  책 부연설명 &quot;책 부연설명 책 부연설명 책 부연설명 책 부연설명</dd> 
+										 <dd id="point">P: <b id="po">990</b></dd>
+										</dl> 
+								</li> 
+								<li> 
+									<span><img src="img/Book_01.jpg" alt=""></span>
+										<dl> 
+										 <dt id="title"><a href="">책 제목 2</a></dt> 
+										 <dd id="sub_title">부제</dd>										
+										 <dd id="price">20,000원</dd>	
+										</dl> 
+								</li> 
+								<li> 
+									<span><img src="img/Book_01.jpg" alt=""></span>
+										<dl> 
+										 <dt id="title"><a href="">책 제목 2</a></dt> 
+										 <dd id="sub_title">부제</dd>										
+										 <dd id="price">20,000원</dd>	
+										</dl> 
+								</li> 
+								<li> 
+									<span><img src="img/Book_01.jpg" alt=""></span>
+										<dl> 
+										 <dt id="title"><a href="">책 제목 2</a></dt> 
+										 <dd id="sub_title">부제</dd>										
+										 <dd id="price">20,000원</dd>	
+										</dl> 
+								</li> 
+								<li> 
+									<span><img src="img/Book_01.jpg" alt=""></span>
+										<dl> 
+										 <dt id="title"><a href="">책 제목 2</a></dt> 
+										 <dd id="sub_title">부제</dd>										
+										 <dd id="price">20,000원</dd>	
+										</dl> 
+								</li> 
+								</li> 
+								<li> 
+									<span><img src="img/Book_01.jpg" alt=""></span>
+										<dl> 
+										 <dt id="title"><a href="">책 제목 2</a></dt> 
+										 <dd id="sub_title">부제</dd>										
+										 <dd id="price">20,000원</dd>	
+										</dl> 
+								</li> 
+							</ul> 
+				 	 
+				 	 </div>
+				 	</div>
+				 	
+				 	<div class="conbox con2">베스트셀러 내용02</div>
+				 	<div class="conbox con3">베스트셀러 내용03</div>
+				 	<div class="conbox con4">베스트셀러 내용04</div>
+				 	<div class="conbox con5">베스트셀러 내용05</div>
+				 	<div class="conbox con6">베스트셀러 내용06</div>				 	
+
+				 </div>
+			</div>
+		</div>-->
+<!-- ================= //cont4(최신도서) ================= -->                                       	
+
 
 	
-<!-- ================= footer-notice ================= -->                                       	
+<!-- ================= footer ================= -->                                       	
 	<div id="footer">
-
-		</div>
-<!-- ================= //footer-notice ================= -->                                       	
-<!-- ================= footer-info ================= -->                                       	
 			<div id="footer_info">
 				<div class="container">
                     <div class="info">
                         <div class="f_nav">
+                            <ul>
+                                <li><a class="nav-link" href="#"onclick="window.open('html/main.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=750,height=400');">회사소개</a></li>
+                                <li><a href="#">웹이용약관</a></li>
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">위치기반서비스 이용약관</a></li>
+                                <li><a href="#"><strong>청소년보호정책</strong></a></li>
+                                <li><a href="#"><strong>이메일주소무단수집거부</strong></a></li>          	
+                                                      
+                            </ul>
                         </div>
                         <address class="f_address">
                             <span>㈜쇼팅 본사 : 서울특별시 강남구 현주로 508 12-17층(역삼동, 서울상록빌딩) 대표이사: 이상묵</span>
@@ -314,10 +569,9 @@
 			</div>
 <!-- ================= // footer-info ================= -->                                       			
 		</div>
-<!-- ================= // footer ================= -->       
-						
-</div>						
-
+		</div>
+		
+<!-- ================= // footer ================= -->                                       				
 <!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
 </body>
 
@@ -328,21 +582,7 @@ $(function(){
 });
 </script>
 
-<!-- ================= conbox css ================= -->                                       				
-<style>
-	input[type="radio"] {display:none;}
-	input[type="radio"] + label{display:inline-block; padding:30px; width:105px;  backround:#ccc; color:#999; text-align:center; font-size:14px;cursor:pointer;}
-	input[type="radio"]:checked+label{background:#eaeaea;color:#000;}
-	
-	.conbox{width:1020px; height:400px; background:#eaeaea;margin:0; auto; display:none;}
 
-	input[id="tab01"]:checked ~ .con1{display:block;}
-	input[id="tab02"]:checked ~ .con2{display:block;}
-	input[id="tab03"]:checked ~ .con3{display:block;}
-	input[id="tab04"]:checked ~ .con4{display:block;}
-	input[id="tab05"]:checked ~ .con5{display:block;}
-	input[id="tab06"]:checked ~ .con6{display:block;}
-</style>
 
 
 </html>

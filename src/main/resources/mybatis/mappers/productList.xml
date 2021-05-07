@@ -10,6 +10,12 @@
 			select title, author, publisher, isbn, category, imgurl, imgurl2, price from book where bno>=#{end}-19 and bno<=#{end}
 		]]>
 	</select>
-
 	
+	<select id="getCategoryList" resultType="ProductListVO" parameterType="String">
+		<![CDATA[
+			select title, author, publisher, isbn, category, imgurl, imgurl2, price from book where category=#{category}
+		]]>
+	</select>
+	
+
 </mapper>

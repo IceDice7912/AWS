@@ -3,7 +3,14 @@ package com.mulcam.ai.web.vo;
 public class ProductListVO {
 	private String title, author, publisher, category, imgurl, imgurl2, isbn;
 	private int price;
+	private int end;
 	
+	public ProductListVO(String category, int end) {
+		super();
+		this.category = category;
+		this.end = end;
+	}
+
 		
 	public ProductListVO(String title, String author, String publisher, String isbn, String category, String imgurl, int price) {
 		super();

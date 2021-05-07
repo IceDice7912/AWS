@@ -14,4 +14,6 @@ public interface ProductListDAO {
 
 	public ArrayList<ProductListVO> getAll(int end);
 
+	public ArrayList<ProductListVO> getCategoryList(String category);
+
 }

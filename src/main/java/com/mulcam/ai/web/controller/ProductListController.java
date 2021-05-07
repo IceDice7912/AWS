@@ -47,5 +47,29 @@ public class ProductListController {
 		
 		
 	}	
+	
+	
+	
+	
+	@RequestMapping(value = "productListCategory.jes", 
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String getProductCategory(HttpServletRequest request, HttpServletResponse response){
+		String category = request.getParameter("category");
+		ArrayList<ProductListVO> list = new ArrayList<ProductListVO>();
+		list = productListService.getCategoryList(category);
+		
+		JSONObject obj = new JSONObject();
+		JSONArray jArray = new JSONArray();
+		for (int i=0;i<list.size();i++) {
+			JSONObject sObject = new JSONObject();
+			sObject.put("book", list.get(i));
+			jArray.put(sObject);		
+		}
+		obj.put("data", jArray);		
+		return obj.toString();
+	}	
+
 
 }
