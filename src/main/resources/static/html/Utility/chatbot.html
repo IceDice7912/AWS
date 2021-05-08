@@ -3,47 +3,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta charset="UTF-8">
 <title>쇼팅톡 </title>
-	<link rel="stylesheet" href="../../css/ToolStyle.css">
+
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script type="text/javascript" src="../../js/my.js"></script>
+	
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="../../css/ToolStyle.css">
+	<link rel="stylesheet" href="../../css/font.css">
+
+
 </head>
 
 <body><!-- style="height:100%; background:#BBCCDD;"- -->
 
+<div id="wrap">
 
-
-<say>[할 말 있으면 녹음버튼 누르고 말하고, 다 했으면 종료 버튼을 누르시오.]</say><br>
-
-
-
-<div id="chatbot" style="width: 500px; height: 480px;">
-	<div class="chatbot-UI">
-		<div class="chat-top">쇼팅톡</div>
-		<div class="chat-main" style="background:#fff;">
-		
-		Shotting : <p> </p>
-
+	<div id="section1">
+		<div id="top-section">
+			
+		<br><br>
 		</div>
-		
+	</div>
+<!-- 	
+	<div id="section2">
+		<div id="left-section">
+			<div class="left-intro">
+				<img src="../../img/chatbot_01.png">
+			
+			</div>
+		</div>
+		<div id="right-section">
+	<say>[할 말 있으면 녹음버튼 누르고 말하고, 다 했으면 종료 버튼을 누르시오.]</say><br>
 			
 			
-		<div class="chat-text">
-			<input type="text" id="chat" placeholder="채팅을 입력하세요"><br>
-			<button type="button" id="chatBtn" value="chatBtn">전송</button><br>
-			<button type="button" id="sayBtn" value="sayBtn">음성으로 말하기</button><br>
-			<button type="button" id="saySubmitBtn" value="saySubmitBtn">녹음 종료, 대화 내보내기</button><br>
+			
+			<div id="chatbot">
+				<div class="chatbot-UI">
+					<div class="chat-top">쇼팅톡</div>
+					
+					<div class="chat-main">
+					
+					Shotting : <p></p>
+			
+					</div>
+					
+						
+						
+					<div class="chat-text">
+						<input type="text" id="chat" placeholder="채팅을 입력하세요"><br>
+						<button type="button" id="chatBtn" value="chatBtn">전송</button><br>
+						<button type="button" id="sayBtn" value="sayBtn"><i class="fas fa-microphone"></i></button><br>
+						<button type="button" id="saySubmitBtn" value="saySubmitBtn">녹음 종료, 대화 내보내기</button><br>
+					</div>
+					
+			
+				</div>		
+			</div>
 		</div>
+	</div>
+ -->	
+	
+	<div id="section3">
+			<div id="background">
+				<img src="../../img/Chatbot_01.png">
+			
+			</div>
 		
-
+		
+			
+			<div id="chatbot">
+				<div class="chatbot-UI">
+					<div class="chat-top"><span>쇼팅톡</span></div>
+					
+					<div class="chat-main">
+					<br>
+					상담원 쇼톡 : <p></p>
+			
+					</div>
+					
+						
+						
+					<div class="chat-text">
+						<input type="text" id="chat" placeholder="내용을 입력해주세요"><br>
+						<button type="button" id="chatBtn" value="chatBtn">전송</button>
+						<button type="button" id="sayBtn" value="sayBtn"><i class="fas fa-microphone fa-2x"></i></button>
+						<button type="button" id="saySubmitBtn" value="saySubmitBtn"><i class="fas fa-file-import fa-2x"></i></button>
+					</div>
+		<!-- 			녹음 종료, 대화 내보내기  -->
+					
+					<div class="exitBtn">
+						<a href="../../index.html"><i class="fas fa-circle fa-2x"></i></a>
+					</div>
+				</div>		
+			</div>		
+		
+		
+	
 	</div>
 </div>
+	
+
 </body>
 
 <script>
+
+
 const record = document.getElementById("sayBtn")
 const stop = document.getElementById("saySubmitBtn")
 const audioCtx = new(window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
