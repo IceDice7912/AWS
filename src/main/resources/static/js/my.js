@@ -2,18 +2,18 @@ $(document).ready(function(){
 
 	$("#orderBtn").click(function(){
 		
-		let confirm_data=confirm("다음과 같이 주문하시겠습니까?\n"+items);		
+		let confirm_data=confirm("다음과 같이 주문하시겠습니까?\n");		
 		if(confirm_data){
-			const basket = $.cookie("basket");
+			const basket = $.cookie("select_product_isbn_cart");
 
-			$.post("../order.jes",
+			$.post("../../order.jes",
 				  basket,
 				  function(data, status){	
 				  	console.log(data);
 				  	const obj=JSON.parse(data);
 				  	if(obj.order_group_no){	
 				  		alert("주문완료:[주문번호]"+obj.order_group_no);	
-				  		$.removeCookie("basket", { path: '/' });// 장바구니 쿠키 삭제	
+				  		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제	
 				  	}else{
 				  		alert(obj.msg);
 				  	}
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 	$("#cancelBtn").click(function(){
 		alert("장바구니를 모두 비웁니다");		
-		$.removeCookie("basket", { path: '/' });// 장바구니 쿠키 삭제
+		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제
 		window.close();
 	});
 

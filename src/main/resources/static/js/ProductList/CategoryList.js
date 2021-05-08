@@ -1,9 +1,64 @@
 var category;
-var setCookie = function ci(value, exp){	
+function setCookie(cname, cvalue, exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	  var expires = "expires="+ d.toUTCString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+function setCookie_buy(value, exp){	
 	var date = new Date();
 	date.setTime(date.getTime() + exp*24*60*60*1000);
-	document.cookie = "select_product_isbn" + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+	document.cookie = "select_product_isbn_buy" + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
 };
+function setCookie_cart(value, exp){	
+	var date = new Date();
+	date.setTime(date.getTime() + exp*24*60*60*1000);
+	document.cookie = "select_product_isbn_cart" + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+};
+function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i <ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return null;
+}
+function addCookie(id) {
+	alert('에드 쿠키 반응함');
+	  var items = getCookie('select_product_isbn_cart'); // 이미 저장된 값을 쿠키에서 가져오기
+	  alert('가져온 쿠키 값 : ' + items);
+	  var maxItemNum = 10; // 최대 저장 가능한 아이템개수
+	  var expire = 1; // 쿠키값을 저장할 기간
+	  if (items) {
+	    var itemArray = items.split(',');
+	    if (itemArray.indexOf(id) != -1) {
+	      // 이미 존재하는 경우 종료
+	      console.log('Already exists.');
+	    }
+	    else {
+	      // 새로운 값 저장 및 최대 개수 유지하기
+	      itemArray.unshift(id);
+	      if (itemArray.length > maxItemNum ) itemArray.length = 5;
+	      items = itemArray.join(',');
+	      setCookie('select_product_isbn_cart', items, expire);
+	    }
+	  }
+	  else {
+	    // 신규 id값 저장하기
+	    setCookie('select_product_isbn_cart', id, expire);
+	  }
+}
+
+
+
+
 
 $(document).ready(function(){
 	
@@ -23,11 +78,9 @@ $(document).ready(function(){
 				+ my_array[i].book.title + "</a><br><br> </div> <div class='prod_pubGrp'> <span class='prod_auth'>" 
 				+ my_array[i].book.author + "</a> 저 	</span> <em class='divi'>｜</em> <span class='prod_pub'>"
 				+ my_array[i].book.publisher + "</span> <em class='divi'>｜</em> </div> <div class='prod_price'> <em class='price'>" 
-				+ my_array[i].book.price + "</em> 원 </div> </div> <div class='prod_btn'> <a href='#' class='btn1' onclick=\"window.open('../../html/OrderPage/orderForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=600');\">카트에 넣기</a><a class='btn2' href='#' onclick=alert("
-				+ my_array[i].book.isbn+")+setCookie("
-				+ my_array[i].book.isbn+","+1+")+window.open('../../html/ProductDetail/ProductDetail.html')>바로 구매하기</a></div></li></ul>";	
-//				alert(i+"번째 책 isbn : " + my_array[i].book.isbn);
-				
+				+ my_array[i].book.price + "</em> 원 </div> </div> <div class='prod_btn'> <a class='btn1' href='#' onclick=addCookie("+my_array[i].book.isbn+")+window.open('../../html/OrderPage/orderForm.html')>카트에 넣기</a><a class='btn2' href='#' onclick=alert("
+				+ my_array[i].book.isbn+")+setCookie_buy("
+				+ my_array[i].book.isbn+","+1+")+window.open('../../html/ProductDetail/ProductDetail.html')>바로 구매하기</a></div></li></ul>";		
 			}
 			$('#prod_list').html(sumMsg);
 		
