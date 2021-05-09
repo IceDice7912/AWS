@@ -47,7 +47,7 @@ public class RecommendController {
 		String category = recommendService.findCategory(title);
 		String sb = "";
 		RecommendVO recommendVO = new RecommendVO();
-		
+		System.out.println(title+" "+category);
         try {
 			URL url = new URL("http://54.83.91.161:8000/recommend/");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -81,7 +81,7 @@ public class RecommendController {
         sb = sb.replaceAll("\\\\","\"");
         JSONObject o=new JSONObject(sb);       
         JSONObject ISBN=o.getJSONObject("ISBN");
-        System.out.println("recommand에서 응답한 isbn : " + ISBN);
+        System.out.println(ISBN);
         
         ArrayList<RecommendVO> list = new ArrayList<RecommendVO>();
         JSONObject obj = new JSONObject();

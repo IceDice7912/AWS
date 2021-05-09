@@ -20,6 +20,7 @@ public class RecommendService {
 	}
 	
 	public ArrayList<RecommendVO> recommendBook(String isbn) {
+		System.out.println("RecommendService recommendBook 수행중");
 		return recommendDAO.recommendBook(isbn);
 	}
 
