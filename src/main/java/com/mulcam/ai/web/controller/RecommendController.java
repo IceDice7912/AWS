@@ -47,7 +47,7 @@ public class RecommendController {
 		String category = recommendService.findCategory(title);
 		String sb = "";
 		RecommendVO recommendVO = new RecommendVO();
-		System.out.println(title+" "+category);
+		
         try {
 			URL url = new URL("http://54.83.91.161:8000/recommend/");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -56,10 +56,12 @@ public class RecommendController {
 			conn.setRequestProperty("Accept", "application/json");	// Request data를 JSON으로 받도록 설정
 			conn.setDoOutput(true);	// Output Stream을 POST 데이터로 전송
 			String jsonInputString = "{\"title\":\""+title+"\",\"category\":\""+category+"\"}";
-
+			System.out.println(jsonInputString);
+			
 			//JSON 보내는 Output Stream
 			try(OutputStream os = conn.getOutputStream()){
 				byte[] input = jsonInputString.getBytes("utf-8");
+				System.out.println(input);
 				os.write(input,0,input.length);
 			}
 			
@@ -70,6 +72,7 @@ public class RecommendController {
 				while((responseLine = br.readLine()) != null) {
 					sb = responseLine;
 				}
+				System.out.println(sb);
 				br.close();
 			}
         } catch (MalformedURLException e) {
