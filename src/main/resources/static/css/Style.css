@@ -86,8 +86,13 @@
 .header .list2 li.log a {border: 1px solid #ccc; border-radius: 3px; padding: 3px 10px; margin: 11px 0;}
 .header .list2 li a {color: #797979;}
 
+
+
+/* login */
 #loginArea{display:inline-block; top:10px; inline-hight:10px; float:right; padding-bottom:5px;}
-#loginArea input[type="button"]{border: 1px solid #ccc; border-radius: 3px; padding: 3px 10px; margin: 11px 0;} 
+#loginArea input[type="button"]{border: 1px solid #ccc; border-radius: 3px; padding: 3px 10px; margin: 11px 0;}
+
+
 
 #header-subArea{display:flex; width:1200px; height:80px; margin: 0 auto; border-bottom:5px solid #0074BB;}
 #header-sub{width:100%; height:100%;}
@@ -104,11 +109,13 @@
 
 #searchBar{width:25%; float:right;  heigth:100%; padding:38px;}
 .search-Bar{display:inline-block;}
-.search-Bar form input[type="search"]{display:inline-block;height:40px; width:210px;border: 3px solid  #0074BB; font-size:14px; font-family:'HanaA'; border-radius:3px;}
+.search-Bar input[type="search"]{display:inline-block;height:40px; width:210px;border: 3px solid  #0074BB; font-size:14px; font-family:'HanaA'; border-radius:3px;}
 .search_Bar:hover{zoom:1.1;}
-.search-Bar form button[type="submit"]{height:40px; width:50px; background-color: #0074BB; color:#fff;font-size:14px; font-family:'HanaB';border-radius:3px;padding-top:5px;}
+.search-Bar button[type="submit"]{height:40px; width:50px; background-color: #0074BB; color:#fff;font-size:14px; font-family:'HanaB';border-radius:3px;padding-top:5px;}
 
-
+/* login */
+#loginArea{display:inline-block; top:10px; inline-hight:10px; float:right; padding-bottom:5px;}
+#loginArea input[type="button"]{border: 1px solid #ccc; border-radius: 3px; padding: 3px 10px; margin: 11px 0;}
 
 .prodline_title h1{font-size:20px; font-family:'HanaB'; padding-bottom:40px;}
 .prodline_title{position:relative; z-index:5;}
@@ -187,8 +194,9 @@
 .icons > li:not(:last-child){margin-right: 20px;}
 .icons .contents1_bold{font-size:26px; font-family:'HanaB';}
 .icons .contents2 {width:280px; margin:auto; letter-spacing: -1px; font-size:16px; font-family:'HanaA'}
-.more{width:100px;height: 30px;background: #2F7AF4; color: #fff; font-size: 12px;line-height: 30px;
+.more{width:100px;height: 30px;background: #2F7AF4; line-height: 30px;
   margin:25px auto;}
+.more a{color: #fff; font-size: 16px; font-family:'HanaB'; line-height: 30px;}
 .more:hover{zoom:1.2;}
 
 /* main_text1*/

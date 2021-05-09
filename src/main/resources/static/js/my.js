@@ -2,6 +2,12 @@ $(document).ready(function(){
 
 	$("#orderBtn").click(function(){
 
+		let cookieidcheck=$.cookie("M_id");
+		if(cookieidcheck==null){
+			alert('로그인 이후 이용해주세요.');
+			window.close();
+		}
+
 		var totalprice= document.getElementById("total_price").innerText;
 		var id= document.getElementById("M_id").innerText;
 		var name= document.getElementById("M_name").innerText;

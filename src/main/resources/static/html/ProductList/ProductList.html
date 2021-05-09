@@ -16,13 +16,9 @@
 	
 <!-- ================= #1 External css/js ================= -->
   	<!-- JQUERY 순서 : JQUERY다음 CDN-->
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
 	
-	<!-- bxslider -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
-  	
+
 	<!-- Swiper CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
@@ -32,6 +28,9 @@
 	<!-- Swiper js -->
     <script src="../package/swiper-bundle.min.js"></script>	
 
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
+	
 	
 <!-- ================= #2 Internal css/js ================= -->	
   	<!-- 쇼핑몰 CSS -->
@@ -88,11 +87,11 @@
 	<div id="header-subArea">
 			<nav id="nav">
 				<ul class="gnb">
-					<li class="logo"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></li>						
-					<li class="menu" ><a href="html/ProductList/ProductList.html" >국내도서</a></li>
-					<li class="menu"><a href="">챗봇 서비스</a></li>
-					<li class="menu" ><a href="">얼굴인식 서비스</a></li>
-					<li class="menu"><a href="">추천 서비스</a></li>												
+					<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+					<li class="menu" ><a href="#" >국내도서</a></li>
+					<li class="menu"><a href="#" onclick="window.open('../../html/Utility/chatbot.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇 서비스</a></li>
+					<li class="menu" ><a href=""onclick="window.open('../../html/Utility/cameraWeb.html', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식 서비스</a></li>
+					<li class="menu"><a href="" onclick="window.open('../../html/recommend/recommend.html','toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">추천 서비스</a></li>												
 				</ul>
 			</nav>
 			<div id="searchBar">
@@ -101,7 +100,7 @@
 						<label>
 							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s">	
 						</label>
-						<button type="submit" class="search-submit"><span class="screen-reader-text">찾기</span></button>
+						<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
 					</form>
 				</div>				
 			</div>							
@@ -149,7 +148,7 @@
 		<div id="left_section">
 			<div id="side_category">
 				<div class="categroy_box">
-					<h2><strong>국내도서</strong></h2>
+					<h2><strong><i class="fas fa-indent fa-2x"></i></strong></h2>
 					<ul>
 						<li>
 							<a href="ProductList_02.html">소설_시_희곡</a>
@@ -211,9 +210,9 @@
 				<div class="prod_sortNum">
 					<span class="prod_sortLft">
 						<div class="prod_page">
-							<input type="button" id="previousBtn" onclick="prev_click();" value="이전" />
+							<input type="button" id="previousBtn" onclick="prev_click();" value="이전">
 							<span id="paging">1</span>							
-							<input type="button" id="nextBtn" onclick="next_click();" value="다음" />
+							<input type="button" id="nextBtn" onclick="next_click();" value="다음 ">
 						</div>
 					</span>
 				</div>
@@ -275,8 +274,6 @@ $(function(){
 	var login=$.cookie('logined');
 		$("#logoutDiv").html(login);
 });
-
-
 </script>
 
 

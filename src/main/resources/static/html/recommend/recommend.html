@@ -12,43 +12,31 @@
 	 	 
 	 <!-- favicon -->
 	 	 
-	<title>온라인 쇼핑몰 - 쇼팅</title>
+	<title>추천 받아보기</title>
 	
 <!-- ================= #1 External css/js ================= -->
   	<!-- JQUERY 순서 : JQUERY다음 CDN-->
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	
-	<!-- bxslider -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">  -->
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
-  	
-	<!-- Swiper CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
 	
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-	
-	<!-- Swiper js -->
-    <script src="../package/swiper-bundle.min.js"></script>	
 
 	
 <!-- ================= #2 Internal css/js ================= -->	
   	<!-- 쇼핑몰 CSS -->
 	<link rel="stylesheet" href="../../css/reset.css">
-	<link rel="stylesheet" href="../../css/ProductList/ListPageStyle.css">
-	<link rel="stylesheet" href="../../css/ProductList/ListPageBanner.css">
+	<link rel="stylesheet" href="../../css/recommend.css">
 	
 	<link rel="stylesheet" href="../../css/font.css">
 	<link rel="stylesheet" href="../../css/font-awesome.css">
 
   	<!-- #2.1 쇼핑몰 js -->
   	<!-- swiper js --> 
-  	<link rel="stylesheet" href="../../js/ProductList/ListPageBanner.js">
   	<script src="../../js/ie-checker.js"></script>
   	
   	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script> 	
-  	<link rel="stylesheet" href="../../js/ProductList/ListPage.js">
 	
 	<!-- #2.2 기능 js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -86,13 +74,13 @@
 		</div>	
 	<div id="header-subArea">
 			<nav id="nav">
-				<ul class="gnb">
-					<li class="logo"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></li>						
-					<li class="menu" ><a href="html/ProductList/ProductList.html" >국내도서</a></li>
-					<li class="menu"><a href="">챗봇 서비스</a></li>
-					<li class="menu" ><a href="">얼굴인식 서비스</a></li>
-					<li class="menu"><a href="">추천 서비스</a></li>												
-				</ul>
+						<ul class="gnb">
+							<li class="logo"><a href="../../index.html"><img src="../../img/Logo/Logo01.png" class="logo" alt="로고이미지" style="position:relative; top:10px;"></a></li>						
+							<li class="menu" ><a href="../../html/ProductList/ProductList.html" >국내도서</a></li>
+							<li class="menu"><a href="../../html/Utility/chatbot.html" >챗봇 서비스</a></li>
+							<li class="menu" ><a href="../../html/Utility/cameraWeb.html">얼굴인식 서비스</a></li>
+							<li class="menu"><a href="#">추천 서비스</a></li>												
+						</ul>
 			</nav>
 			<div id="searchBar">
 				<div class="search-Bar">
@@ -100,7 +88,7 @@
 						<label>
 							<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s">	
 						</label>
-						<button type="submit" class="search-submit"><span class="screen-reader-text">찾기</span></button>
+						<button type="submit" class="search-submit"><span class="screen-reader-text"><i class="fas fa-search"></i></span></button>
 					</form>
 				</div>				
 			</div>							
@@ -108,106 +96,157 @@
 <div style="text-align:center; margin-top:5px;"></div>		
 		
 <!-- ================= 두 번째 구역(banner) ================= -->
-	<div id="banner">
-		 <div class="container" >
-		  <!-- Swiper -->
-		  <div class="swiper-container first">
-		    <div class="swiper-wrapper">
-		      <div class="swiper-slide"><img src="../../img/Banner/First_banner01.png" class="swiper-lazy" alt=""></div>
-		      <div class="swiper-slide"><img src="../../img/Banner/First_banner02.png" class="swiper-lazy" alt=""></div>
-		      <div class="swiper-slide"><img src="../../img/Banner/First_banner03.png" class="swiper-lazy" alt=""></div>
-		      <div class="swiper-slide"><img src="../../img/Banner/First_banner04.png" class="swiper-lazy" alt=""></div>
-<!--		  <div class="swiper-slide">Slide 5</div>  -->
-		    </div>
-		  <!-- Add Pagination (부가요소) -->
-		    <div class="swiper-pagination"></div>
-		    <div class="swiper-pagination"></div>
-    		<div class="swiper-button-prev"></div>
-    		<div class="swiper-button-next"></div>
-    		<div class="swiper-scollbar"></div>
-		 </div>
-<!-- ================= Swiper js ================= -->
-		  <script src="../package/swiper-bundle.min.js"></script>
-	
-<!-- ================= Initialize Swiper 오류날수있으니 여기에 ================= -->
-		  <script>var swiper = new Swiper('.first', {pagination: {el: '.swiper-pagination',},});</script>		   
-<!-- ================= 로그인창 ================= -->  		 
-		</div>
-	</div>
 
-<!-- ================= //contents ================= -->                                       
-		
-<div style="text-align:center; margin-top:5px;">　</div>		
-
-
-
-<!-- ================= cont2 (카테고리, 배너, 상품 영역) ================= -->
-	<div id="cont2">
-	
-<!-- ================= cont2 > left_section(카테고리영역) ================= -->
-		<div id="left_section">
+	<div id="cont1">
+		<div id="left-section">
 			<div id="side_category">
 				<div class="categroy_box">
-					<h2><strong>도서추천</strong></h2>
-								
+					<h2><strong><i class="fas fa-indent fa-2x"></i></strong></h2>
+					<ul>
+						<li>
+							<a href="#section1" class="scroll">도서 추천 서비스</a>
+						</li>
+						<li>
+							<a href="#section1" class="scroll">이용방법</a>
+						</li>
+						<li>
+							<a href="#section3" class="scroll">사용해보기</a>
+						</li>
+						<li>
+							<a href="#section4" class="scroll">추천도서</a>
+						</li>																																																																																																																			
+					</ul>				
 				</div>
 			</div>
 <!-- ================= //side_category ================= -->
+			<script>
+			
+			jQuery(document).ready(function($) {
+			
+			$(".scroll").click(function(event){            
+			
+			event.preventDefault();
+			
+			$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+			
+			});
+			
+			});
+			
+			</script>
 		</div>
-<!-- ================= right_section ================= -->
-		<div id="right_section">
- 		<!-- Swiper 중간 베너 1 -->
-			<div class="middle_banner">
-				<div class="swiper-container second" id="second_banner_container">
-					<div class="swiper-wrapper" id="second_banner_wrapper">
-						<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner03.png" class="swiper-lazy" alt="베너01"></div>
-						<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner04.png" class="swiper-lazy" alt="베너02"></div>
-						<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner03.png" class="swiper-lazy" alt="베너03"></div>
-						<div class="swiper-slide" id="second_banner_slide"><img src="../../img/Banner/middle_banner04.png" class="swiper-lazy" alt="베너04"></div>
-				<!--	<div class="swiper-slide" id="second_banner_slide">Slide 5</div>  -->
+		
+		<div id="right-section">
+			<div id="section1">
+				<div id="background">
+					<img src="../../img/reco_01.jpg">
+				</div>			
+			</div>
+			
+<!--  			
+			<div id="section2">
+				   <div class="main_text1">
+				        <h1>추천 받아 보기</h1>
+				        <div class="contents1">
+				        추천 받아 보기를 통해서 원하는 도서를 입력하고<br>
+				        그것과 비슷한 유형의 도서를 추천받습니다.
+				        </div>
+				        <div class="service">
+				          <div class="photo">
+				            <img src="../../g/reco_05.png" style="width:500; height:200;">     
+				          </div>
+				        </div>
+				      </div>			
+			
+			</div>
+-->			
+			<div id="section3">
+				   <div class="main_text2">
+				        <h1>이용 방법</h1>
+				        <div class="contents2">
+				        	1. 아래의 검색창에 찾고자 하는 도서를 입력합니다.<br>
+				        	2. <span><i class="fas fa-search"></i></span></a> [버튼]을 클릭합니다.<br>
+				        	3. 잠시후 추천 도서 목록을 제공 받습니다. <br>
+				        </div>
+				      </div>				
+			</div>
+			
+			
+			
+			<div id="section4">
+				<div class="prod_sort_area">	
+					<div class="prod_sortNum">
+						<span class="prod_sortLft">
+							<div class="prod_page">
+								<input type="text" class="form-control" id="book_title"  placeholder="내용을 입력해 주세요" value="">
+								<button type="submit" id="reco_btn" class="btn btn-block mybtn btn-primary tx-tfm"><i class="fas fa-search fa-2x"></i></button>
+							</div>
+						</span>
 					</div>
-
-			<!-- Add Pagination (부가요소) -->
-					<div class="swiper-pagination" id="second-pagination"></div>
-					<div class="swiper-pagination" id="second-pagination"></div>
-			    	<div class="swiper-button-prev"id="second-button-prev"></div>
-			    	<div class="swiper-button-next" id="second-button-next"></div>
-			    	<div class="swiper-scollbar" id="second-scrollbar"></div>	    	
-			    </div>
-			</div>	
-		<!-- ================= Swiper js ================= -->
-			<script src="../package/swiper-bundle.min.js"></script>
-<!-- ================= Initialize Swiper 오류날수있으니 여기에 ================= -->
-			<script>var swiper = new Swiper('.second', {pagination: {el: '#second-pagination',},});</script>	
-
-<div style="text-align:center; margin-top:5px;">　</div>		
-
-<!-- ================= prod_list ================= -->	
-		<div class="prod_sort_area">
-				
-				<div class="prod_sortNum">
-					<span class="prod_sortLft">
-						<div class="prod_page">
-							<input type="text"  class="form-control" id="book_title">
-							<button type="submit" id="reco_btn" class="btn btn-block mybtn btn-primary tx-tfm">search</button>
-						</div>
-					</span>
+				    <input id="category_checkAll" name="category_checkAll" type="checkbox" value="" style="display:none">    
 				</div>
-    		<input id="category_checkAll" name="category_checkAll" type="checkbox" value="" style="display:none">    
+			</div>
+			<div id="section5">
+				<div class="section_title">
+					<h3>추천 도서 목록
+						<span>얼굴인식이 추천하는 도서목록</span>
+					</h3>
+				</div> 			
+				<div id="reco-book-area">
+				<ul id="reco-book"> 
+					<li class="reco-book-img">
+						<img src="../../img/Book_01.jpg" style="width:220px; height:220px;">
+					</li>  
+					<li class="reco-book-main">
+						<div class="reco-book-title">
+						여기는 책 제목입력
+						</div>
+					</li>
+				</ul>
+				<ul id="reco-book"> 
+					<li class="reco-book-img">
+						<img src="../../img/Book_01.jpg" style="width:220px; height:220px;">
+					</li>  
+					<li class="reco-book-main">
+						<div class="reco-book-title">
+						여기는 책 제목입력
+						</div>
+					</li>
+				</ul>
+				<ul id="reco-book"> 
+					<li class="reco-book-img">
+						<img src="../../img/Book_01.jpg" style="width:220px; height:220px;">
+					</li>  
+					<li class="reco-book-main">
+						<div class="reco-book-title">
+						여기는 책 제목입력
+						</div>
+					</li>
+				</ul>
+				<ul id="reco-book"> 
+					<li class="reco-book-img">
+						<img src="../../img/Book_01.jpg" style="width:220px; height:220px;">
+					</li>  
+					<li class="reco-book-main">
+						<div class="reco-book-title">
+						여기는 책 제목입력
+						</div>
+					</li>
+				</ul>				
+				</div>												
+			</div>			
+			
+					
 		</div>
-	<div style="text-align:center; margin-top:5px;"><br></div>		
-						 
-			<div id="prod_list" class="prod_list_area">
-				
-			</div>   
 
+		
+		
 			
-			
-			
-<!-- ================= f//r ================= -->                                       	
-			
+
+	
+<!-- ================= f//r ================= -->                                       		
 		</div>
-	</div>
+
 		
 <!-- ================= footer ================= -->                                       	
 	<div id="footer">
@@ -242,6 +281,7 @@
 		</div>
 <!-- ================= // footer ================= -->                                       				
 	</div>
+	
 <!-- =================★ //wrap 반드시 확인 !!!!!!!!!!!!! ================= -->                                       				
 </body>
 
