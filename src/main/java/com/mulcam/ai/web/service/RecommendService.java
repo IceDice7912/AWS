@@ -1,5 +1,7 @@
 package com.mulcam.ai.web.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,7 @@ public class RecommendService {
 		return recommendDAO.findCategory(title);
 	}
 	
-	public RecommendVO recommendBook(String isbn) {
-		System.out.println("RecommendBook 수행중");
+	public ArrayList<RecommendVO> recommendBook(String isbn) {
 		return recommendDAO.recommendBook(isbn);
 	}
 

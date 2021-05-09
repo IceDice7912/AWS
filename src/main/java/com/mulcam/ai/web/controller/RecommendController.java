@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,14 +26,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mulcam.ai.web.service.RecommendService;
 import com.mulcam.ai.web.vo.OrderVO;
+import com.mulcam.ai.web.vo.ProductListVO;
 import com.mulcam.ai.web.vo.RecommendVO;
 
 
 
 @Controller
 public class RecommendController {
-	
-	private PythonInterpreter interpreter;
 	
 	@Autowired 
 	RecommendService recommendService;
@@ -46,8 +46,7 @@ public class RecommendController {
 		String title = request.getParameter("title");
 		String category = recommendService.findCategory(title);
 		String sb = "";
-		RecommendVO recommendVO;
-		String list = "";
+		RecommendVO recommendVO = new RecommendVO();
 		
         try {
 			URL url = new URL("http://127.0.0.1:8000/recommend/");
@@ -83,15 +82,21 @@ public class RecommendController {
         JSONObject o=new JSONObject(sb);       
         JSONObject ISBN=o.getJSONObject("ISBN");
         System.out.println(ISBN);
+        
+        ArrayList<RecommendVO> list = new ArrayList<RecommendVO>();
+        JSONObject obj = new JSONObject();
+		JSONArray jArray = new JSONArray();
         for (int i=0;i<ISBN.length();i++) {
         	String num = Integer.toString(i);
         	String isbn = String.valueOf(ISBN.get(num));
-        	recommendVO = recommendService.recommendBook(isbn);
-        	list = list +  recommendVO.toString() + "\n";
+        	list = recommendService.recommendBook(isbn);        	
+        	JSONObject sObject = new JSONObject();
+        	sObject.put("book", list);
+			jArray.put(sObject);	        	
         }
-        
-       System.out.println(list);
-       return list;
+		obj.put("data", jArray);
+		return obj.toString();
+		
 }
 }
 

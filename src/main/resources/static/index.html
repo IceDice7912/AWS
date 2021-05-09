@@ -15,8 +15,7 @@
 <!-- ================= #1 ================= -->
   	<!-- JQUERY 순서 : JQUERY다음 CDN-->
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
-
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
 	
@@ -95,17 +94,15 @@
 							<li class="menu" ><a href="html/ProductList/ProductList.html" >국내도서</a></li>
 							<li class="menu"><a href="#" onclick="window.open('../../html/Utility/chatbot.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">챗봇 서비스</a></li>
 							<li class="menu" ><a href=""onclick="window.open('../../html/Utility/cameraWeb.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');">얼굴인식 서비스</a></li>
-							<li class="menu" onclick="window.open('../../html/Utility/recomand.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=600,height=1000');"><a href="">추천 서비스</a></li>												
+							<li class="menu" ><a href="html/recommend/recommend.html">추천 서비스</a></li>												
 						</ul>
 					</nav>
 				<div id="searchBar">	
 					<div class="search-Bar">
-						<form role="search" method="get" class="search-form" action="http://www.google.com/">
 							<label>
-								<input type="search" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
+							<input type="search" id="searchBook" class="search-field" placeholder="찾고싶은 도서를 검색해주세요" value="" name="s"/>
 							</label>
-							<button type="submit" class="search-submit"><span class="screen-reader-text">찾기</span></button>
-						</form>
+							<button type="submit" id="searchBtn" class="search-submit">찾기</button>
 					</div>
 				</div>								
 		</div>
@@ -578,25 +575,28 @@
 </body>
 
 <script>
-setCookie('select_product_isbn_cart', "", 1);
-setCookie('select_product_isbn_buy', "", 1);
-function setCookie(cname, cvalue, exdays) {
-	alert('장바구니, 구매 페이지 쿠키값 초기화');
-	  var d = new Date();
-	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	  var expires = "expires="+ d.toUTCString();
-	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+setCookie_buy("", 1);
+setCookie_cart("", 1);
+function setCookie_buy(value, exp){	
+	alert('buy 쿠키 초기화');
+	var date = new Date();
+	date.setTime(date.getTime() + exp*24*60*60*1000);
+	document.cookie = "select_product_isbn_buy" + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+};
+function setCookie_cart(value, exp){	
+	alert('cart 쿠키 초기화');
+	var date = new Date();
+	date.setTime(date.getTime() + exp*24*60*60*1000);
+	document.cookie = "select_product_isbn_cart" + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+};
 
-	
 $(function(){
-	var login=$.cookie('logined');
-		$("#loginArea").html(login);
-});	
-	
+   var login=$.cookie('logined');
+      $("#loginArea").html(login);
+});
+
+
 </script>
-
-
 
 
 </html>

@@ -1,8 +1,11 @@
 package com.mulcam.ai.web.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.mulcam.ai.web.vo.ProductListVO;
 import com.mulcam.ai.web.vo.RecommendVO;
 
 @Mapper
@@ -11,7 +14,7 @@ public interface RecommendDAO {
 
 	public String findCategory(String title);
 
-	public RecommendVO recommendBook(String isbn);	
+	public ArrayList<RecommendVO> recommendBook(String isbn);	
 	
 
 }

@@ -14,7 +14,7 @@
 	
 	<select id="recommendBook" resultType="RecommendVO" parameterType="String">
 		<![CDATA[
-			select title,author,publisher,category,price from book where isbn=#{isbn}
+			select title,author,publisher,category,imgurl,isbn,price from book where isbn=#{isbn}
 		]]>
 	</select>
 
