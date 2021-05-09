@@ -81,7 +81,7 @@ public class RecommendController {
         sb = sb.replaceAll("\\\\","\"");
         JSONObject o=new JSONObject(sb);       
         JSONObject ISBN=o.getJSONObject("ISBN");
-        System.out.println(ISBN);
+        System.out.println("recommand에서 응답한 isbn : " + ISBN);
         
         ArrayList<RecommendVO> list = new ArrayList<RecommendVO>();
         JSONObject obj = new JSONObject();
