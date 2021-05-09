@@ -37,6 +37,16 @@ function getCookie(cname) {
 	  return null;
 }
 function addCookie(id) {
+	var loginch = getCookie('M_id');
+	
+	if(loginch == null){
+		alert('우선 로그인부터 해주세요.');
+		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제
+		window.close();
+	}
+	
+	
+	
 	alert('에드 쿠키 반응함');
 	  var items = getCookie('select_product_isbn_cart'); // 이미 저장된 값을 쿠키에서 가져오기
 	  alert('가져온 쿠키 값 : ' + items);

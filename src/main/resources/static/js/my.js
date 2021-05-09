@@ -1,22 +1,31 @@
 $(document).ready(function(){
 
 	$("#orderBtn").click(function(){
+
+		var totalprice= document.getElementById("total_price").innerText;
+		var id= document.getElementById("M_id").innerText;
+		var name= document.getElementById("M_name").innerText;
+		var count= document.getElementById("count").innerText;
+		var title= "";
+		
+		for(var i=0; i<count; i++){
+			title = title + document.getElementById("title"+i+"").innerText + ", ";
+		}
+
+		alert(title + "  " + totalprice + "  " + id + "  " + name);
 		
 		let confirm_data=confirm("다음과 같이 주문하시겠습니까?\n");		
 		if(confirm_data){
-			const basket = $.cookie("select_product_isbn_cart");
-
-			$.post("../../order.jes",
-				  basket,
+			$.post("../../order",
+				{
+				  totalprice: totalprice,
+				  id: id,
+				  name: name,
+				  title: title
+				},  
 				  function(data, status){	
-				  	console.log(data);
-				  	const obj=JSON.parse(data);
-				  	if(obj.order_group_no){	
-				  		alert("주문완료:[주문번호]"+obj.order_group_no);	
-				  		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제	
-				  	}else{
-				  		alert(obj.msg);
-				  	}
+				  	alert(data + "status : " + status);
+					$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제
 				  	window.close();			   
 				  }
 			);//end post() 			
@@ -78,6 +87,8 @@ $("#loginBtn").click(function(){//로그인 처리
 			  function(data, status){	
 				  var obj=JSON.parse(data);
 				  var name=obj.name;
+			  		$.cookie("M_name",obj.name,{expires: 1, path: '/' }); // cookie expires in 10 days 
+			  		$.cookie("M_id",id,{expires: 1, path: '/' }); // cookie expires in 10 days 	
 				  	if(obj.name){
 				  		data =name+"님 환영합니다\t<input type='button' value='로그아웃' id='logoutBtn' class='log'>"
 				  		$.cookie("logined",data,{expires: 1, path: '/' }); // cookie expires in 10 days 
@@ -105,7 +116,9 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 		  },
 		  function(data, status){		  	
 		  	
-		  	$.removeCookie("logined");	    
+		  	$.removeCookie("logined");	
+		  	$.removeCookie("M_name");	
+		  	$.removeCookie("M_id");	
 			location.reload();						   
 		  }
 	);//end post() 
@@ -126,7 +139,7 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 		var favorite=$("#favorite").val();	
 		var job=$("#job").val();	
 
-		if( (name.length==0 || name== "") || (id.length == 0 || id== "") ||  (pw.length == 0 || pw== "")  ||  (age.length == 0 || age== "")  ||  (email.length == 0 || email== "")  ) {
+		if( (name.length==0 || name== "") || (id.length == 0 || id== "") ||  (pw.length == 0 || pw== "")  ) {
 			alert("모든 항목은 필수로 입력하셔야하 합니다.");
 		} else {	
 			

@@ -19,7 +19,9 @@
 	<article class="container">
             <div class="page-header">
                 <div class="col-md-6 col-md-offset-3">
-                <h3>주문 Form</h3>(카트의 품목을 주문하시기 전에 로그인을 먼저 하시는것을 추천드리며, 홈페이지에서 나가거나 첫 index 화면으로 되돌아가면 장바구니가 초기화됩니다.)
+                <h3><class id="M_name"></class>님의 장바구니 : <class id="M_id"></class>  ||| <class id="count"></class> / 10 품목</h3>
+                홈페이지에서 나가거나 첫 index 화면으로 되돌아가면 장바구니가 초기화됩니다.<br>
+		 장바구니는 최대 10개까지 담을 수 있습니다.                
                 </div>
             </div>
             <div class="col-sm-6 col-md-offset-3">
@@ -136,8 +138,17 @@ function getCookie(cname) {
 	  return null;
 	}
 function Check_Cart_Cookie() {
+	var loginch = getCookie('M_id');
+	
+	if(loginch == null){
+		alert('우선 로그인부터 해주세요.');
+		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제
+		window.close();
+	}
+		
 	var obj;
 	var items = getCookie('select_product_isbn_cart'); // 이미 저장된 값을 쿠키에서 가져오기
+	
 	  alert('현재 장바구니에 있는 ISBN 쿠키 값 : ' + items);
 	  var items=items;
 	  var result=items.replace(/,/gi,"");
@@ -167,9 +178,15 @@ function cartList() {
 		document.getElementById("total_price").innerHTML=cartList_price_total;
 		document.getElementById("author"+i+"").innerHTML=cartList_author[i];
 		document.getElementById("isbn"+i+"").innerHTML=cartList_isbn[i];
+		document.getElementById("count").innerHTML=strArray.length;
 	}
 	
 }
+
+var M_name=getCookie("M_name");
+var M_id=getCookie("M_id");
+document.getElementById("M_name").innerHTML=M_name;
+document.getElementById("M_id").innerHTML=M_id;
 </script>
 	
 </html>

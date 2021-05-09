@@ -1,92 +1,51 @@
 package com.mulcam.ai.web.vo;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.mulcam.ai.util.CafeException;
 
-public class OrderVO implements Serializable {
 
-	private String ISBN, ID;
-	private Long ORDERNO, TOTAL_ORDERPRICE, ORDERQUANTITY, ORDER_GROUP_NO;
-	private Date orderdate;
+public class OrderVO{
 
-	public OrderVO(String iSBN, String iD, Long oRDERQUANTIT, Long order_group_no) {
-		this(iSBN, iD, oRDERQUANTIT);
-		setORDER_GROUP_NO(order_group_no);
+	private String id, name, title;
+	private int totalprice;
+	
+	public OrderVO(int totalprice, String id, String name, String title) throws CafeException {
+		setTotalprice(totalprice);
+		setId(id);
+		setName(name);
+		setTitle(title);
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getTotalprice() {
+		return totalprice;
+	}
+	public void setTotalprice(int totalprice) {
+		this.totalprice = totalprice;
 	}
 
-	public OrderVO(String iSBN2, String iD2, Long oRDERQUANTIT) {
-		super();
-		setISBN(iSBN2);
-		setID(iD2);
-		setORDERQUANTITY(oRDERQUANTIT);
-	}
-
-	public OrderVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public String getISBN() {
-		return ISBN;
-	}
-
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
-	}
-
-	public String getID() {
-		return ID;
-	}
-
-	public void setID(String iD) {
-		ID = iD;
-	}
-
-	public Long getORDERNO() {
-		return ORDERNO;
-	}
-
-	public void setORDERNO(Long oRDERNO) {
-		ORDERNO = oRDERNO;
-	}
-
-	public Long getTOTAL_ORDERPRICE() {
-		return TOTAL_ORDERPRICE;
-	}
-
-	public void setTOTAL_ORDERPRICE(Long tOTAL_ORDERPRICE) {
-		TOTAL_ORDERPRICE = tOTAL_ORDERPRICE;
-	}
-
-	public Long getORDERQUANTITY() {
-		return ORDERQUANTITY;
-	}
-
-	public void setORDERQUANTITY(Long oRDERQUANTITY) {
-		ORDERQUANTITY = oRDERQUANTITY;
-	}
-
-	public Long getORDER_GROUP_NO() {
-		return ORDER_GROUP_NO;
-	}
-
-	public void setORDER_GROUP_NO(Long oRDER_GROUP_NO) {
-		ORDER_GROUP_NO = oRDER_GROUP_NO;
-	}
-
-	public Date getOrderdate() {
-		return orderdate;
-	}
-
-	public void setOrderdate(Date orderdate) {
-		this.orderdate = orderdate;
-	}
-
+	
+	
 	@Override
 	public String toString() {
-		return "OrderVO [ISBN=" + ISBN + ", ID=" + ID + ", ORDERNO=" + ORDERNO + ", TOTAL_ORDERPRICE="
-				+ TOTAL_ORDERPRICE + ", ORDERQUANTITY=" + ORDERQUANTITY + ", ORDER_GROUP_NO=" + ORDER_GROUP_NO
-				+ ", orderdate=" + orderdate + "]";
+		return "OrderVO [id=" + id + ", name=" + name + ", title=" + title + ", Totalprice=" + totalprice + "]";
 	}
+	
 
 }

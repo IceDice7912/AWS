@@ -14,7 +14,9 @@
 	
 <!-- ================= #1 ================= -->
   	<!-- JQUERY 순서 : JQUERY다음 CDN-->
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 	<script src="https://kit.fontawesome.com/8eb5905426.js" crossorigin="anonymous"></script>
 	
@@ -577,18 +579,20 @@
 
 <script>
 setCookie('select_product_isbn_cart', "", 1);
+setCookie('select_product_isbn_buy', "", 1);
 function setCookie(cname, cvalue, exdays) {
-	alert('장바구니 쿠키값 초기화');
+	alert('장바구니, 구매 페이지 쿠키값 초기화');
 	  var d = new Date();
 	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	  var expires = "expires="+ d.toUTCString();
 	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+	
 $(function(){
 	var login=$.cookie('logined');
-		$("#logoutDiv").html(login);
-});
+		$("#loginArea").html(login);
+});	
 	
 </script>
 

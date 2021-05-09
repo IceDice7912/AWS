@@ -2,18 +2,18 @@ $(document).ready(function(){
 
 	$("#orderBtn").click(function(){
 		
-		let confirm_data=confirm("다음과 같이 주문하시겠습니까?\n"+items);		
+		let confirm_data=confirm("다음과 같이 주문하시겠습니까?\n");		
 		if(confirm_data){
-			const basket = $.cookie("basket");
+			const basket = $.cookie("select_product_isbn_cart");
 
-			$.post("../order.jes",
+			$.post("../../order.jes",
 				  basket,
 				  function(data, status){	
 				  	console.log(data);
 				  	const obj=JSON.parse(data);
 				  	if(obj.order_group_no){	
 				  		alert("주문완료:[주문번호]"+obj.order_group_no);	
-				  		$.removeCookie("basket", { path: '/' });// 장바구니 쿠키 삭제	
+				  		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제	
 				  	}else{
 				  		alert(obj.msg);
 				  	}
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 	$("#cancelBtn").click(function(){
 		alert("장바구니를 모두 비웁니다");		
-		$.removeCookie("basket", { path: '/' });// 장바구니 쿠키 삭제
+		$.removeCookie("select_product_isbn_cart", { path: '/' });// 장바구니 쿠키 삭제
 		window.close();
 	});
 
@@ -77,12 +77,13 @@ $("#loginBtn").click(function(){//로그인 처리
 			  },
 			  function(data, status){	
 				  var obj=JSON.parse(data);
+				  var name=obj.name;
+			  		$.cookie("M_name",obj.name,{expires: 1, path: '/' }); // cookie expires in 10 days 
+			  		$.cookie("M_id",id,{expires: 1, path: '/' }); // cookie expires in 10 days 	
 				  	if(obj.name){
-				  		data ="<input type='button' value='로그아웃' id='logoutBtn' class='btn btn-outline-secondary'>"
+				  		data =name+"님 환영합니다\t<input type='button' value='로그아웃' id='logoutBtn' class='log'>"
 				  		$.cookie("logined",data,{expires: 1, path: '/' }); // cookie expires in 10 days 
-				  		window.opener.document.getElementById("logoutDiv").innerHTML=data;
-				  		window.opener.document.getElementById("logoutDiv2").innerHTML="";
-				  		window.opener.document.getElementById("logoutDiv3").innerHTML="";
+				  		window.opener.document.getElementById("loginArea").innerHTML= data;
 				  		alert(obj.name+"님 로그인 되셨습니다.");
 				  		window.close();
 					}else{
@@ -95,6 +96,8 @@ $("#loginBtn").click(function(){//로그인 처리
 
 
 
+
+
 $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	
 	alert("로그아웃합니다.");
@@ -104,8 +107,10 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 		  },
 		  function(data, status){		  	
 		  	
-		  	$.removeCookie("logined");	    
-			location.reload();	   
+		  	$.removeCookie("logined");	
+		  	$.removeCookie("M_name");	
+		  	$.removeCookie("M_id");	
+			location.reload();						   
 		  }
 	);//end post() 
 });//end 로그아웃 처리
@@ -153,7 +158,6 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	});
 	
 	
-	
 	$("#chatBtn").click( function () { // 챗봇-텍스트 대화
 	    var chat=$("#chat").val();
 	    if ((chat.length == 0 || chat == "")) {
@@ -168,29 +172,19 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 	    }
 	});
 	
-	
-	$("#sayBtn").click( function () { // 챗봇-음성 대화
+	$("#saySubmitBtn").click( function () { // 챗봇-음성 대화
 	    var chat;
-	    alert("음성으로 챗봇에게 할 말을 녹음합니다. (제한시간 4초)");
 	    	
 	    	$.post("../../stt.jes", {
 	    		chat: chat
 	    	}, function(data) {
 	    		chat = data;
-
 	            $('say').empty();
 			    $('say').append(data);    	
 	            	$.post("../../chat.jes", {
 	            		chat: chat
 	            	}, function(data) {
-
 	    			    $('p').append(data + "<br>");
-	    			    chat = data;
-	    			    	$.post("../../tts.jes", {
-	    			    		chat: chat
-	    			    	}, function(data, status) {
-
-	    			    	})
 	            	},
 	            	);
 	    		});
@@ -245,6 +239,6 @@ $(document).on("click", "#logoutBtn", function(event) { //로그아웃 처리
 					    $('gender').append(gender2);	            
 					});
 		});
-
 	
 });
+
