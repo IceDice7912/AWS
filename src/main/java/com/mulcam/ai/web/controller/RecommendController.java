@@ -49,7 +49,7 @@ public class RecommendController {
 		RecommendVO recommendVO = new RecommendVO();
 		
         try {
-			URL url = new URL("http://54.83.91.161:8000/recommend/");
+			URL url = new URL("http://127.0.0.1:8000/recommend/");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/json; utf-8"); //json형식으로 전송, Request body를 JSON으로 던져줌
@@ -100,6 +100,33 @@ public class RecommendController {
 		obj.put("data", jArray);
 		return obj.toString();
 		
-}
+	}
+	
+	
+	
+	@RequestMapping(value = "search.jes", 
+			method= {RequestMethod.GET,RequestMethod.POST},
+			produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String searchBook(HttpServletRequest request, HttpServletResponse response){
+		String title = request.getParameter("title");
+		List<RecommendVO> b = recommendService.searchBook(title);
+		
+		JSONArray array=new JSONArray();
+		for(RecommendVO vo:b) {
+			JSONObject o=new JSONObject();
+			o.put("title", vo.getTitle());
+			o.put("author",vo.getAuthor());
+			o.put("price", vo.getPrice());
+			o.put("publisher", vo.getPublisher());
+			o.put("isbn", vo.getIsbn());
+			o.put("category", vo.getCategory());
+			o.put("imgurl", vo.getImgurl());
+			array.put(o);
+		}	
+		System.out.println(array.toString());
+		return array.toString(); 	
+		
+	}
 }
 

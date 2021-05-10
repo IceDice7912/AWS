@@ -79,7 +79,7 @@
 							<li class="menu" ><a href="../../html/ProductList/ProductList.html" >국내도서</a></li>
 							<li class="menu"><a href="../../html/Utility/chatbot.html" >챗봇 서비스</a></li>
 							<li class="menu" ><a href="../../html/Utility/cameraWeb.html">얼굴인식 서비스</a></li>
-							<li class="menu"><a href="#">추천 서비스</a></li>												
+							<li class="menu"><a href="#">추천/검색 서비스</a></li>												
 						</ul>
 			</nav>
 			<div id="searchBar">
@@ -179,13 +179,25 @@
 						<span class="prod_sortLft">
 							<div class="prod_page">
 								<input type="text" class="form-control" id="book_title"  placeholder="내용을 입력해 주세요" value="">
-								<button type="submit" id="reco_btn" class="btn btn-block mybtn btn-primary tx-tfm"><i class="fas fa-search fa-2x"></i></button>
-							</div>
+								<button type="submit" id="reco_btn" class="btn btn-block mybtn btn-primary tx-tfm recommend"><i class="fas fa-search fa-2x"></i></button>
+							</div>	
 						</span>
 					</div>
 				    <input id="category_checkAll" name="category_checkAll" type="checkbox" value="" style="display:none">    
 				</div>
 			</div>
+			<div id="section5">
+				<div class="section_title">
+					<h3>검색 결과
+						<span>검색하신 책이에요</span>
+					</h3>
+				</div> 	
+				<div id="reco-book-area">
+					<div id="prod">							
+					</div>		
+				</div>											
+			</div>	
+			
 			<div id="section5">
 				<div class="section_title">
 					<h3>추천 도서 목록

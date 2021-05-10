@@ -17,6 +17,12 @@
 			select title,author,publisher,category,imgurl,isbn,price from book where isbn=#{isbn}
 		]]>
 	</select>
+	
+	<select id="searchBook"  resultType="RecommendVO" parameterType="String">
+		<![CDATA[
+			select title,author,publisher,category,imgurl,isbn,price from book where title=#{title}
+		]]>
+	</select>
 
 
 	
