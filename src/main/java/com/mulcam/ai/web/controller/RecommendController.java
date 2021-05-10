@@ -49,7 +49,7 @@ public class RecommendController {
 		RecommendVO recommendVO = new RecommendVO();
 		
         try {
-			URL url = new URL("http://127.0.0.1:8000/recommend/");
+			URL url = new URL("http://54.83.91.161:8000/recommend/");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/json; utf-8"); //json형식으로 전송, Request body를 JSON으로 던져줌
